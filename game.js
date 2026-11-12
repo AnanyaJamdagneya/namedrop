@@ -4,10 +4,10 @@
 
   /* ---------------- Card bank ---------------- */
   const CATS = Object.entries(window.BANK).map(([id, c]) => ({
-    id, label: c.label, emoji: c.emoji,
+    id, label: c.label, emoji: c.emoji, lang: c.lang || "en",
     cards: c.items.split("\n").map(s => s.trim()).filter(Boolean).map((line, i) => {
-      const [name, clue = "", pts = "2"] = line.split("|").map(s => s.trim());
-      return { id: `${id}:${i}`, name, clue, pts: Math.min(4, Math.max(1, +pts || 2)), cat: id };
+      const [name, clue = "", pts = "2", roman = ""] = line.split("|").map(s => s.trim());
+      return { id: `${id}:${i}`, name, clue, roman, lang: c.lang || "en", pts: Math.min(4, Math.max(1, +pts || 2)), cat: id };
     })
   }));
   const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
@@ -33,7 +33,7 @@
   const defaults = {
     teams: ["The Headliners", "Night Owls"],
     deckSize: 40, turnTime: 60,
-    cats: CATS.map(c => c.id),
+    cats: CATS.filter(c => c.lang === "en").map(c => c.id),   // language packs start off
     diff: "mix",
     rounds: [true, true, true, false],
     skipPenalty: false,
@@ -130,10 +130,12 @@
   }
   const ticketHTML = (c, extra = "") => {
     const cat = CAT[c.cat];
-    return `<div class="ticket ${extra}">
+    const hi = c.lang === "hi";
+    return `<div class="ticket ${extra} ${hi ? "lang-hi" : ""}" ${hi ? 'lang="hi"' : ""}>
       <div class="t-top"><span class="t-cat">${cat ? cat.emoji + " " + esc(cat.label) : "✍️ House Card"}</span>
         <span class="t-pts" data-p="${c.pts}">${c.pts}<small>PT${c.pts > 1 ? "S" : ""}</small></span></div>
       <div class="t-name ${c.name.length > 18 ? "long" : ""}">${esc(c.name)}</div>
+      ${c.roman ? `<div class="t-roman" lang="en">${esc(c.roman)}</div>` : ""}
       <div class="t-clue">${c.clue ? esc(c.clue) : "&nbsp;"}</div>
       <div class="t-foot"><span>Namedrop</span><span>№ ${String(G ? G.deck.indexOf(c) + 1 : 0).padStart(3, "0")}</span></div>
     </div>`;
@@ -347,9 +349,9 @@
         <button class="linkbtn" id="skipPeek" style="display:block;margin:0 auto">Skip, keep it a surprise</button>
       </div>`, "wide");
     const $p = el.querySelector("#peek");
-    const paint = () => $p.innerHTML = G.deck.map((c, i) => `<button type="button" class="mini" data-i="${i}">
+    const paint = () => $p.innerHTML = G.deck.map((c, i) => `<button type="button" class="mini ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}">
       <span class="c"><span>${CAT[c.cat] ? CAT[c.cat].emoji : "✍️"}</span><span>${c.pts}pt</span></span>
-      <span class="n">${esc(c.name)}</span><span class="sw">↻ SWAP</span></button>`).join("");
+      <span class="n">${esc(c.name)}${c.roman ? `<small>${esc(c.roman)}</small>` : ""}</span><span class="sw">↻ SWAP</span></button>`).join("");
     $p.onclick = e => {
       const b = e.target.closest(".mini"); if (!b) return;
       const i = +b.dataset.i, old = G.deck[i];
