@@ -1,4 +1,4 @@
-/* Namedrop: Deep Cuts pack, used only in Extra Hard mode.
+/* Namedrop: Deep Cuts pack. Some of these get mixed into every deck (more on harder difficulties).
    These are obscure on purpose, so every clue explains who or what it is.
    The clue-giver can read the clue out loud. Name | clue | points */
 window.BANK.deep = { label: "Deep Cuts", emoji: "🌶️", extraOnly: true, items: `
@@ -236,3 +236,276 @@ Mr. Saturn|A tiny creature with a big nose and feet from EarthBound who says "Bo
 Ugly Sonic|The original, disturbing design of Sonic from a movie trailer that fans hated so much the studio redesigned him.|3
 Pikachu's Tail|Many people falsely remember Pikachu having a black tip on its tail. A classic Mandela Effect.|4
 `};
+
+/* Deep Cuts, batch 2 */
+window.BANK.deep.items += `
+Pando|A single aspen tree in Utah whose roots connect about 47,000 trunks, making it one of the largest living things on Earth.|4
+The Immortal Jellyfish|A tiny jellyfish that can turn itself back into a baby when it gets old or hurt, so in theory it never has to die.|4
+Tardigrades|Microscopic "water bears" that can survive boiling, freezing, radiation, and even outer space.|3
+The Blobfish|A deep-sea fish that looks like a sad, melting old man once it's pulled up to the surface. Voted world's ugliest animal.|3
+The Aye-Aye|A spooky lemur from Madagascar that taps on trees with one long, skinny middle finger to find bugs.|4
+The Pistol Shrimp|A tiny shrimp that snaps its claw so fast it makes a bubble almost as hot as the surface of the sun.|4
+The Mantis Shrimp|A shrimp that punches with the speed of a bullet and can see colors humans can't imagine.|3
+The Naked Mole Rat|A wrinkly, hairless rodent that barely feels pain, almost never gets cancer, and lives in colonies with a queen.|3
+The Shoebill|A giant prehistoric-looking bird with a huge shoe-shaped beak and a terrifying stare.|3
+The Cassowary|An Australian bird with a helmet on its head and a dagger-like claw, often called the world's most dangerous bird.|3
+The Coelacanth|A fish thought to be extinct for 66 million years until a fisherman caught one in 1938.|4
+The Goblin Shark|A pink deep-sea shark whose jaws shoot out of its face to grab prey.|4
+Dolly the Sheep|The first mammal cloned from an adult cell, born in Scotland in 1996.|3
+Koko the Gorilla|A gorilla who learned over 1,000 signs in sign language and had a pet kitten named All Ball.|3
+Punxsutawney Phil|The Pennsylvania groundhog who "predicts" whether winter lasts six more weeks every February 2nd.|2
+Paul the Octopus|An octopus in a German aquarium who correctly picked the winners of World Cup soccer matches in 2010.|4
+Cecil the Lion|A famous lion in Zimbabwe whose killing by an American dentist in 2015 caused worldwide outrage.|4
+Tardar Sauce|The real name of Grumpy Cat, the permanently frowning cat who became one of the most famous memes ever.|4
+Keiko|The orca who starred in Free Willy and was later actually released into the ocean near Iceland.|4
+Unsinkable Sam|A cat who supposedly survived the sinking of three different warships in World War II.|4
+Balto|A sled dog who led the final leg of a 1925 relay carrying medicine through a blizzard to Nome, Alaska.|3
+Old Tom the Killer Whale|An orca who helped Australian whalers hunt other whales in exchange for the tongues.|4
+The Beast of Gévaudan|A mysterious wolf-like creature that killed around 100 people in 1760s France.|4
+Ivan the Terrible|The first tsar of Russia, famous for his rages and cruelty.|3
+Catherine de' Medici|A powerful Italian-born queen of France, rumored to use poison on her enemies.|4
+Henry VIII's Groom of the Stool|The royal servant whose official job was to help the king on the toilet. It was actually a powerful position.|4
+Anne Boleyn|Henry VIII's second wife, beheaded in 1536. Legends say she had six fingers on one hand.|3
+Lady Jane Grey|The "Nine Days' Queen" of England, a teenager who ruled for nine days in 1553 before being executed.|4
+Charles II of Spain|A king so inbred that his jaw didn't line up and he could barely chew.|4
+The Habsburg Jaw|The famously huge chin passed down through a royal family that married their own relatives a lot.|4
+Peter the Great|A 6'8" Russian tsar who put a tax on beards and personally pulled his courtiers' teeth.|4
+Rasputin's Death|The Russian mystic was poisoned, shot, beaten, and thrown into a frozen river, and supposedly still didn't die right away.|3
+Grigori Potemkin|Catherine the Great's favorite, said to have built fake villages to impress her. "Potemkin village" now means a fake front.|4
+Marie Antoinette's Hair|The French queen's towering hairdos sometimes had model ships or birdcages built into them.|4
+Louis XVI's Lock Hobby|The last king of France before the revolution loved making locks and keys as a hobby.|4
+Napoleon's Hat|The famous sideways bicorne hat. One sold at auction for about 1.9 million euros in 2014.|4
+Josephine's Teeth|Napoleon's wife had such bad teeth she learned to smile with her mouth closed.|4
+The Duke of Wellington|The British general who beat Napoleon at Waterloo. The rubber boots are named after him.|3
+Earl of Sandwich|An English nobleman who supposedly asked for meat between bread so he didn't have to leave the card table.|3
+Lord Cardigan|A British officer who led the doomed Charge of the Light Brigade. The sweater is named after him.|4
+Jules Léotard|A French acrobat who invented the flying trapeze act and the tight one-piece outfit named after him.|4
+Amelia Bloomer|A women's rights activist who popularized baggy pants for women in the 1850s, called "bloomers."|4
+Joseph Guillotin|A French doctor who suggested a "humane" beheading machine. He hated that it was named after him.|4
+Ambrose Burnside|A Civil War general with such famous facial hair that "sideburns" are named after him.|4
+Silhouette|A French finance minister so stingy that cheap black outline portraits were named after him.|4
+Captain Boycott|An Irish land agent so hated that his whole town refused to deal with him. Now "boycott" means that.|4
+Franz Mesmer|An 18th-century doctor who claimed invisible magnetic fluids could heal people. "Mesmerize" comes from him.|4
+Julia Child|A tall TV chef with a warbly voice who brought French cooking to American homes. "Bon appétit!"|3
+Fannie Farmer|A cooking teacher whose 1896 cookbook made level measuring cups and spoons normal.|4
+Ruth Wakefield|The inn owner who invented the chocolate chip cookie in the 1930s.|4
+George Crum|A chef often credited with inventing the potato chip after a customer complained his fries were too thick.|4
+Earl Grey|A British prime minister whose name ended up on a tea flavored with bergamot orange.|3
+Chef Boyardee|A real Italian chef named Ettore Boiardi whose name became canned ravioli.|3
+Colonel Sanders|The white-suited KFC founder who started selling fried chicken at a gas station in his 60s.|2
+Wendy Thomas|The red-pigtailed girl on the Wendy's logo, who was the founder's real daughter.|3
+Little Debbie|The girl in the straw hat on snack cake boxes, based on the founder's real granddaughter.|4
+Mr. Clean|A bald, muscular cleaning mascot with one earring and folded arms.|2
+The Brawny Man|The flannel-wearing lumberjack on paper towel packages.|3
+The Gerber Baby|The baby face on baby food jars, drawn from a real baby named Ann Turner Cook, who grew up to be a mystery novelist.|4
+The Morton Salt Girl|A girl in a yellow raincoat holding an umbrella and spilling salt. "When it rains, it pours."|3
+The Quaker Oats Man|The smiling man in an old-fashioned hat with long white hair on the oatmeal canister.|3
+The Pillsbury Doughboy|A giggling dough mascot who laughs when you poke his tummy.|2
+Elmer the Glue Bull|Borden's orange bull mascot on bottles of white school glue.|4
+Sir Mix-a-Lot|The rapper behind "Baby Got Back."|3
+Vanilla Ice|The 90s rapper behind "Ice Ice Baby," who was accused of stealing the beat from Queen and David Bowie.|3
+Milli Vanilli|A 90s pop duo who won a Grammy and lost it when the world found out they didn't sing on their own songs.|4
+Rick Astley|The deep-voiced singer of "Never Gonna Give You Up," whose video is the classic internet prank.|2
+Psy|The South Korean singer who did the horse-riding dance in "Gangnam Style."|2
+Los del Río|The two Spanish men who sang "Macarena."|4
+Carl Douglas|The singer of 1974's "Kung Fu Fighting."|4
+Village People|The 1970s disco group dressed as a cop, a cowboy, a construction worker, and more. Famous for "Y.M.C.A."|3
+Right Said Fred|The bald brothers who sang "I'm Too Sexy."|4
+Baha Men|The group behind "Who Let the Dogs Out."|3
+Smash Mouth|The band behind "All Star," the song from the opening of Shrek.|3
+Kajagoogoo|An 80s band with a silly name, known for "Too Shy."|4
+Rebecca Black|The teen whose 2011 song "Friday" got millions of dislikes on YouTube.|3
+Gotye|The singer of "Somebody That I Used to Know," whose music video painted him into the wall.|4
+Mr. Blobby|A pink, polka-dotted British TV character who fell over constantly and somehow had a hit song.|4
+Hatsune Miku|A teal-pigtailed singing voice program from Japan who performs "live" concerts as a hologram.|3
+Gorillaz|A virtual band made of cartoon members: 2-D, Murdoc, Noodle, and Russel.|3
+Alvin and the Chipmunks|Three singing chipmunks with sped-up voices. "ALVINNN!"|2
+The Singing Nun|A Belgian nun who had a #1 hit in America in 1963 with the song "Dominique."|4
+Yodeling Walmart Kid|A boy who went viral in 2018 for yodeling in the aisles of a store.|3
+Charlie Schmidt|The man whose cat in a blue shirt became the "Keyboard Cat" meme. He filmed it in 1984.|4
+The Hampster Dance|A late-90s website with rows of animated hamsters dancing to a sped-up song.|4
+Homestar Runner|A 2000s web cartoon about a dim athlete and his rival, Strong Bad, who answered emails.|4
+Trogdor|The Burninator! A dragon with one beefy arm drawn by Strong Bad in Homestar Runner.|4
+Peanut Butter Jelly Time|An early internet animation of a dancing banana singing about a sandwich.|3
+Badger Badger Badger|A looping early internet animation of dancing badgers, a mushroom, and a snake.|4
+The Llama Song|"Here's a llama, there's a llama, and another little llama." A goofy early web animation.|4
+Salad Fingers|A creepy web cartoon about a thin green man who loves rusty spoons.|4
+Charlie the Unicorn|Two pushy unicorns drag their tired friend Charlie to "Candy Mountain."|4
+Shoes|A 2006 viral video of a guy in a wig and makeup singing about wanting shoes.|4
+Double Rainbow Guy|A man who filmed a double rainbow in Yosemite and cried with joy. "What does it mean?"|3
+Antoine Dodson|A man whose angry news interview became the viral song "Bed Intruder."|4
+Sweet Brown|A woman in a news interview who said "Ain't nobody got time for that!"|3
+Boaty McBoatface|The name the internet voted for a British research ship in 2016. The ship got a different name, but a sub got this one.|3
+Gorilla Glue Girl|A woman who used strong glue instead of hairspray and couldn't get it out of her hair.|3
+Bean Dad|A man who made his daughter figure out how to open a can of beans for six hours and got roasted online.|4
+The Jell-O Salad|A 1950s party dish of jiggly gelatin with vegetables, fruit, or even meat trapped inside.|3
+Spam|Pre-cooked canned pork in a blue tin. Also why junk email is called spam.|2
+Haggis|A Scottish dish of sheep's heart, liver, and lungs cooked in a sheep's stomach.|3
+Surströmming|Fermented Swedish herring so smelly that people open the can outdoors or underwater.|4
+Casu Marzu|An Italian cheese that's full of live maggots on purpose.|4
+Durian|A spiky Southeast Asian fruit that smells so bad it's banned on many trains and in hotels.|3
+Vegemite|A salty, dark brown Australian spread made from leftover brewing yeast.|3
+Turducken|A chicken stuffed inside a duck stuffed inside a turkey.|3
+Fruitcake|A dense holiday cake full of candied fruit that people famously regift.|2
+Lutefisk|Scandinavian dried fish soaked in lye until it turns into jelly.|4
+Century Egg|A Chinese preserved egg that turns black and green after being cured for weeks or months.|4
+Hákarl|Fermented shark from Iceland that smells like ammonia.|4
+Escargot|Snails cooked in garlic butter, a French delicacy.|3
+Baked Alaska|Ice cream covered in meringue and baked in an oven, somehow without melting.|3
+Rocky Mountain Oysters|They're not oysters. They're fried bull testicles.|3
+The Ortolan|A tiny French songbird eaten whole while diners cover their heads with a napkin.|4
+Hardtack|A rock-hard cracker sailors and soldiers ate for months. Often full of weevils.|4
+Grog|A sailor's drink of rum and water handed out in the old British navy.|4
+Moxie|One of the oldest American sodas, with a strange bitter taste that New Englanders love.|4
+Tab|Coca-Cola's pink-can diet soda from the 60s and 70s.|4
+Crystal Pepsi|A clear cola from 1992 that confused everyone and disappeared fast.|3
+Surge|A green 90s citrus soda marketed as extreme. Fans got it brought back.|4
+Ecto Cooler|A green Ghostbusters-themed juice box with Slimer on it.|4
+Dunkaroos|Little cookies you dunk in a tub of frosting, a 90s lunchbox legend.|3
+Bagel Bites|Mini frozen pizza bagels. "When pizza's on a bagel, you can eat pizza anytime."|3
+Heinz EZ Squirt|Green, purple and blue ketchup sold to kids in 2000.|4
+Oreo O's|A cereal that tasted like Oreos, discontinued then brought back years later.|4
+The Chilean Miners|Thirty-three miners trapped underground in Chile for 69 days in 2010. All of them were rescued.|3
+Balloon Boy|A 2009 hoax where parents claimed their son floated away in a homemade balloon. He was hiding in the attic.|3
+The Running of the Bulls|A festival in Pamplona, Spain, where people run through the streets ahead of angry bulls.|2
+La Tomatina|A Spanish festival where thousands of people throw tomatoes at each other.|3
+Cheese Rolling|An English race where people chase a wheel of cheese down a very steep hill and tumble everywhere.|3
+Wife Carrying|A Finnish sport where men race through an obstacle course carrying their wives.|4
+Bog Snorkeling|A Welsh competition where people swim through a muddy bog wearing snorkels and flippers.|4
+Extreme Ironing|A "sport" where people iron clothes in dangerous places, like on mountains or underwater.|4
+Competitive Eating|Contests like eating as many hot dogs as possible in ten minutes.|2
+Joey Chestnut|The competitive eater who won the Coney Island hot dog contest over a dozen times.|3
+Kobayashi|A slim Japanese competitive eater who doubled the hot dog eating record in 2001.|4
+Quidditch for Muggles|A real sport played on the ground with brooms between your legs.|3
+Sepak Takraw|A Southeast Asian sport like volleyball, but you can only use your feet, knees, chest and head.|4
+Underwater Hockey|A sport where players push a puck along the bottom of a pool while holding their breath.|4
+Curling|An Olympic sport where people slide stones on ice and sweep furiously in front of them.|2
+Chess Boxing|A sport that alternates rounds of chess and rounds of boxing.|3
+Speed Cubing|Solving a Rubik's Cube as fast as possible. The record is a few seconds.|3
+Ultimate Frisbee|A sport like football but with a flying disc and no referees.|2
+Pickleball|A sport like tiny tennis with paddles and a plastic ball, hugely popular with retirees.|2
+The Harlem Globetrotters|A basketball team famous for trick shots and comedy that almost always wins.|2
+The Washington Generals|The team that lost to the Harlem Globetrotters thousands of times on purpose.|4
+The Miracle on Ice|When a team of American college hockey players beat the mighty Soviet team at the 1980 Olympics.|3
+The Hand of God Goal|Diego Maradona's 1986 World Cup goal, scored with his hand.|3
+The Bite Heard Round the World|Mike Tyson biting off part of Evander Holyfield's ear in a 1997 boxing match.|3
+Eddie the Eagle|A British ski jumper who finished last at the 1988 Olympics and became a hero anyway.|4
+The Jamaican Bobsled Team|Jamaica's first bobsled team at the 1988 Winter Olympics. The movie Cool Runnings is about them.|3
+Dock Ellis|A baseball pitcher who threw a no-hitter in 1970 and later said he was on LSD during it.|4
+Rosie Ruiz|A runner who "won" the 1980 Boston Marathon after secretly jumping into the race about a mile from the finish.|4
+The Steve Bartman Ball|A Chicago Cubs fan who reached for a foul ball in 2003 and was blamed for the team losing.|4
+The Curse of the Bambino|The superstition that the Boston Red Sox couldn't win after trading Babe Ruth. It lasted 86 years.|4
+The Lindbergh Baby|The son of a famous pilot, kidnapped in 1932 in what was called the crime of the century.|4
+The Zodiac Killer|An unidentified California killer from the 1960s who sent coded letters to newspapers.|3
+The Great Train Robbery|A 1963 heist where a gang stole millions of pounds from a British mail train.|4
+The Gardner Museum Heist|In 1990 two thieves dressed as cops stole 13 artworks from a Boston museum. The frames still hang empty.|4
+The Mona Lisa Theft|In 1911 a museum worker hid in a closet and walked out of the Louvre with the Mona Lisa under his coat.|4
+The Hope Diamond|A huge blue diamond said to carry a curse on everyone who owned it.|3
+The Crown Jewels|The British royal family's crowns, scepters, and jewels kept in the Tower of London.|2
+The Tower Ravens|Ravens kept at the Tower of London because of a legend that the kingdom will fall if they ever leave.|4
+The Beefeaters|The red-uniformed guards at the Tower of London.|3
+The Queen's Guard|The British soldiers in red coats and tall fuzzy black hats who aren't allowed to react to tourists.|2
+The Swiss Guard|The Pope's bodyguards, who wear striped orange, blue and red uniforms.|3
+The Terracotta Army|Thousands of life-size clay soldiers buried with China's first emperor over 2,000 years ago.|3
+The Nazca Lines|Giant drawings of animals scratched into the Peruvian desert, best seen from the sky.|4
+Easter Island Heads|Huge stone statues called moai on a remote Pacific island. They actually have bodies buried underground.|3
+The Winchester Mystery House|A California mansion built nonstop for 38 years with doors and stairs that lead nowhere.|4
+The Catacombs of Paris|Tunnels under Paris holding the bones of about six million people, stacked into walls.|3
+The Darvaza Gas Crater|A burning pit in Turkmenistan's desert called the "Door to Hell" that has been on fire since 1971.|4
+Centralia|A Pennsylvania town abandoned because a coal fire has been burning underground since 1962.|4
+Chernobyl's Elephant's Foot|A deadly lump of melted nuclear fuel in the basement of the Chernobyl power plant.|4
+Pripyat|The Ukrainian city abandoned overnight after the Chernobyl disaster, with a rusting Ferris wheel that never opened.|4
+Point Nemo|The spot in the ocean farthest from any land. Space agencies crash old satellites there.|4
+The Mariana Trench|The deepest place in the ocean, almost 7 miles down.|2
+The Bermuda Triangle's Flight 19|Five Navy planes that disappeared over the Atlantic in 1945 during a training flight.|4
+The Lost Colony of Roanoke|An English colony in America that vanished around 1590, leaving only the word "CROATOAN" carved on a post.|3
+The Dyatlov Pass Incident|Nine Russian hikers died mysteriously in 1959, after cutting their way out of their own tent.|4
+The Tunguska Event|A huge explosion over Siberia in 1908 that flattened 80 million trees, probably from a space rock.|4
+The Taos Hum|A low humming noise that some people in a New Mexico town hear and others can't.|4
+The Wow! Signal|A strong radio signal from space detected in 1977. The astronomer wrote "Wow!" next to it.|4
+The Voyager Golden Record|A gold record sent into space in 1977 with sounds and music from Earth, in case aliens find it.|3
+Pale Blue Dot|A photo of Earth taken from 3.7 billion miles away, where our planet is a tiny speck.|4
+The Pillars of Creation|A famous space photo of towering clouds of gas where new stars are being born.|4
+Oumuamua|A long, strange object that flew through our solar system in 2017, the first known visitor from another star.|4
+Halley's Comet|A comet that swings past Earth about every 76 years. Next visit: 2061.|3
+Sputnik|The first artificial satellite, launched by the Soviet Union in 1957. It just beeped.|3
+The Space Pen|A pen designed to write in zero gravity. A myth says Russia just used pencils.|4
+Space Ice Cream|Freeze-dried ice cream sold in museum gift shops. Astronauts barely ever ate it.|3
+The Kármán Line|The imaginary line 100 km up where outer space officially begins.|4
+Light-Year|Not a time. The distance light travels in one year, almost 6 trillion miles.|3
+Absolute Zero|The coldest possible temperature, about minus 459 degrees Fahrenheit, where atoms basically stop moving.|3
+Pi Day|March 14th (3/14), celebrated by math nerds with pie.|2
+The Golden Ratio|A special number, about 1.618, that shows up in shells, sunflowers and famous art.|3
+The Fibonacci Sequence|A number pattern where each number is the sum of the two before: 1, 1, 2, 3, 5, 8...|3
+A Googol|The number 1 followed by 100 zeros. The search engine's name is a misspelling of it.|3
+The Monty Hall Problem|A game show puzzle: after a door is opened, you should always switch doors. Almost everyone gets it wrong.|4
+The Birthday Paradox|In a room of just 23 people, there's a 50% chance two share a birthday.|4
+Fermat's Last Theorem|A math puzzle that a man scribbled in a book margin in 1637. It took 358 years to prove.|4
+The Möbius Strip|A loop of paper with a half twist that has only one side.|3
+The Klein Bottle|A strange shape with no inside or outside, like a bottle that goes through itself.|4
+The Penrose Stairs|An impossible staircase that keeps going up forever in a loop.|4
+The Necker Cube|A line drawing of a cube that flips back and forth as you stare at it.|4
+The Rubber Hand Illusion|A trick where you feel a fake rubber hand being touched as if it were your own.|4
+Phantom Vibration|The feeling that your phone buzzed in your pocket when it didn't.|3
+The Tip of the Tongue|When you know a word but can't quite remember it.|3
+Jamais Vu|The opposite of déjà vu: something familiar suddenly feels totally new and strange.|4
+Semantic Satiation|Saying a word so many times in a row that it starts to sound like nonsense. Spoon. Spoon. Spoon.|4
+The Overview Effect|The feeling astronauts get seeing Earth from space, realizing how fragile and connected everything is.|4
+The Spotlight Effect|Thinking everyone is noticing your mistakes way more than they actually are.|4
+Analysis Paralysis|Overthinking a decision so much that you never actually decide.|3
+Bikeshedding|Spending way too long arguing about small, easy things while ignoring the big important stuff.|4
+Yak Shaving|Doing a long chain of small tasks you need to do before you can start the thing you actually wanted to do.|4
+Rubber Duck Debugging|Explaining your code, line by line, to a rubber duck until you find your own bug.|4
+The Infinite Scroll|The endless feed that never lets you reach the bottom.|2
+Doomscrolling|Endlessly scrolling through bad news even though it makes you feel worse.|2
+Revenge Bedtime Procrastination|Staying up too late because it's the only free time you feel you have.|4
+Hikikomori|A Japanese word for people who withdraw from society and stay in their room for months or years.|4
+Ikigai|A Japanese idea for your reason to get up in the morning.|4
+Wabi-Sabi|The Japanese idea of finding beauty in things that are imperfect, old, or broken.|4
+Kintsugi|Repairing broken pottery with gold, so the cracks become the most beautiful part.|4
+Lagom|A Swedish word meaning "just the right amount," not too much and not too little.|4
+Saudade|A Portuguese word for a deep longing for someone or something you've lost.|4
+Hiraeth|A Welsh word for homesickness for a home you can't return to, or maybe never had.|4
+Gigil|A Filipino word for the urge to squeeze something unbearably cute.|4
+Tartle|A Scottish word for the panic of hesitating when you have to introduce someone whose name you forgot.|4
+Backpfeifengesicht|German word for a face that needs to be slapped.|4
+Treppenwitz|German for thinking of the perfect comeback only after the conversation is over.|4
+Shemomedjamo|A Georgian word for eating past full just because the food tastes so good.|4
+Mamihlapinatapai|A word from Tierra del Fuego for two people looking at each other, each hoping the other will do something.|4
+Boketto|Japanese word for staring blankly into the distance without thinking about anything.|4
+Pareidolia|Seeing faces in things that don't have faces, like outlets or clouds.|3
+Ennui|A fancy French word for deep, listless boredom.|3
+Hangxiety|Waking up anxious about what you did or said the night before.|3
+The Sunk Cost Fallacy|Continuing something bad just because you've already put so much into it.|3
+Survivorship Bias|Only looking at the winners and forgetting all the ones who failed and disappeared.|4
+The Gambler's Fallacy|Thinking that since a coin landed heads five times, tails is "due."|4
+Goodhart's Law|"When a measure becomes a target, it stops being a good measure."|4
+Parkinson's Law|Work expands to fill whatever time you give it.|4
+The Peter Principle|People keep getting promoted until they reach a job they're bad at.|4
+Pascal's Wager|The argument that you should believe in God because the risk of being wrong is so much worse.|4
+Plato's Cave|Prisoners in a cave think shadows on the wall are the real world.|3
+The Allegory of the Long Spoons|A parable where people in hell starve with spoons too long to feed themselves, while in heaven they feed each other.|4
+The Boy Who Cried Wolf's Wolf|The wolf that actually showed up after nobody believed the boy anymore.|3
+The Emperor's New Clothes|A king parades naked because nobody will admit they can't see his "magic" clothes.|2
+The Princess and the Pea|A princess proves she's royal by feeling a tiny pea under 20 mattresses.|2
+Stone Soup|A folk tale where travelers trick a village into making soup by starting with just a stone.|4
+Chicken Little|The chick who thinks the sky is falling after an acorn hits her head.|2
+The Little Red Hen|The hen who asks for help baking bread, gets none, and then eats it herself.|3
+Anansi|A trickster spider from West African and Caribbean folklore who owns all the stories.|4
+Br'er Rabbit|A clever trickster rabbit who begs not to be thrown into the briar patch.|4
+The Monkey's Paw|A cursed paw that grants three wishes in the most horrible ways possible.|3
+Bloody Mary|Say her name three times in a dark mirror and she'll appear. A sleepover dare.|2
+The Hook-Hand Man|An urban legend about a killer with a hook for a hand who attacks couples parked in cars.|4
+The Vanishing Hitchhiker|An urban legend where a driver picks up a hitchhiker who disappears and turns out to be a ghost.|4
+Alligators in the Sewers|The urban legend that pet baby alligators flushed down toilets live in New York's sewers.|3
+Polybius|A legendary arcade game from 1981 that supposedly gave players nightmares. Probably never existed.|4
+The Dark Watchers|Tall shadowy figures said to stand on the mountain ridges of California's coast.|4
+Spring-Heeled Jack|A Victorian London legend about a figure who could leap over walls and breathe blue flames.|4
+The Fiji Mermaid|A fake mermaid made of a monkey sewn to a fish, shown by P.T. Barnum.|4
+The Cardiff Giant|A 10-foot stone "petrified man" dug up in New York in 1869. It was a carved fake.|4
+The Turk|A chess-playing "robot" from the 1700s that beat Napoleon. A small chess master was hiding inside.|4
+Clever Hans|A horse that seemed to do math by tapping its hoof, but was actually reading people's body language.|4
+War of the Worlds Broadcast|A 1938 radio drama about a Martian invasion that some listeners thought was real news.|3
+The Spaghetti Tree Hoax|A 1957 April Fools' TV report showing Swiss farmers harvesting spaghetti from trees.|4
+Left-Handed Whopper|A 1998 April Fools' ad for a burger made for left-handed people. Some customers ordered it.|4
+`;

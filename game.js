@@ -155,13 +155,21 @@
   /* ---------------- Deck building ---------------- */
   const chosenCards = () => CATS.filter(c => S.cats.includes(c.id) && !c.extraOnly).flatMap(c => c.cards);
   const deepCards = () => CATS.filter(c => c.extraOnly).flatMap(c => c.cards);
-  function pool() {
-    if (S.diff === "extra") return deepCards().concat(chosenCards().filter(c => c.pts >= 3));
+  // Share of each deck that comes from Deep Cuts, by difficulty
+  const DEEP_SHARE = { easy: .05, mix: .15, hard: .3, extra: .7 };
+  const DIFF_LABEL = { easy: "Chill", mix: "Mixed", hard: "Hard", extra: "Extra Hard" };
+  function mainPool() {
     let p = chosenCards();
     if (S.diff === "easy") p = p.filter(c => c.pts <= 2);
     if (S.diff === "hard") p = p.filter(c => c.pts >= 2);
+    if (S.diff === "extra") p = p.filter(c => c.pts >= 3);
     return p;
   }
+  const pool = () => mainPool().concat(deepCards());
+
+  // How many times each card has been dealt on this device, so we can deal the least-played first
+  const seenMap = () => store.get("seen", null) || Object.fromEntries(store.get("recent", []).map(id => [id, 1]));
+  const unseenCount = () => { const s = seenMap(); return CATS.reduce((n, c) => n + c.cards.filter(x => !s[x.id]).length, 0); };
   function customCards() {
     return S.custom.split("\n").map(s => s.trim()).filter(Boolean).map((line, i) => {
       const [name, clue = "", pts = "2"] = line.split("|").map(s => s.trim());
@@ -170,20 +178,17 @@
   }
   function buildDeck() {
     const custom = customCards();
-    const used = new Set(store.get("recent", []));          // avoid repeats across games
-    const freshFirst = list => { const p = shuffle(list.slice()); return p.filter(c => !used.has(c.id)).concat(p.filter(c => used.has(c.id))); };
+    const seen = seenMap();
+    // least-played cards first; random order among cards played the same number of times
+    const freshFirst = list => shuffle(list.slice()).sort((a, b) => (seen[a.id] || 0) - (seen[b.id] || 0));
     const need = Math.max(0, S.deckSize - custom.length);
-    let picked;
-    if (S.diff === "extra") {
-      // Extra Hard: mostly Deep Cuts, topped up with the hardest cards from the chosen packs
-      const deep = freshFirst(deepCards()), hard = freshFirst(chosenCards().filter(c => c.pts >= 3));
-      const nHard = Math.min(hard.length, Math.round(need * .3));
-      picked = hard.slice(0, nHard).concat(deep.slice(0, need - nHard));
-      if (picked.length < need) picked = picked.concat(hard.slice(nHard, nHard + need - picked.length));
-    } else picked = freshFirst(pool()).slice(0, need);
+    const main = freshFirst(mainPool()), deep = freshFirst(deepCards());
+    let nDeep = Math.min(deep.length, Math.round(need * DEEP_SHARE[S.diff]));
+    let picked = deep.slice(0, nDeep).concat(main.slice(0, need - nDeep));
+    if (picked.length < need) picked = picked.concat(deep.slice(nDeep, nDeep + need - picked.length));
     const deck = shuffle(custom.concat(picked));
-    const recent = store.get("recent", []).concat(deck.map(c => c.id)).slice(-Math.floor(TOTAL * .7));
-    store.set("recent", recent);
+    deck.forEach(c => { seen[c.id] = (seen[c.id] || 0) + 1; });
+    store.set("seen", seen); store.del("recent");
     return deck;
   }
 
@@ -206,7 +211,7 @@
         <div class="stat-row">
           <div class="stat"><b>${TOTAL.toLocaleString()}</b><span>cards</span></div>
           <div class="stat"><b>${CATS.length}</b><span>categories</span></div>
-          <div class="stat"><b>4</b><span>rounds</span></div>
+          <div class="stat"><b>${unseenCount().toLocaleString()}</b><span>not played yet</span></div>
         </div>
         <button class="linkbtn" id="how">How to play</button>
       </div>`);
@@ -245,7 +250,7 @@
         <div class="field">
           <div class="label"><span>Difficulty</span></div>
           ${seg("diff", ["easy", "mix", "hard", "extra"], v => ({ easy: "Chill", mix: "Mixed", hard: "Hard", extra: "Extra Hard" })[v])}
-          ${S.diff === "extra" ? `<p class="fine extra-note">🌶️ <b>Extra Hard</b> deals mostly Deep Cuts: obscure people, weird history and strange ideas. Every card's clue explains what it is, so read it out loud if you need to.</p>` : ""}
+          <p class="fine extra-note ${S.diff === "extra" ? "hot" : ""}">🌶️ About <b>${Math.round(S.deckSize * DEEP_SHARE[S.diff])} of ${S.deckSize}</b> cards will be <b>Deep Cuts</b>: obscure people, weird history and strange ideas. Their clues explain what they are, so it's fine to read them out loud.</p>
         </div>
       </div>
 

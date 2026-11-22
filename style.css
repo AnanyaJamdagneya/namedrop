@@ -531,7 +531,8 @@ body.has-score .app { padding-top: 128px; }
 @media (max-width: 420px) { .sb-team { padding: 6px 8px; font-size: .76rem; } .sb-team .sb-name { max-width: 5.5em; } }
 
 /* Extra Hard */
-.extra-note { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: rgba(255,95,69,.12); border: 1px solid rgba(255,95,69,.35); color: var(--dim); }
+.extra-note { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid var(--hair); color: var(--dim); }
+.extra-note.hot { background: rgba(255,95,69,.12); border-color: rgba(255,95,69,.35); }
 .extra-note b { color: var(--text); }
 .seg button { padding: 0 4px; }
 .ticket .t-clue.long-clue { font-size: 1.02rem; line-height: 1.35; }
