@@ -4,7 +4,7 @@
 
   /* ---------------- Card bank ---------------- */
   const CATS = Object.entries(window.BANK).map(([id, c]) => ({
-    id, label: c.label, emoji: c.emoji, lang: c.lang || "en",
+    id, label: c.label, emoji: c.emoji, lang: c.lang || "en", extraOnly: !!c.extraOnly,
     cards: c.items.split("\n").map(s => s.trim()).filter(Boolean).map((line, i) => {
       const [name, clue = "", pts = "2", roman = ""] = line.split("|").map(s => s.trim());
       return { id: `${id}:${i}`, name, clue, roman, lang: c.lang || "en", pts: Math.min(4, Math.max(1, +pts || 2)), cat: id };
@@ -31,9 +31,9 @@
 
   /* ---------------- State ---------------- */
   const defaults = {
-    teams: ["The Headliners", "Night Owls"],
+    teams: ["Team 1", "Team 2"],
     deckSize: 40, turnTime: 60,
-    cats: CATS.filter(c => c.lang === "en").map(c => c.id),   // language packs start off
+    cats: CATS.filter(c => c.lang === "en" && !c.extraOnly).map(c => c.id),   // language packs start off
     diff: "mix",
     rounds: [true, true, true, false],
     skipPenalty: false,
@@ -41,6 +41,8 @@
     sound: true,
   };
   let S = Object.assign({}, defaults, store.get("settings", {}));
+  // older versions used fun default team names; switch those to plain "Team N"
+  S.teams = S.teams.map((t, i) => TEAM_NAMES.includes(t) ? `Team ${i + 1}` : t);
   let G = store.get("game", null);   // persisted game
   let T = null;                       // live turn (not persisted)
 
@@ -122,8 +124,17 @@
   const teamColor = i => TEAM_COLORS[i % TEAM_COLORS.length];
   const cardById = id => G.deck.find(c => c.id === id);
   const setChip = txt => { $chip.hidden = !txt; $chip.textContent = txt || ""; };
+  const $score = document.getElementById("scorebar");
+  function showScore(activeTeam = -1, live = 0) {
+    if (!G) return hideScore();
+    $score.innerHTML = G.teams.map((t, i) => `<div class="sb-team ${i === activeTeam ? "on" : ""}" style="--team-c:${teamColor(i)}">
+      <i></i><span class="sb-name">${esc(t.name)}</span><b>${t.score}</b>${i === activeTeam && live ? `<em>${live > 0 ? "+" : ""}${live}</em>` : ""}</div>`).join("");
+    $score.hidden = false; document.body.classList.add("has-score");
+  }
+  function hideScore() { $score.hidden = true; document.body.classList.remove("has-score"); }
   function render(html, cls = "") {
     document.body.dataset.screen = "";
+    hideScore();
     $app.innerHTML = `<section class="screen ${cls}">${html}</section>`;
     window.scrollTo(0, 0);
     return $app.firstElementChild;
@@ -136,14 +147,17 @@
         <span class="t-pts" data-p="${c.pts}">${c.pts}<small>PT${c.pts > 1 ? "S" : ""}</small></span></div>
       <div class="t-name ${c.name.length > 18 ? "long" : ""}">${esc(c.name)}</div>
       ${c.roman ? `<div class="t-roman" lang="en">${esc(c.roman)}</div>` : ""}
-      <div class="t-clue">${c.clue ? esc(c.clue) : "&nbsp;"}</div>
+      <div class="t-clue ${c.clue.length > 90 ? "long-clue" : ""}">${c.clue ? esc(c.clue) : "&nbsp;"}</div>
       <div class="t-foot"><span>Namedrop</span><span>№ ${String(G ? G.deck.indexOf(c) + 1 : 0).padStart(3, "0")}</span></div>
     </div>`;
   };
 
   /* ---------------- Deck building ---------------- */
+  const chosenCards = () => CATS.filter(c => S.cats.includes(c.id) && !c.extraOnly).flatMap(c => c.cards);
+  const deepCards = () => CATS.filter(c => c.extraOnly).flatMap(c => c.cards);
   function pool() {
-    let p = CATS.filter(c => S.cats.includes(c.id)).flatMap(c => c.cards);
+    if (S.diff === "extra") return deepCards().concat(chosenCards().filter(c => c.pts >= 3));
+    let p = chosenCards();
     if (S.diff === "easy") p = p.filter(c => c.pts <= 2);
     if (S.diff === "hard") p = p.filter(c => c.pts >= 2);
     return p;
@@ -157,11 +171,17 @@
   function buildDeck() {
     const custom = customCards();
     const used = new Set(store.get("recent", []));          // avoid repeats across games
-    let p = shuffle(pool().slice());
-    const fresh = p.filter(c => !used.has(c.id));
-    if (fresh.length >= S.deckSize - custom.length) p = fresh.concat(p.filter(c => used.has(c.id)));
+    const freshFirst = list => { const p = shuffle(list.slice()); return p.filter(c => !used.has(c.id)).concat(p.filter(c => used.has(c.id))); };
     const need = Math.max(0, S.deckSize - custom.length);
-    const deck = shuffle(custom.concat(p.slice(0, need)));
+    let picked;
+    if (S.diff === "extra") {
+      // Extra Hard: mostly Deep Cuts, topped up with the hardest cards from the chosen packs
+      const deep = freshFirst(deepCards()), hard = freshFirst(chosenCards().filter(c => c.pts >= 3));
+      const nHard = Math.min(hard.length, Math.round(need * .3));
+      picked = hard.slice(0, nHard).concat(deep.slice(0, need - nHard));
+      if (picked.length < need) picked = picked.concat(hard.slice(nHard, nHard + need - picked.length));
+    } else picked = freshFirst(pool()).slice(0, need);
+    const deck = shuffle(custom.concat(picked));
     const recent = store.get("recent", []).concat(deck.map(c => c.id)).slice(-Math.floor(TOTAL * .7));
     store.set("recent", recent);
     return deck;
@@ -224,7 +244,8 @@
         </div>
         <div class="field">
           <div class="label"><span>Difficulty</span></div>
-          ${seg("diff", ["easy", "mix", "hard"], v => ({ easy: "Chill", mix: "Mixed", hard: "Hard" })[v])}
+          ${seg("diff", ["easy", "mix", "hard", "extra"], v => ({ easy: "Chill", mix: "Mixed", hard: "Hard", extra: "Extra Hard" })[v])}
+          ${S.diff === "extra" ? `<p class="fine extra-note">🌶️ <b>Extra Hard</b> deals mostly Deep Cuts: obscure people, weird history and strange ideas. Every card's clue explains what it is, so read it out loud if you need to.</p>` : ""}
         </div>
       </div>
 
@@ -261,20 +282,15 @@
     $teams.innerHTML = S.teams.map((t, i) => `
       <div class="team-input"><span class="dot" style="background:${teamColor(i)};color:${teamColor(i)}"></span>
         <input value="${esc(t)}" maxlength="22" data-i="${i}" aria-label="Team ${i + 1} name">
-        <button type="button" data-shuffle="${i}" title="Random name" aria-label="Random name">🎲</button>
         ${S.teams.length > 2 ? `<button type="button" data-rm="${i}" title="Remove team" aria-label="Remove team">✕</button>` : ""}
       </div>`).join("");
     $teams.oninput = e => { if (e.target.dataset.i != null) { S.teams[+e.target.dataset.i] = e.target.value; saveS(); } };
     $teams.onclick = e => {
       const b = e.target.closest("button"); if (!b) return;
       if (b.dataset.rm != null) { S.teams.splice(+b.dataset.rm, 1); saveS(); setup(); }
-      if (b.dataset.shuffle != null) {
-        const opts = TEAM_NAMES.filter(n => !S.teams.includes(n));
-        S.teams[+b.dataset.shuffle] = opts[Math.random() * opts.length | 0]; saveS(); setup();
-      }
     };
     const add = el.querySelector("#addTeam");
-    if (add) add.onclick = () => { S.teams.push(TEAM_NAMES.find(n => !S.teams.includes(n))); saveS(); setup(); };
+    if (add) add.onclick = () => { S.teams.push(`Team ${S.teams.length + 1}`); saveS(); setup(); };
 
     // segmented controls
     el.querySelectorAll(".seg").forEach(sg => sg.onclick = e => {
@@ -285,7 +301,7 @@
     // categories
     const $cats = el.querySelector("#cats");
     const paintCats = () => {
-      $cats.innerHTML = CATS.map(c => `<button type="button" class="cat" data-c="${c.id}" aria-pressed="${S.cats.includes(c.id)}">
+      $cats.innerHTML = CATS.filter(c => !c.extraOnly).map(c => `<button type="button" class="cat" data-c="${c.id}" aria-pressed="${S.cats.includes(c.id)}">
         <span class="em">${c.emoji}</span><span><b>${esc(c.label)}</b><small>${c.cards.length} cards</small></span></button>`).join("");
       el.querySelector("#poolCount").textContent = pool().length.toLocaleString() + " in play";
     };
@@ -332,7 +348,23 @@
     };
     G.pile = shuffle(G.deck.map(c => c.id));
     saveG();
-    deckPeek();
+    peekChoice();
+  }
+
+  function peekChoice() {
+    sky(0); setChip(`${G.deck.length} cards dealt`);
+    const el = render(`
+      <div class="panel" style="text-align:center">
+        <div class="kicker">${G.deck.length} cards dealt</div>
+        <h2 class="display">Peek at <em>the deck?</em></h2>
+        <p class="lede">Looking first makes the game easier, and you can swap out cards you don't like. Skipping keeps every card a surprise.</p>
+      </div>
+      <div class="stack" style="margin-top:16px">
+        <button class="btn btn-primary btn-block" id="see">See the deck</button>
+        <button class="btn btn-ghost btn-block" id="skipPeek">Skip, start round 1</button>
+      </div>`);
+    el.querySelector("#see").onclick = deckPeek;
+    el.querySelector("#skipPeek").onclick = ready;
   }
 
   function deckPeek() {
@@ -346,7 +378,6 @@
       </div>
       <div class="stack" style="margin-top:16px">
         <button class="btn btn-primary btn-block" id="go">Start round 1</button>
-        <button class="linkbtn" id="skipPeek" style="display:block;margin:0 auto">Skip, keep it a surprise</button>
       </div>`, "wide");
     const $p = el.querySelector("#peek");
     const paint = () => $p.innerHTML = G.deck.map((c, i) => `<button type="button" class="mini ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}">
@@ -364,7 +395,6 @@
     };
     paint();
     el.querySelector("#go").onclick = ready;
-    el.querySelector("#skipPeek").onclick = ready;
   }
 
   function resume() { if (G.over) return final(); G.pile.length ? ready() : roundEnd(); }
@@ -397,6 +427,7 @@
         <div class="row"><button class="btn btn-ghost" id="scores" style="font-size:1rem">Scores</button>
           <button class="btn btn-ghost" id="quit" style="font-size:1rem">Quit</button></div>
       </div>`);
+    showScore(ti);
     el.querySelector("#go").onclick = () => startTurn(ti, time, !!bonus);
     el.querySelector("#scores").onclick = () => scoreSheet();
     el.querySelector("#quit").onclick = () => { if (confirm("End this game? Progress will be lost.")) { G = null; saveG(); title(); } };
@@ -440,6 +471,7 @@
         <button class="btn btn-got" id="got">Got it<small>SPACE / →</small></button>
       </div>
       <div class="subrow"><span class="pill" id="pileCount"></span><button class="linkbtn" id="pause">Pause</button></div>`);
+    showScore(ti, 0);
     el.querySelector("#got").onclick = gotIt;
     el.querySelector("#skip").onclick = skip;
     el.querySelector("#pause").onclick = pause;
@@ -470,7 +502,7 @@
     const c = cardById(T.cur);
     T.got.push({ id: c.id, ms: performance.now() - T.cardStart, on: true });
     G.pile.shift();
-    document.getElementById("tgot").textContent = turnPts();
+    document.getElementById("tgot").textContent = turnPts(); showScore(T.ti, turnPts());
     sfx.got(); buzz(25);
     flyOut("out-got", () => { busy = false; if (T) nextCard(); });
   }
@@ -480,7 +512,7 @@
     busy = true;
     T.skipped++;
     G.pile.push(G.pile.shift());
-    document.getElementById("tgot").textContent = turnPts();
+    document.getElementById("tgot").textContent = turnPts(); showScore(T.ti, turnPts());
     sfx.skip(); buzz(12);
     flyOut("out-skip", () => { busy = false; if (T) nextCard(); });
   }
@@ -547,6 +579,7 @@
         : `<div class="empty">Nothing this time. It happens to the best of us.</div>`;
       const pts = turn.got.filter(g => g.on).reduce((n, g) => n + cardById(g.id).pts, 0) - (G.skipPenalty ? turn.skipped : 0);
       el.querySelector("#sum").textContent = `${pts >= 0 ? "+" : ""}${pts} points`;
+      showScore(turn.ti, pts);
     };
     $r.onclick = e => { const b = e.target.closest(".ritem"); if (!b) return; const g = turn.got[+b.dataset.i]; g.on = !g.on; paint(); };
     paint();
@@ -585,6 +618,7 @@
         ${boardHTML(gains)}
       </div>
       <button class="btn btn-primary btn-block" id="go" style="margin-top:16px">${last ? "Reveal the winner" : `On to round ${G.r + 2}`}</button>`);
+    showScore();
     el.querySelector("#go").onclick = () => {
       if (last) { G.over = true; saveG(); return final(); }
       G.r++; G.pile = shuffle(G.deck.map(c => c.id)); saveG(); ready();
