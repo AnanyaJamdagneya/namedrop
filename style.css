@@ -465,6 +465,36 @@ details.more[open] summary::before { content: "– "; }
 .mini .sw { position: absolute; inset: 0; border-radius: inherit; display: grid; place-items: center; background: rgba(28,24,48,.82); color: var(--paper); font-family: var(--f-mono); font-size: .66rem; letter-spacing: .14em; opacity: 0; transition: opacity .2s; }
 .mini:hover .sw, .mini:focus-visible .sw { opacity: 1; }
 
+/* ---------------- Draft ---------------- */
+.toggle b { color: var(--ink-on, #fff); font-weight: 600; }
+.toggle .fine { display: inline-block; margin-top: 2px; }
+.draft-opts { padding-top: 12px; }
+.stepper { display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 14px; background: rgba(0,0,0,.25); border: 1px solid var(--hair); margin-top: 4px; }
+.stepper button { width: 40px; height: 36px; border-radius: 10px; font-size: 1.3rem; color: var(--paper); background: rgba(255,255,255,.08); }
+.stepper button:hover { background: rgba(255,255,255,.16); }
+.stepper b { min-width: 40px; text-align: center; font-family: var(--f-display); font-weight: 900; font-size: 1.4rem; }
+.draft-opts .fine { margin-top: 10px; }
+.draft-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.draft-dots i { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.14); }
+.draft-dots i.done { background: var(--amber); }
+.draft-dots i.on { background: var(--paper); box-shadow: 0 0 14px rgba(245,236,220,.7); }
+.draft { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+.dcard {
+  position: relative; text-align: left; padding: 10px 12px 12px; border-radius: 14px; background: var(--paper); color: var(--ink);
+  min-height: 120px; display: flex; flex-direction: column; gap: 6px; transition: transform .2s var(--ease), box-shadow .2s, opacity .2s;
+  border: 2px solid transparent;
+}
+.dcard .c { font-family: var(--f-mono); font-size: .55rem; letter-spacing: .1em; color: var(--ink-dim); text-transform: uppercase; display: flex; justify-content: space-between; gap: 6px; }
+.dcard .n { font-family: var(--f-display); font-weight: 900; font-size: 1.2rem; text-transform: uppercase; line-height: .95; }
+.dcard .n small { display: block; font-family: var(--f-mono); font-size: .55rem; font-weight: 500; letter-spacing: .06em; color: var(--ink-dim); margin-top: 3px; }
+.dcard .cl { font-family: var(--f-serif, "Instrument Serif", serif); font-style: italic; font-size: .92rem; line-height: 1.15; color: var(--ink-dim); }
+.dcard .tick { position: absolute; top: -8px; right: -8px; width: 26px; height: 26px; border-radius: 50%; background: var(--amber); color: var(--ink); display: grid; place-items: center; font-weight: 700; font-size: .85rem; transform: scale(0); transition: transform .25s var(--spring); }
+.dcard[aria-pressed="true"] { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(255,181,71,.25), 0 10px 24px -10px rgba(255,181,71,.6); transform: translateY(-3px); }
+.dcard[aria-pressed="true"] .tick { transform: scale(1); }
+.draft:has(.dcard[aria-pressed="true"]) .dcard[aria-pressed="false"] { opacity: .78; }
+.dcard.lang-hi .n { font-family: "Teko", var(--f-display); font-weight: 600; text-transform: none; line-height: 1; }
+.btn[disabled] { opacity: .5; pointer-events: none; }
+
 /* ---------------- Final ---------------- */
 .trophy { font-size: 4rem; text-align: center; animation: bob 2.4s ease-in-out infinite; filter: drop-shadow(0 10px 30px rgba(255,181,71,.5)); }
 @keyframes bob { 50% { transform: translateY(-8px) rotate(4deg); } }

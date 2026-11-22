@@ -37,6 +37,7 @@
     diff: "mix",
     rounds: [true, true, true, false],
     skipPenalty: false,
+    draft: false, players: 6,
     custom: "",
     sound: true,
   };
@@ -176,20 +177,32 @@
       return { id: "custom:" + i, name, clue, pts: Math.min(4, Math.max(1, +pts || 2)), cat: "custom" };
     });
   }
-  function buildDeck() {
-    const custom = customCards();
+  // Pick `need` cards, least-played first, with the Deep Cuts share for this difficulty
+  function pickFresh(need) {
     const seen = seenMap();
-    // least-played cards first; random order among cards played the same number of times
+    // random order among cards played the same number of times
     const freshFirst = list => shuffle(list.slice()).sort((a, b) => (seen[a.id] || 0) - (seen[b.id] || 0));
-    const need = Math.max(0, S.deckSize - custom.length);
     const main = freshFirst(mainPool()), deep = freshFirst(deepCards());
     let nDeep = Math.min(deep.length, Math.round(need * DEEP_SHARE[S.diff]));
     let picked = deep.slice(0, nDeep).concat(main.slice(0, need - nDeep));
     if (picked.length < need) picked = picked.concat(deep.slice(nDeep, nDeep + need - picked.length));
-    const deck = shuffle(custom.concat(picked));
-    deck.forEach(c => { seen[c.id] = (seen[c.id] || 0) + 1; });
+    return shuffle(picked);
+  }
+  function markSeen(cards) {
+    const seen = seenMap();
+    cards.forEach(c => { seen[c.id] = (seen[c.id] || 0) + 1; });
     store.set("seen", seen); store.del("recent");
+  }
+  function buildDeck() {
+    const custom = customCards();
+    const deck = shuffle(custom.concat(pickFresh(Math.max(0, S.deckSize - custom.length))));
+    markSeen(deck);
     return deck;
+  }
+  // Drafting: each player is dealt `deal` cards in secret and keeps `keep`
+  const draftPlan = () => {
+    const keep = Math.min(8, Math.max(3, Math.round(S.deckSize / S.players)));
+    return { keep, deal: keep + 3, size: keep * S.players };
   }
 
   /* =========================================================
@@ -204,7 +217,7 @@
         <h1 class="logo">Name<span>drop</span></h1>
         <p class="tag">Say it. Shrink it. Act it out.</p>
         <div class="stack">
-          ${G && !G.over ? `<button class="btn btn-primary btn-block" id="resume">Resume game <small>ROUND ${G.r + 1}</small></button>
+          ${G && !G.over ? `<button class="btn btn-primary btn-block" id="resume">Resume game <small>${G.draft ? "DRAFT" : "ROUND " + (G.r + 1)}</small></button>
             <button class="btn btn-ghost btn-block" id="new">New game</button>`
           : `<button class="btn btn-primary btn-block" id="new">New game</button>`}
         </div>
@@ -240,8 +253,17 @@
 
       <div class="panel">
         <div class="field" style="margin-top:0">
-          <div class="label"><span>Deck size</span><em>${S.deckSize} cards</em></div>
+          <div class="label"><span>Deck size</span><em>${S.draft ? `about ${draftPlan().size}` : S.deckSize} cards</em></div>
           ${seg("deckSize", [20, 30, 40, 50, 60])}
+        </div>
+        <div class="field">
+          <button type="button" class="toggle" id="draft" aria-pressed="${S.draft}">
+            <span><b>Draft the deck</b><br><span class="fine">Everyone secretly picks their own cards, so nobody sees the whole deck.</span></span><span class="sw"></span></button>
+          ${S.draft ? `<div class="draft-opts">
+            <div class="label"><span>Players</span><em>${S.players}</em></div>
+            <div class="stepper"><button type="button" data-d="-1" aria-label="Fewer players">−</button><b>${S.players}</b><button type="button" data-d="1" aria-label="More players">+</button></div>
+            <p class="fine">Each player gets <b>${draftPlan().deal}</b> cards and keeps <b>${draftPlan().keep}</b>. Deck: <b>${draftPlan().size + customCards().length}</b> cards${customCards().length ? ` (${customCards().length} custom)` : ""}.</p>
+          </div>` : ""}
         </div>
         <div class="field">
           <div class="label"><span>Turn timer</span><em>${S.turnTime}s</em></div>
@@ -250,7 +272,7 @@
         <div class="field">
           <div class="label"><span>Difficulty</span></div>
           ${seg("diff", ["easy", "mix", "hard", "extra"], v => ({ easy: "Chill", mix: "Mixed", hard: "Hard", extra: "Extra Hard" })[v])}
-          <p class="fine extra-note ${S.diff === "extra" ? "hot" : ""}">🌶️ About <b>${Math.round(S.deckSize * DEEP_SHARE[S.diff])} of ${S.deckSize}</b> cards will be <b>Deep Cuts</b>: obscure people, weird history and strange ideas. Their clues explain what they are, so it's fine to read them out loud.</p>
+          <p class="fine extra-note ${S.diff === "extra" ? "hot" : ""}">🌶️ About <b>${Math.round((S.draft ? draftPlan().size : S.deckSize) * DEEP_SHARE[S.diff])} of ${S.draft ? draftPlan().size : S.deckSize}</b> cards will be <b>Deep Cuts</b>: obscure people, weird history and strange ideas. Their clues explain what they are, so it's fine to read them out loud.</p>
         </div>
       </div>
 
@@ -330,21 +352,33 @@
     };
     paintRounds();
 
+    el.querySelector("#draft").onclick = () => { S.draft = !S.draft; saveS(); setup(); };
+    const $step = el.querySelector(".stepper");
+    if ($step) $step.onclick = e => {
+      const b = e.target.closest("button"); if (!b) return;
+      S.players = Math.min(16, Math.max(3, S.players + +b.dataset.d)); saveS(); setup();
+    };
     el.querySelector("#penalty").onclick = e => { S.skipPenalty = !S.skipPenalty; e.currentTarget.setAttribute("aria-pressed", S.skipPenalty); saveS(); };
     el.querySelector("#custom").oninput = e => { S.custom = e.target.value; saveS(); };
     el.querySelector("#back").onclick = title;
     el.querySelector("#go").onclick = () => {
       S.teams = S.teams.map((t, i) => t.trim() || `Team ${i + 1}`);
-      const need = S.deckSize - customCards().length;
+      const need = S.draft ? S.players * draftPlan().deal : S.deckSize - customCards().length;
       if (pool().length < need) { toast(`Pick more packs. Only ${pool().length} cards available.`); return; }
       saveS(); startGame();
     };
   }
 
   function startGame() {
+    let draft = null;
+    if (S.draft) {
+      const { keep, deal } = draftPlan();
+      const cards = pickFresh(S.players * deal);
+      draft = { keep, p: 0, hands: Array.from({ length: S.players }, (_, i) => cards.slice(i * deal, (i + 1) * deal)), kept: customCards() };
+    }
     G = {
       teams: S.teams.map(name => ({ name, score: 0, rounds: [] })),
-      deck: buildDeck(),
+      deck: draft ? [] : buildDeck(), draft,
       rounds: S.rounds.map((on, i) => on ? i : -1).filter(i => i >= 0),
       turnTime: S.turnTime, skipPenalty: S.skipPenalty,
       r: 0, pile: [], turn: 0, carry: 0, carryTeam: -1,
@@ -353,7 +387,82 @@
     };
     G.pile = shuffle(G.deck.map(c => c.id));
     saveG();
-    peekChoice();
+    draft ? draftPass() : peekChoice();
+  }
+
+  /* ---------------- Draft ---------------- */
+  function draftPass() {
+    const d = G.draft, n = d.hands.length;
+    sky(0); setChip(`Draft · ${d.p + 1}/${n}`);
+    const el = render(`
+      <div class="panel" style="text-align:center">
+        <div class="kicker">The draft · player ${d.p + 1} of ${n}</div>
+        <h2 class="display">Pass to <em>player ${d.p + 1}.</em></h2>
+        <p class="lede">${d.p === 0 ? "Everyone takes a secret turn picking cards. Only look at your own hand, then pass the phone on." : "Don't peek at anyone else's hand. Hand the phone over, then tap below."}</p>
+        <div class="draft-dots">${d.hands.map((_, i) => `<i class="${i < d.p ? "done" : i === d.p ? "on" : ""}"></i>`).join("")}</div>
+      </div>
+      <div class="stack" style="margin-top:16px">
+        <button class="btn btn-primary btn-block" id="go">I'm player ${d.p + 1}, show my cards</button>
+        <button class="linkbtn" id="quit" style="display:block;margin:0 auto">Cancel game</button>
+      </div>`);
+    el.querySelector("#go").onclick = draftPick;
+    el.querySelector("#quit").onclick = () => { if (confirm("Cancel this game?")) { G = null; saveG(); title(); } };
+  }
+
+  function draftPick() {
+    const d = G.draft, hand = d.hands[d.p], n = d.hands.length;
+    const picked = new Set();
+    setChip(`Draft · ${d.p + 1}/${n}`);
+    const el = render(`
+      <div class="panel">
+        <div class="kicker">Player ${d.p + 1} · your hand</div>
+        <h2 class="display">Keep <em>${d.keep}.</em></h2>
+        <p class="lede">Pick the ${d.keep} you want in the deck. The rest get thrown out, and nobody else will see them.</p>
+        <div class="draft" id="hand"></div>
+      </div>
+      <div class="stack" style="margin-top:16px">
+        <button class="btn btn-primary btn-block" id="keep" disabled>Pick ${d.keep} more</button>
+      </div>`, "wide");
+    const $h = el.querySelector("#hand"), $k = el.querySelector("#keep");
+    const paint = () => {
+      $h.innerHTML = hand.map((c, i) => `<button type="button" class="dcard ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}" aria-pressed="${picked.has(i)}">
+        <span class="c"><span>${CAT[c.cat] ? CAT[c.cat].emoji + " " + esc(CAT[c.cat].label) : ""}</span><span>${c.pts}pt</span></span>
+        <span class="n">${esc(c.name)}${c.roman ? `<small>${esc(c.roman)}</small>` : ""}</span>
+        ${c.clue ? `<span class="cl">${esc(c.clue)}</span>` : ""}<span class="tick">✓</span></button>`).join("");
+      const left = d.keep - picked.size;
+      $k.disabled = left > 0;
+      $k.textContent = left > 0 ? `Pick ${left} more` : `Keep these ${d.keep}`;
+    };
+    $h.onclick = e => {
+      const b = e.target.closest(".dcard"); if (!b) return;
+      const i = +b.dataset.i;
+      if (picked.has(i)) picked.delete(i);
+      else if (picked.size < d.keep) picked.add(i);
+      else return toast(`You can only keep ${d.keep}. Tap one to drop it first.`);
+      sfx.skip(); paint();
+    };
+    paint();
+    $k.onclick = () => {
+      d.kept = d.kept.concat(hand.filter((_, i) => picked.has(i)));
+      d.hands[d.p] = []; d.p++;
+      if (d.p < n) { saveG(); return draftPass(); }
+      G.deck = shuffle(d.kept); G.pile = shuffle(G.deck.map(c => c.id)); G.draft = null;
+      markSeen(G.deck); saveG(); draftDone();
+    };
+  }
+
+  function draftDone() {
+    sky(0); setChip(`${G.deck.length} cards drafted`);
+    const el = render(`
+      <div class="panel" style="text-align:center">
+        <div class="kicker">Draft complete</div>
+        <h2 class="display">${G.deck.length} cards <em>in the deck.</em></h2>
+        <p class="lede">Everyone knows a few of them. Nobody knows them all. Same deck every round, so listen closely.</p>
+      </div>
+      <div class="stack" style="margin-top:16px">
+        <button class="btn btn-primary btn-block" id="go">Start round 1</button>
+      </div>`);
+    el.querySelector("#go").onclick = ready;
   }
 
   function peekChoice() {
@@ -402,7 +511,7 @@
     el.querySelector("#go").onclick = ready;
   }
 
-  function resume() { if (G.over) return final(); G.pile.length ? ready() : roundEnd(); }
+  function resume() { if (G.over) return final(); if (G.draft) return draftPass(); G.pile.length ? ready() : roundEnd(); }
 
   /* ---------------- Ready / pass-the-phone ---------------- */
   function ready() {
