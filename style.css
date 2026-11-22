@@ -566,3 +566,61 @@ body.has-score .app { padding-top: 128px; }
 .extra-note b { color: var(--text); }
 .seg button { padding: 0 4px; }
 .ticket .t-clue.long-clue { font-size: 1.02rem; line-height: 1.35; }
+
+/* ---------------- Post-game breakdown ---------------- */
+.bd-tabs { margin-top: 14px; }
+.bd-tabs button { min-height: 40px; font-size: .9rem; }
+#bd { margin-top: 14px; }
+.tdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: 1px; flex: none; }
+.bd-sort { display: flex; gap: 6px; flex-wrap: wrap; }
+.bd-sort button { padding: 6px 12px; border-radius: 99px; font-size: .78rem; font-weight: 600; color: var(--dim); border: 1px solid var(--hair-2); }
+.bd-sort button[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: var(--on-amber); }
+.wlist { display: grid; gap: 8px; margin-top: 12px; }
+.witem { padding: 12px 14px; border-radius: 14px; background: var(--paper); color: var(--ink); }
+.wtop { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.wname { font-family: var(--f-display); font-weight: 900; font-size: 1.25rem; text-transform: uppercase; line-height: 1; min-width: 0; overflow-wrap: anywhere; }
+.witem.lang-hi .wname { font-family: "Tiro Devanagari Hindi", serif; text-transform: none; font-weight: 400; }
+.wpts { text-align: right; flex: none; }
+.wpts b { display: block; font-family: var(--f-display); font-weight: 900; font-size: 1.5rem; line-height: 1; color: var(--amber-deep); }
+.wpts small { font-family: var(--f-mono); font-size: .6rem; color: var(--ink-dim); letter-spacing: .06em; }
+.wmeta { margin-top: 4px; font-size: .78rem; color: var(--ink-dim); }
+.wrounds { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.rchip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 8px; background: rgba(28,24,48,.08); font-family: var(--f-mono); font-size: .66rem; font-weight: 600; color: var(--ink); }
+.rchip .tdot { margin: 0; box-shadow: 0 0 0 1px rgba(28,24,48,.25); }
+.rchip.miss { color: var(--ink-dim); opacity: .6; }
+.tblock { padding: 14px; border-radius: 16px; background: rgba(0,0,0,.22); border: 1px solid var(--hair); }
+.tblock + .tblock { margin-top: 10px; }
+.tb-head { display: flex; align-items: center; gap: 8px; }
+.tb-head b { font-family: var(--f-display); font-weight: 800; font-size: 1.35rem; text-transform: uppercase; line-height: 1; flex: 1; min-width: 0; }
+.tb-head > span:last-child { font-family: var(--f-mono); font-size: .72rem; color: var(--faint); }
+.tb-head .rnum { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--amber); color: var(--on-amber); font-family: var(--f-display); font-weight: 900; flex: none; }
+.hbars { display: grid; gap: 6px; margin-top: 12px; }
+.hbar { display: grid; grid-template-columns: 7.5em 1fr 3.6em; align-items: center; gap: 10px; font-size: .78rem; color: var(--dim); }
+.hbar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hbar i { height: 8px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+.hbar u { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--amber-deep), var(--amber)); }
+.hbar b { text-align: right; font-family: var(--f-mono); font-size: .74rem; color: var(--text); }
+.sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 12px; }
+.sgrid > div { padding: 9px 10px; border-radius: 12px; background: rgba(255,255,255,.04); }
+.sgrid b { display: block; font-family: var(--f-display); font-weight: 900; font-size: 1.35rem; line-height: 1; }
+.sgrid span { font-size: .7rem; color: var(--faint); }
+.tb-notes { display: grid; gap: 4px; margin-top: 10px; font-size: .84rem; color: var(--dim); }
+.tb-notes b { color: var(--text); }
+.ilist { display: grid; gap: 8px; }
+.insight { display: flex; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(0,0,0,.22); border: 1px solid var(--hair); }
+.insight .ic { font-size: 1.4rem; line-height: 1.2; }
+.insight b { display: block; font-weight: 700; }
+.insight p { margin: 3px 0 0; font-size: .86rem; color: var(--dim); line-height: 1.45; }
+@media (max-width: 420px) { .sgrid { grid-template-columns: repeat(2, 1fr); } .hbar { grid-template-columns: 6em 1fr 3.2em; } }
+
+/* ---------------- Charades cam ---------------- */
+.camind { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ember); padding: 3px 8px; border-radius: 99px; border: 1px solid rgba(255,95,69,.4); }
+.camind.flash { animation: camflash .5s ease-out; }
+@keyframes camflash { 0% { background: #fff; color: var(--ink); box-shadow: 0 0 30px 10px rgba(255,255,255,.8); } 100% { background: transparent; } }
+.photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; margin-top: 10px; }
+.polaroid { position: relative; margin: 0; padding: 8px 8px 10px; background: var(--paper); color: var(--ink); border-radius: 6px; transform: rotate(var(--tilt)); box-shadow: 0 14px 30px -12px rgba(0,0,0,.7); }
+.polaroid img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; background: #222; }
+.polaroid figcaption { margin-top: 6px; }
+.polaroid figcaption b { display: block; font-family: var(--f-display); font-weight: 900; font-size: 1rem; text-transform: uppercase; line-height: 1; }
+.polaroid figcaption span { font-size: .7rem; color: var(--ink-dim); }
+.psave { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: rgba(28,24,48,.7); color: #fff; text-decoration: none; font-size: .9rem; }
