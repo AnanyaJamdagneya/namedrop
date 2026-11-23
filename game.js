@@ -39,6 +39,7 @@
     skipPenalty: false,
     draft: false, players: 6,
     charadesCam: true,
+    hiPct: 0,          // share of the deck from the Hindi pack when mixed with others (0 = natural mix)
     custom: "",
     sound: true,
   };
@@ -187,6 +188,9 @@
     return p;
   }
   const pool = () => mainPool().concat(deepCards());
+  // Hindi share picker applies when the Hindi pack is mixed with at least one English pack
+  const hiMixAvail = () => S.cats.includes("hindi") && S.cats.some(id => CAT[id] && CAT[id].lang !== "hi" && !CAT[id].extraOnly);
+  const hiMixOn = () => hiMixAvail() && S.hiPct > 0;
 
   // How many times each card has been dealt on this device, so we can deal the least-played first
   const seenMap = () => store.get("seen", null) || Object.fromEntries(store.get("recent", []).map(id => [id, 1]));
@@ -204,8 +208,20 @@
     const freshFirst = list => shuffle(list.slice()).sort((a, b) => (seen[a.id] || 0) - (seen[b.id] || 0));
     const main = freshFirst(mainPool()), deep = freshFirst(deepCards());
     let nDeep = Math.min(deep.length, Math.round(need * DEEP_SHARE[S.diff]));
-    let picked = deep.slice(0, nDeep).concat(main.slice(0, need - nDeep));
-    if (picked.length < need) picked = picked.concat(deep.slice(nDeep, nDeep + need - picked.length));
+    let picked;
+    if (hiMixOn()) {
+      // Fixed Hindi share of the whole deck; Deep Cuts and the other packs fill the rest
+      const hi = main.filter(c => c.lang === "hi"), en = main.filter(c => c.lang !== "hi");
+      const nHi = Math.min(hi.length, Math.round(need * S.hiPct / 100));
+      nDeep = Math.min(nDeep, need - nHi);
+      picked = hi.slice(0, nHi).concat(deep.slice(0, nDeep), en.slice(0, need - nHi - nDeep));
+      // not enough cards somewhere: top up from whatever is left
+      const rest = en.slice(need - nHi - nDeep).concat(hi.slice(nHi), deep.slice(nDeep));
+      if (picked.length < need) picked = picked.concat(rest.slice(0, need - picked.length));
+    } else {
+      picked = deep.slice(0, nDeep).concat(main.slice(0, need - nDeep));
+      if (picked.length < need) picked = picked.concat(deep.slice(nDeep, nDeep + need - picked.length));
+    }
     return shuffle(picked);
   }
   function markSeen(cards) {
@@ -299,6 +315,7 @@
       <div class="panel">
         <div class="label"><span>Card packs</span><em id="poolCount"></em></div>
         <div class="cats" id="cats"></div>
+        <div class="field himix" id="hiMix"></div>
       </div>
 
       <div class="panel">
@@ -353,6 +370,17 @@
       $cats.innerHTML = CATS.filter(c => !c.extraOnly).map(c => `<button type="button" class="cat" data-c="${c.id}" aria-pressed="${S.cats.includes(c.id)}">
         <span class="em">${c.emoji}</span><span><b>${esc(c.label)}</b><small>${c.cards.length} cards</small></span></button>`).join("");
       el.querySelector("#poolCount").textContent = pool().length.toLocaleString() + " in play";
+      const $hm = el.querySelector("#hiMix");
+      if (!hiMixAvail()) { $hm.innerHTML = ""; $hm.hidden = true; return; }
+      const size = S.draft ? draftPlan().size : S.deckSize;
+      $hm.hidden = false;
+      $hm.innerHTML = `<div class="label"><span>🪔 Hindi share of the deck</span><em>${S.hiPct ? S.hiPct + "%" : "Auto"}</em></div>
+        ${seg("hiPct", [0, 20, 30, 40, 50, 75], v => v ? v + "%" : "Auto")}
+        <p class="fine">${S.hiPct ? `About <b>${Math.round(size * S.hiPct / 100)} of ${size}</b> cards will be from the Hindi deck.` : "Auto mixes Hindi cards in with the other packs at random. Pick a percentage to fix how much of the game is in Hindi."}</p>`;
+      $hm.querySelector(".seg").onclick = e => {
+        const b = e.target.closest("button"); if (!b) return;
+        S.hiPct = +b.dataset.v; saveS(); paintCats();
+      };
     };
     $cats.onclick = e => {
       const b = e.target.closest(".cat"); if (!b) return;
