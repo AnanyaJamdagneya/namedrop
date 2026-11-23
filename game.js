@@ -148,11 +148,23 @@
       <div class="t-top"><span class="t-cat">${cat ? cat.emoji + " " + esc(cat.label) : "✍️ House Card"}</span>
         <span class="t-pts" data-p="${c.pts}">${c.pts}<small>PT${c.pts > 1 ? "S" : ""}</small></span></div>
       <div class="t-name ${c.name.length > 18 ? "long" : ""}">${esc(c.name)}</div>
-      ${c.roman ? `<div class="t-roman" lang="en">${esc(c.roman)}</div>` : ""}
+      ${c.roman ? `<div class="t-roman ${c.name.length > 18 || c.roman.length > 18 ? "long" : ""}" lang="en">${esc(c.roman)}</div>` : ""}
       <div class="t-clue ${c.clue.length > 90 ? "long-clue" : ""}">${c.clue ? esc(c.clue) : "&nbsp;"}</div>
       <div class="t-foot"><span>Namedrop</span><span>№ ${String(G ? G.deck.indexOf(c) + 1 : 0).padStart(3, "0")}</span></div>
     </div>`;
   };
+
+  // Hindi cards carry a second big line (the English spelling), so pin the tear line
+  // and side notches halfway into the gap above the clue instead of at a fixed 62%.
+  function placePerf(tk) {
+    if (!tk || !tk.classList.contains("lang-hi")) return;
+    const roman = tk.querySelector(".t-roman"), clue = tk.querySelector(".t-clue");
+    if (!roman || !clue) return;
+    const y = (roman.offsetTop + roman.offsetHeight + clue.offsetTop) / 2;
+    tk.style.setProperty("--perf", Math.round(y) + "px");
+  }
+  addEventListener("resize", () => placePerf(document.querySelector("#stage .ticket")));
+  document.fonts && document.fonts.ready.then(() => placePerf(document.querySelector("#stage .ticket")));
 
   /* ---------------- Deck building ---------------- */
   const chosenCards = () => CATS.filter(c => S.cats.includes(c.id) && !c.extraOnly).flatMap(c => c.cards);
@@ -651,6 +663,7 @@
     const c = cardById(T.cur);
     const stage = document.getElementById("stage");
     stage.innerHTML = `<div class="stack-shadow s2"></div><div class="stack-shadow"></div>` + ticketHTML(c, first ? "in" : "in");
+    placePerf(stage.querySelector(".ticket"));
     document.getElementById("pileCount").textContent = `${G.pile.length} card${G.pile.length === 1 ? "" : "s"} left in pile`;
   }
 

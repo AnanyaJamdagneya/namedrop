@@ -310,14 +310,14 @@ details.more[open] summary::before { content: "– "; }
 .ticket {
   position: relative; color: var(--ink);
   background:
-    radial-gradient(circle at 0 62%, transparent 13px, var(--paper) 14px) left / 51% 100% no-repeat,
-    radial-gradient(circle at 100% 62%, transparent 13px, var(--paper) 14px) right / 51% 100% no-repeat;
+    radial-gradient(circle at 0 var(--perf, 62%), transparent 13px, var(--paper) 14px) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% var(--perf, 62%), transparent 13px, var(--paper) 14px) right / 51% 100% no-repeat;
   border-radius: var(--r-card);
   padding: 22px 22px 20px;
   filter: drop-shadow(0 26px 40px rgba(0,0,0,.45));
 }
 .ticket::before {
-  content: ""; position: absolute; left: 26px; right: 26px; top: 62%;
+  content: ""; position: absolute; left: 26px; right: 26px; top: var(--perf, 62%);
   border-top: 2px dashed rgba(28,24,48,.18);
 }
 .ticket::after {
@@ -366,9 +366,16 @@ details.more[open] summary::before { content: "– "; }
 .ticket.lang-hi .t-name { font-size: clamp(2.6rem, 12vw, 4rem); padding-top: .15em; }
 .ticket.lang-hi .t-name.long { font-size: clamp(2.1rem, 9.5vw, 3.1rem); }
 .ticket.lang-hi .t-clue { font-family: "Tiro Devanagari Hindi", var(--f-serif); font-size: 1.15rem; line-height: 1.5; }
-.t-roman { font-family: var(--f-mono); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-deep); margin-top: 6px; }
+/* English pronunciation: same size as the Devanagari name, directly under it */
+.ticket.lang-hi .t-name:has(+ .t-roman) { min-height: 0; }
+.t-roman {
+  font-family: var(--f-display); font-weight: 900; text-transform: uppercase; color: var(--amber-deep);
+  font-size: clamp(2.6rem, 12vw, 4rem); line-height: .9; letter-spacing: .005em;
+  margin-top: 8px; overflow-wrap: anywhere;
+}
+.t-roman.long { font-size: clamp(2.1rem, 9.5vw, 3.1rem); }
 .ticket.lang-hi .t-clue { margin-top: 26px; }
-.mini .n small { display: block; font-family: var(--f-mono); font-size: .55rem; font-weight: 500; letter-spacing: .06em; color: var(--ink-dim); margin-top: 3px; text-transform: uppercase; }
+.mini .n small, .dcard .n small { display: block; font-family: var(--f-display); font-size: 1em; font-weight: 900; letter-spacing: 0; line-height: .95; color: var(--amber-deep); margin-top: 3px; text-transform: uppercase; }
 
 /* ---------------- Turn HUD ---------------- */
 .hud { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
@@ -486,7 +493,7 @@ details.more[open] summary::before { content: "– "; }
 }
 .dcard .c { font-family: var(--f-mono); font-size: .55rem; letter-spacing: .1em; color: var(--ink-dim); text-transform: uppercase; display: flex; justify-content: space-between; gap: 6px; }
 .dcard .n { font-family: var(--f-display); font-weight: 900; font-size: 1.2rem; text-transform: uppercase; line-height: .95; }
-.dcard .n small { display: block; font-family: var(--f-mono); font-size: .55rem; font-weight: 500; letter-spacing: .06em; color: var(--ink-dim); margin-top: 3px; }
+
 .dcard .cl { font-family: var(--f-serif, "Instrument Serif", serif); font-style: italic; font-size: .92rem; line-height: 1.15; color: var(--ink-dim); }
 .dcard .tick { position: absolute; top: -8px; right: -8px; width: 26px; height: 26px; border-radius: 50%; background: var(--amber); color: var(--ink); display: grid; place-items: center; font-weight: 700; font-size: .85rem; transform: scale(0); transition: transform .25s var(--spring); }
 .dcard[aria-pressed="true"] { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(255,181,71,.25), 0 10px 24px -10px rgba(255,181,71,.6); transform: translateY(-3px); }
