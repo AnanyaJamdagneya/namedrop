@@ -40,6 +40,7 @@
     draft: false, players: 6,
     charadesCam: true,
     hiPct: 0,          // share of the deck from the Hindi pack when mixed with others (0 = natural mix)
+    swipe: false,
     custom: "",
     sound: true,
   };
@@ -149,6 +150,17 @@
     window.scrollTo(0, 0);
     return $app.firstElementChild;
   }
+  // Black out any word of the card's name that sneaks into its clue (custom cards included)
+  const CLUE_STOP = new Set("the a an of and in on at to for de la le el von van da di du st mr mrs dr ms sir lady king queen saint mount mt lake new big little old great".split(" "));
+  const fold = w => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  function safeClue(c, text = c.clue) {
+    if (!text) return "";
+    const stems = (c.name + " " + (c.roman || "")).split(/[^\p{L}\p{N}\p{M}]+/u).map(fold)
+      .filter(w => w.length >= 3 && !CLUE_STOP.has(w)).map(w => w.replace(/s$/, ""));
+    if (!stems.length) return esc(text);
+    return text.split(/([\p{L}\p{N}\p{M}]+)/u).map((tok, i) =>
+      i % 2 && stems.some(st => fold(tok).startsWith(st)) ? `<span class="redact">${"•".repeat(Math.min(6, tok.length))}</span>` : esc(tok)).join("");
+  }
   const ticketHTML = (c, extra = "") => {
     const cat = CAT[c.cat];
     const hi = c.lang === "hi";
@@ -157,7 +169,7 @@
         <span class="t-pts" data-p="${c.pts}">${c.pts}<small>PT${c.pts > 1 ? "S" : ""}</small></span></div>
       <div class="t-name ${c.name.length > 18 ? "long" : ""}">${esc(c.name)}</div>
       ${c.roman ? `<div class="t-roman ${c.name.length > 18 || c.roman.length > 18 ? "long" : ""}" lang="en">${esc(c.roman)}</div>` : ""}
-      <div class="t-clue ${c.clue.length > 90 ? "long-clue" : ""}">${c.clue ? esc(c.clue) : "&nbsp;"}${c.clueEn ? `<span class="t-clue-en" lang="en">${esc(c.clueEn)}</span>` : ""}</div>
+      <div class="t-clue ${c.clue.length > 90 ? "long-clue" : ""}">${c.clue ? safeClue(c) : "&nbsp;"}${c.clueEn ? `<span class="t-clue-en" lang="en">${safeClue(c, c.clueEn)}</span>` : ""}</div>
       <div class="t-foot"><span>Namedrop</span><span>№ ${String(G ? G.deck.indexOf(c) + 1 : 0).padStart(3, "0")}</span></div>
     </div>`;
   };
@@ -332,13 +344,15 @@
       <div class="panel">
         <div class="label"><span>Rounds</span></div>
         <div class="rounds-pick" id="rounds"></div>
-        <button type="button" class="toggle" id="cam" aria-pressed="${S.charadesCam}" style="margin-top:10px">
-          <span><b>📸 Charades cam</b><br><span class="fine">During Act It Out, the front camera snaps a couple of surprise photos of whoever's acting. You'll see them after the turn. Photos stay on this phone.</span></span><span class="sw"></span></button>
       </div>
 
       <div class="panel">
         <details class="more">
           <summary>House rules & custom cards</summary>
+          <button type="button" class="toggle" id="swipe" aria-pressed="${S.swipe}">
+            <span><b>👉 Swipe mode</b><br><span class="fine">Swipe the card right for got it, left to skip. The buttons still work too.</span></span><span class="sw"></span></button>
+          <button type="button" class="toggle" id="cam" aria-pressed="${S.charadesCam}">
+            <span><b>📸 Charades cam</b><br><span class="fine">During Act It Out, the front camera snaps a couple of surprise photos of whoever's acting. You'll see them after the turn. Photos stay on this phone.</span></span><span class="sw"></span></button>
           <button type="button" class="toggle" id="penalty" aria-pressed="${S.skipPenalty}">
             <span>Skipping costs 1 point</span><span class="sw"></span></button>
           <div class="field">
@@ -419,6 +433,7 @@
       const b = e.target.closest("button"); if (!b) return;
       S.players = Math.min(16, Math.max(3, S.players + +b.dataset.d)); saveS(); setup();
     };
+    el.querySelector("#swipe").onclick = e => { S.swipe = !S.swipe; e.currentTarget.setAttribute("aria-pressed", S.swipe); saveS(); };
     el.querySelector("#cam").onclick = e => { S.charadesCam = !S.charadesCam; e.currentTarget.setAttribute("aria-pressed", S.charadesCam); saveS(); };
     el.querySelector("#penalty").onclick = e => { S.skipPenalty = !S.skipPenalty; e.currentTarget.setAttribute("aria-pressed", S.skipPenalty); saveS(); };
     el.querySelector("#custom").oninput = e => { S.custom = e.target.value; saveS(); };
@@ -494,7 +509,7 @@
       $h.innerHTML = hand.map((c, i) => `<button type="button" class="dcard ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}" aria-pressed="${picked.has(i)}">
         <span class="c"><span>${CAT[c.cat] ? CAT[c.cat].emoji + " " + esc(CAT[c.cat].label) : ""}</span><span>${c.pts}pt</span></span>
         <span class="n">${esc(c.name)}${c.roman ? `<small>${esc(c.roman)}</small>` : ""}</span>
-        ${c.clue ? `<span class="cl">${esc(c.clue)}${c.clueEn ? `<em lang="en">${esc(c.clueEn)}</em>` : ""}</span>` : ""}<span class="tick">✓</span></button>`).join("");
+        ${c.clue ? `<span class="cl">${safeClue(c)}${c.clueEn ? `<em lang="en">${safeClue(c, c.clueEn)}</em>` : ""}</span>` : ""}<span class="tick">✓</span></button>`).join("");
       const left = d.keep - picked.size;
       $k.disabled = left > 0;
       $k.textContent = left > 0 ? `Pick ${left} more` : `Keep these ${d.keep}`;
@@ -688,7 +703,8 @@
         <div class="who"><div class="kicker">${rd.short}</div><h3>${esc(team(ti).name)}</h3></div>
         <div class="tally"><b id="tgot">0</b><span>pts this turn</span></div>
       </div>
-      <div class="card-stage" id="stage"></div>
+      <div class="card-stage ${S.swipe ? "swipeable" : ""}" id="stage"></div>
+      ${S.swipe ? `<div class="swipe-hint"><span>← skip</span><span>swipe the card</span><span>got it →</span></div>` : ""}
       <div class="actions">
         <button class="btn btn-skip" id="skip">Skip<small>← / S</small></button>
         <button class="btn btn-got" id="got">Got it<small>SPACE / →</small></button>
@@ -698,6 +714,7 @@
     el.querySelector("#got").onclick = gotIt;
     el.querySelector("#skip").onclick = skip;
     el.querySelector("#pause").onclick = pause;
+    if (S.swipe) bindSwipe(el.querySelector("#stage"));
     nextCard(true);
     T.raf = requestAnimationFrame(loop);
   }
@@ -711,6 +728,35 @@
     stage.innerHTML = `<div class="stack-shadow s2"></div><div class="stack-shadow"></div>` + ticketHTML(c, first ? "in" : "in");
     placePerf(stage.querySelector(".ticket"));
     document.getElementById("pileCount").textContent = `${G.pile.length} card${G.pile.length === 1 ? "" : "s"} left in pile`;
+  }
+
+  function bindSwipe(stage) {
+    let x0 = null, y0 = 0, dx = 0, tk = null;
+    stage.addEventListener("pointerdown", e => {
+      tk = stage.querySelector(".ticket");
+      if (!tk || !T || T.paused || busy) return;
+      x0 = e.clientX; y0 = e.clientY; dx = 0;
+      tk.classList.remove("in"); tk.style.transition = "none";
+      stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener("pointermove", e => {
+      if (x0 == null || !tk) return;
+      dx = e.clientX - x0;
+      const dy = (e.clientY - y0) * .25;
+      tk.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx / 18}deg)`;
+      stage.dataset.lean = dx > 40 ? "got" : dx < -40 ? "skip" : "";
+    });
+    const end = () => {
+      if (x0 == null || !tk) return;
+      x0 = null; stage.dataset.lean = "";
+      const card = tk; tk = null;
+      card.style.transition = ""; card.style.transform = "";   // let the fly-out (or snap-back) transition take over
+      const limit = Math.min(110, stage.clientWidth * .28);
+      if (dx > limit) gotIt();
+      else if (dx < -limit) skip();
+    };
+    stage.addEventListener("pointerup", end);
+    stage.addEventListener("pointercancel", end);
   }
 
   function flyOut(cls, then) {
@@ -808,6 +854,7 @@
         <h2 class="display">${why === "cleared" ? "Deck <em>cleared!</em>" : "Time's <em>up!</em>"}</h2>
         <p class="lede">Tap anything that didn't count (said the name, wrong round rules…).</p>
         <div class="review" id="rev"></div>
+        <div id="missed"></div>
         <div class="meter"><div class="lbl"><span id="sum"></span><span>${turn.skipped} skipped${G.skipPenalty && turn.skipped ? ` (−${turn.skipped})` : ""}</span></div></div>
         ${photoHTML(turn.photos, "📸 Caught in the act")}
       </div>
@@ -815,18 +862,55 @@
     const $r = el.querySelector("#rev");
     const paint = () => {
       $r.innerHTML = turn.got.length ? turn.got.map((g, i) => { const c = cardById(g.id); return `
-        <button type="button" class="ritem ${g.on ? "" : "off"}" data-i="${i}"><span class="nm">${esc(c.name)}</span>
-        <span class="p">${(g.ms / 1000).toFixed(1)}s · ${c.pts}pt</span><span class="x">${g.on ? "✓" : "✕"}</span></button>`; }).join("")
+        <button type="button" class="ritem ${g.on ? "" : "off"} ${g.added ? "added" : ""}" data-i="${i}"><span class="nm">${esc(c.name)}</span>
+        <span class="p">${g.added ? "added" : (g.ms / 1000).toFixed(1) + "s"} · ${c.pts}pt</span><span class="x">${g.on ? "✓" : "✕"}</span></button>`; }).join("")
         : `<div class="empty">Nothing this time. It happens to the best of us.</div>`;
+      paintMissed();
       const pts = turn.got.filter(g => g.on).reduce((n, g) => n + cardById(g.id).pts, 0) - (G.skipPenalty ? turn.skipped : 0);
       el.querySelector("#sum").textContent = `${pts >= 0 ? "+" : ""}${pts} points`;
       showScore(turn.ti, pts);
     };
-    $r.onclick = e => { const b = e.target.closest(".ritem"); if (!b) return; const g = turn.got[+b.dataset.i]; g.on = !g.on; paint(); };
+    $r.onclick = e => {
+      const b = e.target.closest(".ritem"); if (!b) return;
+      const i = +b.dataset.i, g = turn.got[i];
+      if (g.added) turn.got.splice(i, 1);    // un-adding a card just takes it back off the list
+      else g.on = !g.on;
+      paint();
+    };
+    // Cards they skipped this turn (and haven't since got), plus a search for anything else still in the pile
+    const $m = el.querySelector("#missed");
+    let query = "";
+    const inTurn = () => new Set(turn.got.map(g => g.id));
+    const skippedIds = () => { const t = inTurn(); return [...new Set(turn.skipLog.map(k => k.id))].filter(id => !t.has(id) && G.pile.includes(id)); };
+    const matchHTML = () => {
+      if (!query.trim()) return "";
+      const q = fold(query.trim()), t = inTurn();
+      const hits = G.pile.filter(id => !t.has(id)).map(cardById).filter(c => c && (fold(c.name).includes(q) || fold(c.roman || "").includes(q))).slice(0, 6);
+      return hits.length ? hits.map(c => `<button type="button" class="addchip" data-add="${esc(c.id)}">+ ${esc(c.name)} <small>${c.pts}pt</small></button>`).join("")
+        : `<div class="fine">No unguessed card matches "${esc(query)}".</div>`;
+    };
+    function paintMissed() {
+      const sk = skippedIds();
+      $m.innerHTML = `
+        ${sk.length ? `<div class="kicker" style="margin-top:16px">Skipped this turn</div>
+          <p class="fine" style="margin:2px 0 6px">Actually got one? Tap to add it.</p>
+          <div class="addrow">${sk.map(id => { const c = cardById(id); return `<button type="button" class="addchip" data-add="${esc(id)}">+ ${esc(c.name)} <small>${c.pts}pt</small></button>`; }).join("")}</div>` : ""}
+        <div class="kicker" style="margin-top:16px">Missed one?</div>
+        <input class="search" id="find" type="search" placeholder="Search the deck to add a card they got" value="${esc(query)}" autocomplete="off" aria-label="Search for a card to add">
+        <div class="addrow" id="matches">${matchHTML()}</div>`;
+    }
+    $m.oninput = e => { if (e.target.id === "find") { query = e.target.value; $m.querySelector("#matches").innerHTML = matchHTML(); } };
+    $m.onclick = e => {
+      const b = e.target.closest("[data-add]"); if (!b) return;
+      const id = b.dataset.add, sk = turn.skipLog.filter(k => k.id === id).pop();
+      turn.got.push({ id, ms: sk ? sk.ms : null, on: true, added: true });
+      query = ""; sfx.got(); paint();
+    };
     paint();
     el.querySelector("#ok").onclick = () => {
       let pts = 0;
       turn.got.forEach(g => {
+        if (g.added) { if (!g.on) return; G.pile = G.pile.filter(id => id !== g.id); }
         if (g.on) { pts += cardById(g.id).pts; G.log.push({ r: G.r, team: turn.ti, id: g.id, ms: g.ms, left: g.left }); }
         else { G.pile.push(g.id); (G.fouls = G.fouls || []).push({ r: G.r, team: turn.ti, id: g.id }); }   // didn't count → back in the pile
       });
@@ -874,9 +958,9 @@
     sky("win"); setChip("Final");
     const order = G.teams.map((t, i) => ({ t, i })).sort((a, b) => b.t.score - a.t.score);
     const top = order[0], tie = order.length > 1 && order[1].t.score === top.t.score;
-    const fastest = G.log.slice().sort((a, b) => a.ms - b.ms)[0];
+    const fastest = G.log.filter(l => l.ms != null).sort((a, b) => a.ms - b.ms)[0];
     const byCard = {};
-    G.log.forEach(l => (byCard[l.id] = byCard[l.id] || []).push(l.ms));
+    G.log.forEach(l => { if (l.ms != null) (byCard[l.id] = byCard[l.id] || []).push(l.ms); });
     const slowest = Object.entries(byCard).map(([id, a]) => ({ id, avg: a.reduce((x, y) => x + y, 0) / a.length })).sort((a, b) => b.avg - a.avg)[0];
     const skipCount = {};
     (G.skips || []).forEach(k => skipCount[k.id] = (skipCount[k.id] || 0) + 1);
@@ -911,7 +995,8 @@
 
   /* ---------------- Post-game breakdown ---------------- */
   const sec = ms => (ms / 1000).toFixed(1) + "s";
-  const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0;
+  const mean = a => { a = a.filter(Number.isFinite); return a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0; };
+  const timed = a => a.filter(h => h.ms != null);   // cards added in review have no guess time
   const catLabel = id => CAT[id] ? `${CAT[id].emoji} ${CAT[id].label}` : "✍️ House Cards";
   const dot = i => `<i class="tdot" style="background:${teamColor(i)}"></i>`;
 
@@ -937,11 +1022,11 @@
         fouls: fouls.filter(f => f.team === i).length, turns: tt, clueSecs,
         ppm: clueSecs ? t.score / (clueSecs / 60) : 0,
         bestTurn: tt.slice().sort((a, b) => b.pts - a.pts)[0],
-        fastest: hits.slice().sort((a, b) => a.ms - b.ms)[0], bestCat,
+        fastest: timed(hits).sort((a, b) => a.ms - b.ms)[0], bestCat,
       };
     });
     const rounds = R.map((rd, r) => {
-      const hits = log.filter(l => l.r === r), sorted = hits.slice().sort((a, b) => a.ms - b.ms);
+      const hits = log.filter(l => l.r === r), sorted = timed(hits).sort((a, b) => a.ms - b.ms);
       return {
         rd, r, hits, avg: mean(hits.map(h => h.ms)), skips: skips.filter(k => k.r === r).length,
         turns: turns.filter(x => x.r === r), fastest: sorted[0], slowest: sorted[sorted.length - 1],
@@ -972,15 +1057,15 @@
         `${hi.p}-point cards averaged ${sec(hi.ms)} vs ${sec(lo.ms)} for ${lo.p}-pointers.`);
     }
     // underrated / overrated cards: time compared with that round's average
-    const rel = played.map(w => ({ w, r: mean(w.hits.map(h => h.ms / (rounds[h.r].avg || 1))) }));
+    const rel = played.filter(w => timed(w.hits).length).map(w => ({ w, r: mean(timed(w.hits).map(h => h.ms / (rounds[h.r].avg || 1))) }));
     const under = rel.filter(x => x.w.c.pts <= 2).sort((a, b) => b.r - a.r)[0];
     if (under && under.r > 1.3) add("💎", `Underrated: ${under.w.c.name}`, `Only ${under.w.c.pts} pt, but it took ${under.r.toFixed(1)}× longer than an average card.`);
     const over = rel.filter(x => x.w.c.pts >= 3).sort((a, b) => a.r - b.r)[0];
     if (over && over.r < .8) add("🎈", `Overrated: ${over.w.c.name}`, `Worth ${over.w.c.pts} pts, yet guessed ${(1 / over.r).toFixed(1)}× faster than average.`);
     // memory effect
     if (R.length > 1) {
-      const glow = played.filter(w => w.byRound[0] && w.byRound.slice(1).some(Boolean))
-        .map(w => { const later = w.byRound.slice(1).filter(Boolean).sort((a, b) => a.ms - b.ms)[0]; return { w, d: w.byRound[0].ms - later.ms, later }; })
+      const glow = played.filter(w => w.byRound[0] && w.byRound[0].ms != null && w.byRound.slice(1).some(h => h && h.ms != null))
+        .map(w => { const later = w.byRound.slice(1).filter(h => h && h.ms != null).sort((a, b) => a.ms - b.ms)[0]; return { w, d: w.byRound[0].ms - later.ms, later }; })
         .sort((a, b) => b.d - a.d)[0];
       if (glow && glow.d > 1500) add("🧠", `Glow-up: ${glow.w.c.name}`, `${sec(glow.w.byRound[0].ms)} in ${R[0].name}, then just ${sec(glow.later.ms)} in ${R[glow.later.r].name}.`);
     }
@@ -989,7 +1074,7 @@
     if (ms && ms.skips.length >= 2) add("🙈", `Most dodged: ${ms.c.name}`, `Skipped ${ms.skips.length} times, ${sec(ms.skips.reduce((n, k) => n + k.ms, 0))} of clue time burned before giving up.`);
     // categories
     const cats = {};
-    played.forEach(w => w.hits.forEach(h => (cats[w.c.cat] = cats[w.c.cat] || []).push(h.ms / (rounds[h.r].avg || 1))));
+    played.forEach(w => timed(w.hits).forEach(h => (cats[w.c.cat] = cats[w.c.cat] || []).push(h.ms / (rounds[h.r].avg || 1))));
     const ce = Object.entries(cats).filter(([, a]) => a.length >= 2).map(([id, a]) => ({ id, r: mean(a) })).sort((a, b) => a.r - b.r);
     if (ce.length > 1) add("🗂️", "Strongest and weakest category", `${catLabel(ce[0].id)} went fastest. ${catLabel(ce[ce.length - 1].id)} slowed everyone down.`);
     // efficiency
@@ -1008,7 +1093,7 @@
     const bt = A.turns.slice().sort((a, b) => b.got - a.got)[0];
     if (bt && bt.got >= 3) add("🌪️", `Hot streak: ${G.teams[bt.team].name}`, `${bt.got} cards in one ${bt.secs}s turn during ${R[bt.r].name}${bt.cleared ? ", clearing the deck" : ""}.`);
     // never guessed in under X
-    const nem = played.slice().sort((a, b) => b.avg - a.avg)[0];
+    const nem = played.filter(w => timed(w.hits).length).sort((a, b) => b.avg - a.avg)[0];
     if (nem) add("🐢", `Nemesis card: ${nem.c.name}`, `Averaged ${sec(nem.avg)} per guess across ${nem.hits.length} round${nem.hits.length > 1 ? "s" : ""}.`);
     // deep cuts vs everything else
     const dc = played.filter(w => CAT[w.c.cat] && CAT[w.c.cat].extraOnly), reg = played.filter(w => !(CAT[w.c.cat] && CAT[w.c.cat].extraOnly));
@@ -1064,8 +1149,8 @@
       <div class="wlist">${list.map(w => `
         <div class="witem ${w.c.lang === "hi" ? "lang-hi" : ""}">
           <div class="wtop"><span class="wname">${esc(w.c.name)}</span><span class="wpts"><b>+${w.earned}</b><small>${w.c.pts} pt × ${w.hits.length}</small></span></div>
-          <div class="wmeta">${catLabel(w.c.cat)} · ${w.hits.length ? `avg ${sec(w.avg)}` : "never guessed"}${w.skips.length ? ` · ${w.skips.length} skip${w.skips.length > 1 ? "s" : ""}` : ""}${w.fouls ? ` · ${w.fouls} foul${w.fouls > 1 ? "s" : ""}` : ""}</div>
-          <div class="wrounds">${w.byRound.map((h, r) => `<span class="rchip ${h ? "" : "miss"}">R${r + 1} ${h ? `${dot(h.team)}${sec(h.ms)}` : "—"}</span>`).join("")}</div>
+          <div class="wmeta">${catLabel(w.c.cat)} · ${!w.hits.length ? "never guessed" : timed(w.hits).length ? `avg ${sec(w.avg)}` : "added in review"}${w.skips.length ? ` · ${w.skips.length} skip${w.skips.length > 1 ? "s" : ""}` : ""}${w.fouls ? ` · ${w.fouls} foul${w.fouls > 1 ? "s" : ""}` : ""}</div>
+          <div class="wrounds">${w.byRound.map((h, r) => `<span class="rchip ${h ? "" : "miss"}">R${r + 1} ${h ? `${dot(h.team)}${h.ms != null ? sec(h.ms) : "✓"}` : "—"}</span>`).join("")}</div>
         </div>`).join("")}</div>`;
   }
 

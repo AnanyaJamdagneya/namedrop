@@ -45,7 +45,7 @@ David Bowie|Ziggy Stardust, lightning bolt makeup|2
 Prince|Purple Rain, the artist formerly known as|2
 Whitney Houston|I Will Always Love You, The Bodyguard|1
 Mariah Carey|All I Want for Christmas, defrosts every November|1
-Dolly Parton|Jolene, 9 to 5, Dollywood|1
+Dolly Parton|Jolene, 9 to 5, Tennessee theme park|1
 Elton John|Rocket Man, giant glasses, Lion King songs|1
 Paul McCartney|Beatle who wrote Yesterday and Hey Jude|1
 John Lennon|Imagine, round glasses, Yoko|1
@@ -112,7 +112,7 @@ Oprah Winfrey|You get a car! Book club|1
 Ellen DeGeneres|Talk show host who danced into the audience|1
 Jimmy Fallon|Tonight Show, giggles mid-sketch|2
 Kim Kardashian|Keeping Up, SKIMS, law student|1
-Kylie Jenner|Lip kits, youngest Kardashian-Jenner|1
+Kylie Jenner|Lip kits, youngest Kardashian sister, Stormi's mom|1
 Paris Hilton|That's hot, Simple Life, sliving|2
 Martha Stewart|Domestic diva, prison, Snoop's bestie|2
 Gordon Ramsay|IT'S RAW! Idiot sandwich|1
@@ -177,11 +177,11 @@ Imagine Dragons|Radioactive, Believer, stadium thumping|2
 Arctic Monkeys|505, Do I Wanna Know, Alex Turner|2
 Fall Out Boy|Sugar We're Goin Down, emo era|3
 Green Day|American Idiot, Wake Me Up When September Ends|2
-Spice Girls|Girl power, Wannabe, five nicknames|1
-Backstreet Boys|I Want It That Way, 90s boy band|1
+Spice Girls|Posh, Scary, Sporty, Baby, Ginger, Wannabe|1
+Backstreet Boys|I Want It That Way, 90s male vocal group|1
 NSYNC|Bye Bye Bye, Justin's ramen hair|2
 Destiny's Child|Survivor, Say My Name, Beyoncé's old group|2
-Jonas Brothers|Purity rings, Sucker, three brothers|2
+Jonas Brothers|Purity rings, Sucker, Nick, Joe and Kevin|2
 ` },
 
 characters: { label: "Fictional Folks", emoji: "🧙", items: `
@@ -215,12 +215,12 @@ Hulk|Big green rage, Bruce Banner|1
 Black Widow|Natasha Romanoff, Russian spy Avenger|1
 Thanos|Purple Titan, snapped away half of everything|1
 Loki|God of mischief, Thor's adopted brother|1
-Groot|I am Groot, talking tree|1
+Groot|Only ever says three words, talking tree, Guardians of the Galaxy|1
 Deadpool|Fourth-wall-breaking merc with a mouth|1
 Wolverine|Adamantium claws, mutton chops|1
 Black Panther|King of Wakanda, Wakanda Forever|1
 Doctor Strange|Sorcerer Supreme, cape with attitude|2
-Batman|Billionaire vigilante of Gotham, I'm Batman|1
+Batman|Billionaire vigilante of Gotham, Bruce Wayne, I'm the night|1
 Superman|Man of Steel, glasses disguise|1
 Wonder Woman|Amazon warrior, lasso of truth|1
 The Joker|Clown prince of crime, why so serious|1
@@ -229,7 +229,7 @@ Catwoman|Feline jewel thief|2
 Aquaman|Talks to fish, trident|2
 The Flash|Fastest man alive, red suit|2
 Mickey Mouse|Disney's mascot, red shorts|1
-Donald Duck|Sailor-suit duck you can't understand|1
+Donald Duck|Sailor-suit quacker you can't understand, Daisy's boyfriend|1
 Goofy|Gawrsh! Tall dog, Max's dad|1
 Winnie the Pooh|Bear of very little brain, loves hunny|1
 Elsa|Let It Go, ice queen of Arendelle|1
@@ -269,7 +269,7 @@ Gru|Despicable Me villain dad, freeze ray|1
 Po|Dragon Warrior panda, Kung Fu Panda|1
 Toothless|Night Fury dragon, How to Train Your Dragon|2
 Bugs Bunny|Eh, what's up doc?|1
-Daffy Duck|You're despicable! Lisping duck|2
+Daffy Duck|You're despicable! Lisping Looney Tunes bird|2
 Wile E. Coyote|Acme products, never catches the bird|2
 Tweety|I tawt I taw a puddy tat|2
 Scooby-Doo|Ruh-roh! Mystery-solving Great Dane|1
@@ -280,12 +280,12 @@ Marge Simpson|Tall blue hair, hmmmm|1
 SpongeBob SquarePants|I'm ready! Lives in a pineapple|1
 Patrick Star|Is mayonnaise an instrument?|1
 Squidward|Grumpy clarinet-playing neighbor|1
-Mr. Krabs|Money-loving crab, Krusty Krab|1
+Mr. Krabs|Money-loving restaurant owner, SpongeBob's boss, red crustacean|1
 Plankton|Tiny villain after the secret formula|1
 Peter Griffin|Family Guy dad, laughs weird|1
 Stewie Griffin|British-accented evil baby|2
 Rick Sanchez|Burping mad scientist grandpa|1
-Pickle Rick|Turned himself into a pickle, funniest thing|2
+Pickle Rick|Turned himself into a green vegetable, funniest thing, Morty's grandpa|2
 Garfield|Lasagna-loving cat who hates Mondays|1
 Snoopy|Beagle with a Red Baron fantasy|1
 Charlie Brown|Good grief! Never kicks the football|1
@@ -310,17 +310,17 @@ Sherlock Holmes|Elementary, my dear Watson|1
 Dracula|Transylvanian count who vants to suck your blood|1
 Frankenstein's Monster|Bolted neck, it's alive!|1
 Peter Pan|Boy who never grew up, Neverland|1
-Captain Hook|Pirate with a hook hand, fears the crocodile|1
+Captain Hook|Pirate with a metal hand, fears the crocodile, Peter Pan villain|1
 Tinker Bell|Jealous pixie, faith trust and pixie dust|1
 Alice|Fell down a rabbit hole into Wonderland|1
 The Mad Hatter|Hosts an unbirthday tea party|2
-Cheshire Cat|Grinning cat that disappears|2
+Cheshire Cat|Grinning Alice in Wonderland feline that disappears|2
 Dorothy Gale|Ruby slippers, there's no place like home|1
 The Wicked Witch|I'm melting! Green and cackling|1
 Willy Wonka|Chocolate factory owner, golden tickets|1
 Oompa Loompas|Orange singing factory workers|2
 The Grinch|Stole Christmas, heart grew three sizes|1
-Cat in the Hat|Striped-hat troublemaker cat|1
+Cat in the Hat|Striped-headwear troublemaker, Dr. Seuss, red bow tie|1
 Pinocchio|Wooden boy whose nose grows when he lies|1
 Robin Hood|Robs from the rich, gives to the poor|1
 King Arthur|Pulled the sword from the stone|2
@@ -336,7 +336,7 @@ Captain Ahab|Obsessed with a white whale|3
 Holden Caulfield|Hates phonies, Catcher in the Rye|4
 Mr. Darcy|Proud, rich and brooding in Pride and Prejudice|2
 Matilda|Bookish girl with telekinesis|2
-Paddington Bear|Marmalade-loving bear from Peru|1
+Paddington Bear|Marmalade-loving, from Peru, blue coat and red headwear|1
 Wednesday Addams|Deadpan goth girl, Thing's friend|1
 Eleven|Telekinetic girl who loves Eggos|1
 Steve Harrington|Stranger Things hair, babysitter with a bat|2
@@ -364,11 +364,11 @@ Rachel Green|Fashion-loving Friend, iconic hair|1
 Kermit the Frog|It's not easy being green, sips tea|1
 Miss Piggy|Hi-yah! Diva pig who loves Kermit|1
 Elmo|Furry red monster, tickle me|1
-Cookie Monster|Me want cookie! Om nom nom|1
+Cookie Monster|Me want biscuit! Om nom nom, blue Sesame Street furball|1
 Big Bird|Tall yellow Sesame Street resident|1
 Oscar the Grouch|Lives in a trash can|1
 Barbie|Iconic doll, Dreamhouse|1
-Ken|Just Ken, beach is his job|1
+Ken|Barbie's boyfriend, beach is his job, Ryan Gosling|1
 Indiana Jones|Archaeologist with a whip, hates snakes|1
 James Bond|Shaken not stirred, 007|1
 Forrest Gump|Life is like a box of chocolates|1
@@ -395,20 +395,20 @@ Totoro|Giant fluffy forest spirit, cat bus|2
 Naruto|Ninja who wants to be Hokage, believe it|1
 Goku|Saiyan with spiky hair, Kamehameha|1
 Luffy|Rubber pirate with a straw hat|2
-Sailor Moon|Moon prism power, schoolgirl hero|2
+Sailor Moon|Prism power, schoolgirl hero, crescent-wearing Usagi|2
 Hello Kitty|Mouthless white cat with a bow|1
-Shadow the Hedgehog|Edgy black hedgehog, chaos control|3
-Spider-Gwen|Ghost-Spider, ballet shoes, drummer|3
+Shadow the Hedgehog|Edgy black spiky speedster, chaos control, Sonic's rival|3
+Spider-Gwen|Ghost-hero in a hood, ballet shoes, drummer, Stacy from another universe|3
 Miles Morales|Brooklyn Spider-Man, leap of faith|2
 Ash from Evil Dead|Chainsaw hand, groovy|4
 Lisa Simpson|Saxophone-playing genius|1
 Velma|Jinkies! Lost her glasses again|1
 Dexter|Boy genius with a secret lab|3
 Johnny Bravo|Pompadour, flexes, man I'm pretty|3
-Jake the Dog|Stretchy dog, Adventure Time|2
+Jake the Dog|Stretchy yellow canine, Adventure Time, Finn's buddy|2
 Finn the Human|Adventure Time hero with a bear hat|2
 Bluey|Blue heeler puppy who plays pretend|1
-Peppa Pig|Snorting British pig, muddy puddles|1
+Peppa Pig|Snorting British oinker, muddy puddles, George's sister|1
 Dora the Explorer|Backpack, Swiper no swiping|1
 Bob the Builder|Can we fix it? Yes we can!|1
 Thomas the Tank Engine|Blue train with a face|1
@@ -436,7 +436,7 @@ Malcolm X|By any means necessary|2
 Nelson Mandela|27 years in prison, South Africa's president|1
 Mahatma Gandhi|Salt march, nonviolent resistance|1
 Mother Teresa|Nun who helped the poor in Kolkata|1
-Princess Diana|People's princess, Lady Di|1
+Princess Diana|People's royal, Lady Di, Charles' first wife, Harry's mom|1
 Queen Elizabeth II|Longest-reigning British monarch, corgis|1
 King Charles III|Current British king, plant whisperer|2
 King Henry VIII|Six wives, divorced beheaded died|1
@@ -467,7 +467,7 @@ Isaac Newton|Apple fell on his head, gravity|1
 Galileo Galilei|Telescope, Earth goes around the Sun|1
 Charles Darwin|Evolution, finches, Galápagos|1
 Marie Curie|Radioactivity, two Nobel Prizes|1
-Nikola Tesla|AC electricity, Tesla coil, pigeons|1
+Nikola Tesla|AC electricity, famous coil, loved pigeons, Serbian-American inventor|1
 Thomas Edison|Light bulb, 1% inspiration|1
 Alexander Graham Bell|Invented the telephone|1
 Stephen Hawking|Black holes, wheelchair, A Brief History of Time|1
@@ -547,19 +547,19 @@ Moses|Parted the Red Sea, Ten Commandments|1
 Noah|Built an ark, two of every animal|1
 Saint Patrick|Drove snakes out of Ireland, shamrock|1
 Saint Nicholas|Gift-giving bishop who became Santa|2
-Pope Francis|Argentine pope, first from the Americas|2
+Pope Francis|Argentine pontiff, first from the Americas, Jesuit, Vatican|2
 Dalai Lama|Tibetan Buddhist leader, always smiling|2
 Sun Tzu|The Art of War|2
 Montezuma|Aztec emperor, his revenge|3
-Shaka Zulu|Warrior king of the Zulu|3
+Shaka Zulu|Warrior king of southern Africa, Mfecane, Natal|3
 Robert Oppenheimer|Father of the atomic bomb|1
 Jane Goodall|Lived with chimpanzees|2
 Rachel Carson|Silent Spring, environmental movement|4
 ` },
 
 sports: { label: "Sports Legends", emoji: "🏆", items: `
-Michael Jordan|Chicago Bulls, six rings, Air Jordans|1
-LeBron James|King James, Lakers, Taco Tuesday|1
+Michael Jordan|Chicago Bulls, six rings, Air sneakers, Space Jam|1
+LeBron James|The King, Lakers, Taco Tuesday, Cavaliers|1
 Kobe Bryant|Black Mamba, Lakers, 81 points|1
 Stephen Curry|Splash brother, deep threes, Warriors|1
 Shaquille O'Neal|Shaq, giant center, Inside the NBA|1
@@ -593,7 +593,7 @@ Diego Maradona|Hand of God goal|2
 Erling Haaland|Norwegian goal machine, Man City|2
 Megan Rapinoe|USWNT, purple hair, arms spread|2
 Alex Morgan|USWNT striker, tea-sipping celebration|3
-Usain Bolt|Fastest man alive, lightning bolt pose|1
+Usain Bolt|Fastest man alive, lightning pose, Jamaican sprinter|1
 Michael Phelps|23 Olympic golds, swimmer|1
 Simone Biles|Gymnastics GOAT, moves named after her|1
 Katie Ledecky|Distance swimming dominator|3
@@ -607,12 +607,12 @@ Alex Ovechkin|Russian goal scorer, Capitals|3
 Derek Jeter|Yankees shortstop, The Captain|2
 Shohei Ohtani|Two-way Japanese baseball superstar|1
 Aaron Judge|Yankees slugger, all rise|2
-Mike Tyson|Iron Mike, bit an ear|1
+Mike Tyson|Iron one, bit an ear, heavyweight boxer, face tattoo|1
 Floyd Mayweather|Money, undefeated boxer|2
 Conor McGregor|Notorious Irish UFC fighter|1
 Ronda Rousey|UFC champion turned WWE|2
 John Cena|You can't see me, wrestler-actor|1
-Hulk Hogan|Hulkamania, ripped shirts|1
+Hulk Hogan|Brother!, ripped shirts, wrestling legend, handlebar mustache|1
 The Undertaker|Deadman, WrestleMania streak|2
 Stone Cold Steve Austin|Beer-chugging wrestler, 3:16|2
 Lewis Hamilton|Seven-time F1 champ, Ferrari|2
@@ -649,25 +649,25 @@ Pete Rose|Hit king, banned from baseball|4
 
 internet: { label: "Internet & Memes", emoji: "📱", items: `
 Rickroll|Never gonna give you up|1
-Grumpy Cat|Permanently frowning internet cat|1
+Grumpy Cat|Permanently frowning internet feline|1
 Doge|Shiba Inu, much wow, such meme|1
-Nyan Cat|Pop-Tart cat with a rainbow trail|2
+Nyan Cat|Pop-Tart-bodied meme with a rainbow trail, loops forever|2
 Distracted Boyfriend|Guy turns to look at another woman|1
 This Is Fine|Dog in a burning room sipping coffee|1
 Harambe|Gorilla meme, dicks out|2
-Hide the Pain Harold|Old man smiling through pain|2
-Woman Yelling at a Cat|Cat at a dinner table with salad|1
-Pepe the Frog|Feels good man, green frog|2
+Hide the Pain Harold|Old man grinning through agony, stock photo meme|2
+Woman Yelling at a Cat|Feline at a dinner table with salad, Real Housewives meme|1
+Pepe the Frog|Feels good man, green amphibian|2
 Shrek is Love|Ogre memes forever|3
-Charlie Bit My Finger|Ouch, Charlie! Toddler video|2
+Charlie Bit My Finger|Ouch! That really hurt! Toddler video, British brothers|2
 Gangnam Style|Psy's horse-riding dance|1
 Harlem Shake|Everyone goes crazy after the drop|2
 Ice Bucket Challenge|Cold water for ALS|1
 Mannequin Challenge|Everyone frozen while camera moves|2
-Bottle Flip|Land the water bottle upright|1
+Bottle Flip|Land the water container upright, 2016 trend|1
 Floss Dance|Swinging arms around your hips|1
 Dab|Sneeze into your elbow move|1
-Skibidi Toilet|Singing heads popping out of toilets|1
+Skibidi Toilet|Singing heads popping out of commodes|1
 Rizz|Charisma, unspoken game|1
 Sigma|Lone wolf grindset|2
 Gyatt|Exclaim when you see a big behind|2
@@ -680,34 +680,34 @@ Main Character Energy|Acting like the star of the movie|2
 NPC|Background character, no thoughts|1
 Touch Grass|Go outside, you've been online too long|1
 Ratio|Reply gets more likes than the post|2
-Sus|Suspicious, from Among Us|1
+Sus|Shady, from Among Us, impostor|1
 Among Us|Find the impostor in the spaceship|1
 Fortnite|Battle royale with dances and building|1
 Minecraft|Block game, mine and craft|1
 Roblox|Kids' game platform, robux|1
 Wordle|Daily five-letter word game, green squares|1
 Flappy Bird|Tap to flap through pipes, removed|2
-Angry Birds|Slingshot birds at green pigs|1
+Angry Birds|Slingshot flying creatures at green pigs|1
 Candy Crush|Match-three sweets, lives|1
-Pokémon Go|Catching Pokémon outside on your phone|1
-Club Penguin|Childhood penguin MMO, puffles|2
+Pokémon Go|Catching creatures outside on your phone, Niantic, 2016|1
+Club Penguin|Childhood Disney MMO, waddling, puffles|2
 Webkinz|Plushies with online pets|3
 Neopets|Virtual pets from the 2000s|3
 Vine|Six-second videos, RIP|2
 Grimace Shake|Purple McDonald's drink, fake deaths|2
 Roman Empire|What men think about every day|2
-Girl Dinner|A plate of snacks counts as dinner|2
+Girl Dinner|A plate of snacks counts as an evening meal, 2023 trend|2
 Stanley Cup Craze|Giant tumbler everyone fought over|2
 Labubu|Toothy plush monster on every bag|1
 Hawk Tuah|Viral spit-on-that-thing girl|2
 Moo Deng|Bouncy pygmy hippo from Thailand|2
-Pesto the Penguin|Giant baby penguin at an aquarium|3
+Pesto the Penguin|Giant fluffy baby flightless bird at Sea Life Melbourne|3
 Chill Guy|Dog in a sweater, lowkey|2
 Mewing|Jawline tongue posture, shh|2
 Looksmaxxing|Trying to maximize your appearance|2
-Aura Points|Coolness score, minus 1000 aura|2
+Aura Points|Coolness score, minus 1000, gained or lost for vibes|2
 Fanum Tax|Stealing a bite of your friend's food|2
-Bombastic Side Eye|Criminal offensive side eye|3
+Bombastic Side Eye|Criminal offensive glance, judgy TikTok look|3
 Very Demure Very Mindful|How you act at work|2
 Brat Summer|Lime-green chaotic party energy|2
 Italian Brainrot|Ballerina Cappuccina, Tralalero|1
@@ -724,37 +724,37 @@ Yanny or Laurel|Audio clip that split the internet|2
 Leave Britney Alone|Crying emotional fan video|3
 Damn Daniel|Back at it again with the white Vans|2
 Dramatic Chipmunk|Turns its head with suspense music|3
-Keyboard Cat|Play him off, Keyboard Cat|3
+Keyboard Cat|Play him off, 2007 piano-playing meme, Fatso|3
 Success Kid|Toddler fist pump on the beach|2
 Bad Luck Brian|Unlucky school photo kid|3
 Kombucha Girl|Unsure face after a sip|3
-Salt Bae|Sprinkles salt off his elbow|1
+Salt Bae|Sprinkles seasoning off his elbow, Turkish chef, sunglasses|1
 Big Chungus|Chunky Bugs Bunny|2
 Ugandan Knuckles|Do you know da wae|3
 Dat Boi|Frog on a unicycle, o shit waddup|3
 Trollface|Problem? Grinning face|2
 Wojak|Simple bald guy feels drawing|3
 Stonks|Meme man in front of a stock chart|2
-Galaxy Brain|Increasingly glowing brain levels|3
+Galaxy Brain|Increasingly glowing intellect levels, cosmic ascension meme|3
 Surprised Pikachu|Shocked yellow mouse face|1
 Drakeposting|Drake no, Drake yes|1
-Expanding Brain|Brain gets bigger as ideas get dumber|3
-Two Buttons|Sweating over which button to press|2
+Expanding Brain|Mind gets bigger as ideas get dumber, glowing four-panel meme|3
+Two Buttons|Sweating over a pair of impossible choices, cartoon hero mopping his brow|2
 Change My Mind|Man at a table with a sign|2
 Is This a Pigeon|Anime guy misidentifies a butterfly|3
-Spider-Man Pointing|Two Spider-Men point at each other|2
-Gru's Plan|Four-panel plan backfires|3
+Spider-Man Pointing|Two web-slingers point at each other, 1967 cartoon|2
+Gru's Plan|Four-panel scheme backfires, Despicable Me villain|3
 Bernie's Mittens|Senator sitting cross-armed at inauguration|2
 ` },
 
 things: { label: "Things, Places & Ideas", emoji: "🗺️", items: `
 Eiffel Tower|Iron lattice landmark in Paris|1
 Statue of Liberty|Green lady with a torch in New York|1
-Great Wall of China|Very long ancient wall|1
+Great Wall of China|Very long ancient barrier, not actually visible from space, Beijing|1
 Pyramids of Giza|Egyptian pharaoh tombs|1
 Taj Mahal|White marble mausoleum in India|1
 Colosseum|Roman gladiator arena|1
-Leaning Tower of Pisa|Famously tilted Italian tower|1
+Leaning Tower of Pisa|Famously tilted Italian campanile, Galileo, Tuscany|1
 Big Ben|London clock tower|1
 Stonehenge|Mysterious ancient stone circle in England|1
 Mount Rushmore|Four presidents carved in rock|1
@@ -764,7 +764,7 @@ Mount Everest|World's tallest mountain|1
 Machu Picchu|Inca citadel in the Andes|2
 Christ the Redeemer|Statue with open arms over Rio|2
 Sydney Opera House|Sail-shaped building in Australia|1
-Golden Gate Bridge|Red suspension bridge in San Francisco|1
+Golden Gate Bridge|Red suspension span in San Francisco|1
 Times Square|Neon billboards in NYC, ball drop|1
 Las Vegas|Sin City, what happens there stays there|1
 Hollywood Sign|Big white letters on a hill in LA|1
@@ -775,7 +775,7 @@ Bermuda Triangle|Where ships and planes vanish|1
 Atlantis|Lost city under the sea|1
 North Pole|Santa's workshop, top of the world|1
 Antarctica|Frozen continent with penguins|1
-Sahara Desert|Largest hot desert, in Africa|1
+Sahara Desert|Largest hot expanse of dunes, in Africa, camels|1
 Amazon Rainforest|Giant jungle in South America|1
 Mars|The red planet|1
 The Moon|Earth's satellite, made of cheese?|1
@@ -795,7 +795,7 @@ Fidget Spinner|Spinning gadget craze of 2017|1
 Tamagotchi|Pocket pet that died if ignored|2
 Lava Lamp|Bubbling groovy light|2
 Mood Ring|Changes color with your feelings|2
-Pet Rock|Literally a rock as a pet|3
+Pet Rock|Literally a stone as a companion, 1970s fad, Gary Dahl|3
 Slinky|Spring toy that walks down stairs|1
 Etch A Sketch|Red frame, two knobs, shake to erase|2
 Magic 8 Ball|Ask again later|1
@@ -818,7 +818,7 @@ The Tooth Fairy|Swaps teeth for money|1
 Santa Claus|Ho ho ho, chimney, North Pole|1
 Easter Bunny|Hides eggs|1
 Bigfoot|Big hairy forest creature, blurry photos|1
-Loch Ness Monster|Nessie in a Scottish lake|1
+Loch Ness Monster|Scottish lake cryptid, Highlands, plesiosaur sightings|1
 Mothman|Red-eyed winged cryptid of West Virginia|3
 Chupacabra|Goat-sucking cryptid|3
 Unicorn|Horse with one horn|1
@@ -849,7 +849,7 @@ Group Chat|Where friends plan things and nothing happens|1
 Left on Read|They saw it and didn't reply|1
 Ghosting|Disappearing without explanation|1
 Situationship|More than friends, less than dating|2
-Friend Zone|They only see you as a friend|1
+Friend Zone|They only see you as a buddy, romantic rejection|1
 Third Wheel|Tagging along with a couple|1
 FOMO|Fear of missing out|1
 Procrastination|Doing it later, always later|1
@@ -865,7 +865,7 @@ Goosebumps|Skin bumps when cold or scared|1
 Hiccups|Hic! Involuntary diaphragm spasms|1
 Sleepwalking|Walking around while asleep|1
 Sleep Paralysis|Awake but can't move|2
-Lucid Dreaming|Knowing you're dreaming|2
+Lucid Dreaming|Knowing you're asleep, control your night visions|2
 Midlife Crisis|Buys a red sports car at 45|2
 Senioritis|Seniors losing motivation|2
 Pop Quiz|Surprise test|1
@@ -889,11 +889,11 @@ Traffic Jam|Bumper to bumper|1
 Parallel Parking|Backing into a tight spot|1
 Speed Bump|Slows you down on the road|1
 Roller Coaster|Loops, drops, screams|1
-Ferris Wheel|Giant rotating wheel ride|1
+Ferris Wheel|Giant rotating ride at a carnival, Navy Pier, London Eye|1
 Haunted House|Spooky walk-through attraction|1
 Escape Room|Solve puzzles to get out|1
 Karaoke|Singing badly into a mic|1
-Talent Show|Showing off your skills on stage|1
+Talent Show|Singers, dancers and magicians compete on stage, Simon Cowell|1
 Sleepover|Pillow fights and truth or dare|1
 Truth or Dare|Party game with confessions|1
 Spin the Bottle|Kissing game in a circle|2
@@ -905,8 +905,8 @@ Thumb War|One two three four, I declare a...|2
 Hot Potato|Pass it before the music stops|1
 Piñata|Candy-filled figure you whack|1
 Birthday Cake|Candles, make a wish|1
-Surprise Party|Everyone yells SURPRISE|1
-Baby Shower|Gifts before the baby arrives|2
+Surprise Party|Everyone jumps out when you walk in, hidden guests|1
+Baby Shower|Gifts before the newborn arrives, pink or blue|2
 Bachelor Party|Last night before marriage|2
 Wedding|I do! Rings and cake|1
 Honeymoon|Trip after the wedding|1
@@ -920,7 +920,7 @@ Black Cat|Bad luck if it crosses your path|1
 Broken Mirror|Seven years bad luck|1
 Friday the 13th|Unlucky day|1
 Groundhog Day|Shadow means six more weeks of winter|2
-April Fools' Day|Prank day|1
+April Fools' Day|Prank holiday, 1st of the fourth month, whoopee cushions|1
 Halloween|Costumes and candy, Oct 31|1
 Thanksgiving|Turkey, family, gratitude|1
 New Year's Eve|Countdown and kiss at midnight|1
@@ -933,7 +933,7 @@ Met Gala|Fashion's biggest night, themed outfits|1
 The Oscars|Movie awards, golden statue|1
 Grammys|Music awards, gramophone trophy|1
 Coachella|California music festival, flower crowns|1
-Comic-Con|Nerd convention, cosplay|1
+Comic-Con|Nerd gathering, cosplay, San Diego, Marvel panels|1
 Black Friday|Shopping frenzy after Thanksgiving|1
 Tax Day|April 15 in the US|2
 Daylight Saving Time|Spring forward, fall back|2
@@ -956,7 +956,7 @@ Artificial Intelligence|Computers that think|1
 Robot|Beep boop mechanical helper|1
 Cryptocurrency|Digital money, Bitcoin|1
 Virtual Reality|Headset puts you in another world|1
-Self-Driving Car|Car with no driver|1
+Self-Driving Car|Autonomous vehicle with no one at the wheel, Waymo, Tesla autopilot|1
 Smartphone|Pocket computer|1
 Autocorrect|Ducking phone|1
 Captcha|Prove you're not a robot|2
@@ -970,7 +970,7 @@ Binge-Watching|Whole season in one night|1
 Spoiler Alert|Don't tell me the ending|1
 Plot Twist|Didn't see that coming|1
 Cliffhanger|Ends right at the exciting part|1
-Laugh Track|Canned sitcom laughter|2
+Laugh Track|Canned sitcom chuckles, recorded audience|2
 Infomercial|But wait, there's more!|2
 Elevator Music|Bland background tunes|2
 Mullet|Business in the front, party in the back|1
@@ -991,10 +991,10 @@ High Five|Up top!|1
 Fist Bump|Knuckles touch|1
 Secret Handshake|Complicated greeting only you two know|1
 Jazz Hands|Wiggly fingers, spread palms|1
-Air Guitar|Shredding an invisible guitar|1
+Air Guitar|Shredding an invisible six-string, rock out without sound|1
 Moonwalk|Gliding backward dance|1
 Worm|Dance where you roll on the floor|2
-Macarena|Hey Macarena! Arm-routine dance|1
+Macarena|Hey! Arm-routine dance, 90s wedding staple, Los del Rio|1
 Chicken Dance|Flap your wings at weddings|1
 Conga Line|Hands on hips, snaking dance|2
 Limbo|How low can you go|1
@@ -1006,7 +1006,7 @@ Meditation|Om, clearing your mind|1
 Cartwheel|Sideways hand-spring|1
 Belly Flop|Painful dive|1
 Cannonball|Jump in to make a big splash|1
-Snow Angel|Flap arms and legs in snow|1
+Snow Angel|Flap arms and legs lying on your back in white powder|1
 Sandcastle|Beach building with buckets|1
 Campfire|S'mores and ghost stories|1
 Treehouse|No girls/boys allowed fort|1
@@ -1046,7 +1046,7 @@ Paper Airplane|Folded flyer in class|1
 Spitball|Wet paper shot through a straw|2
 Paper Fortune Teller|Cootie catcher|2
 Friendship Bracelet|Woven string gift|1
-Snow Globe|Shake it for snow|1
+Snow Globe|Shake it for flurries, glass dome, miniature village|1
 Disco Ball|Mirrored sphere|1
 Jukebox|Coin-op music machine|2
 Vinyl Record|Spinning black disc music|1
@@ -1064,7 +1064,7 @@ Compass|Always points north|1
 Treasure Map|X marks the spot|1
 Pirate Ship|Jolly Roger flag|1
 Submarine|Underwater boat, periscope|1
-Hot Air Balloon|Basket under a giant colorful balloon|1
+Hot Air Balloon|Basket under a giant colorful envelope of warm gas, Cappadocia|1
 Zeppelin|Giant cigar-shaped airship|3
 Rocket Ship|3, 2, 1, blast off|1
 UFO|Flying saucer|1
@@ -1084,7 +1084,7 @@ Love Language|Words of affirmation, quality time|2
 Red Flag|Warning sign in a partner|1
 Ick|Sudden turn-off|2
 Crush|Someone you secretly like|1
-First Kiss|Your very first smooch|1
+First Kiss|Your very 1st smooch, butterflies, nervous teens|1
 Blind Date|Meeting someone you've never seen|1
 Speed Dating|Rotate every few minutes|2
 Love Triangle|Three people, one heart|1
@@ -1136,7 +1136,7 @@ Venice|Gondolas and canals|1
 Dubai|Burj Khalifa, desert luxury|1
 Hawaii|Aloha, volcanoes, leis|1
 Texas|Everything's bigger here|1
-Florida|Disney World and Florida Man|1
+Florida|Disney World, Miami, Sunshine State, orange juice|1
 Alaska|Biggest US state, glaciers|1
 Australia|Kangaroos, Down Under|1
 Iceland|Land of fire and ice|2
@@ -1150,7 +1150,7 @@ Switzerland|Chocolate, watches, Alps|1
 Hogwarts|School of Witchcraft and Wizardry|1
 Narnia|World through a wardrobe|1
 Neverland|Where kids never grow up|1
-Gotham City|Batman's city|1
+Gotham City|Home of the Dark Knight, Joker's turf, DC|1
 Wakanda|Hidden African nation|1
 Middle-earth|Hobbits and elves live here|2
 Westeros|Seven Kingdoms, Iron Throne|2
@@ -1160,9 +1160,9 @@ Hundred Acre Wood|Pooh's forest|2
 Mushroom Kingdom|Mario's world|2
 Hyrule|Zelda's kingdom|3
 The Upside Down|Stranger Things' dark dimension|1
-Jurassic Park|Dinosaur theme park gone wrong|1
+Jurassic Park|Dinosaur theme attraction gone wrong, Hammond, clone T. rex|1
 Willy Wonka's Factory|Chocolate river|2
-Krusty Krab|Where the Krabby Patty is made|1
+Krusty Krab|Where the Patty is made, SpongeBob's workplace, Bikini Bottom|1
 Central Perk|Friends' coffee shop|2
 Dunder Mifflin|Paper company in Scranton|2
 Death Star|That's no moon|1
@@ -1190,7 +1190,7 @@ Bagel|Boiled bread with a hole|1
 Avocado Toast|Why millennials can't buy houses|1
 Pancakes|Flapjacks with syrup|1
 Waffles|Grid-shaped breakfast|1
-Cereal|Milk first or cereal first?|1
+Cereal|Milk 1st or flakes 1st? Breakfast bowl, Cheerios|1
 Peanut Butter and Jelly|Classic lunchbox sandwich|1
 Grilled Cheese|Melty toasted sandwich|1
 Caesar Salad|Romaine, croutons, anchovies|2
@@ -1204,7 +1204,7 @@ Corn Dog|Fair food on a stick|1
 Funnel Cake|Fried dough with powdered sugar|2
 S'mores|Chocolate, marshmallow, graham cracker|1
 Ice Cream Sundae|Cherry on top|1
-Banana Split|Three scoops on a banana|2
+Banana Split|Three scoops in a yellow fruit boat, sundae, whipped cream and cherry|2
 Cupcake|Single-serving cake with frosting|1
 Donut|Fried ring with a hole|1
 Cheesecake|Creamy dessert on a crust|1
@@ -1243,7 +1243,7 @@ Doritos|Triangle cheese chips|1
 Pop-Tarts|Toaster pastry|1
 Lunchables|DIY cracker stacks|1
 Gushers|Fruit snacks that burst|2
-Fruit Roll-Up|Peel-off fruit sheet|1
+Fruit Roll-Up|Peel-off sheet of sugary snack, lunchbox treat, General Mills|1
 Twinkies|Indestructible cream cakes|2
 Oreo|Twist, lick, dunk|1
 Nutella|Hazelnut chocolate spread|1
@@ -1251,22 +1251,22 @@ Sriracha|Rooster-bottle hot sauce|2
 Ketchup|Tomato sauce, 57 on the bottle|1
 Mayonnaise|Polarizing white condiment|1
 Ranch Dressing|Dip everything in it|1
-Butter Board|Butter smeared on a board, TikTok trend|3
+Butter Board|Dairy spread smeared on a wooden platter, TikTok trend, Justine Doiron|3
 Charcuterie Board|Meats, cheeses, fancy crackers|2
 Girl Dinner Plate|Random snacks as a meal|2
 Thanksgiving Turkey|Big roasted bird|1
 Fortune Cookie|Message inside|1
-Birthday Cake Ice Cream|Sprinkles and cake bits|2
-Gingerbread House|Candy-decorated cookie house|1
-Candy Corn|Halloween's divisive candy|1
+Birthday Cake Ice Cream|Sprinkles and frosted sponge bits, dessert in a tub|2
+Gingerbread House|Candy-decorated holiday dwelling, Christmas, icing glue|1
+Candy Corn|Halloween's divisive tri-color sweet, yellow, orange, white|1
 Peeps|Marshmallow chicks at Easter|1
 Candy Cane|Striped peppermint hook|1
-Gummy Bears|Chewy bear candy|1
+Gummy Bears|Chewy gelatin teddies, Haribo|1
 Pop Rocks|Candy that crackles in your mouth|2
 Jawbreaker|Hard candy that takes forever|2
 Ring Pop|Candy jewelry|2
-Dubai Chocolate|Pistachio kunafa chocolate bar|2
-Crumbl Cookie|Giant weekly-rotating cookie|2
+Dubai Chocolate|Pistachio kunafa sweet bar, viral TikTok, Fix|2
+Crumbl Cookie|Giant weekly-rotating pink-box dessert, Utah, 4 flavors|2
 Chick-fil-A|My pleasure, closed Sundays|1
 Taco Bell|Run for the border, Baja Blast|1
 Chipotle|Guac is extra|1
@@ -1319,7 +1319,7 @@ Bat|Flying mammal, upside down|1
 Wolf|Howls at the moon|1
 Fox|What does it say?|1
 Bear|Hibernates, loves honey|1
-Polar Bear|White Arctic bear|1
+Polar Bear|White Arctic giant, Coca-Cola mascot, seal hunter|1
 Lion|King of the jungle|1
 Tiger|Striped big cat|1
 Cheetah|Fastest land animal|1
@@ -1397,12 +1397,12 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 बादशाह|डीजे वाले बाबू, रैपर|2|Badshah|DJ Waley Babu, rapper
 यो यो हनी सिंह|ब्लू आईज़, चार बोतल वोडका|1|Yo Yo Honey Singh|Blue Eyes, Char Bottle Vodka
 सिद्धू मूसेवाला|पंजाबी रैपर, थापी|3|Sidhu Moose Wala|Punjabi rapper, the thigh slap
-करण जौहर|कॉफ़ी विद करण, कुछ कुछ होता है|2|Karan Johar|Koffee with Karan, Kuch Kuch Hota Hai
+करण जौहर|कॉफ़ी वाला चैट शो, कुछ कुछ होता है के निर्देशक, धर्मा प्रोडक्शन्स|2|Karan Johar|Coffee chat show, director of Kuch Kuch Hota Hai, Dharma Productions
 सोनू निगम|कल हो ना हो, ठंडी आवाज़|3|Sonu Nigam|Kal Ho Naa Ho, the soothing voice
 कपिल शर्मा|कॉमेडी नाइट्स, बाबा जी का ठुल्लू|1|Kapil Sharma|Comedy Nights, Baba ji ka thullu
 भुवन बाम|बीबी की वाइन्स, टीटू मामा|2|Bhuvan Bam|BB Ki Vines, Titu Mama
 कैरीमिनाटी|यूट्यूब रोस्ट, चिल्लाने वाला गेमर|2|CarryMinati|YouTube roasts, the screaming gamer
-विराट कोहली|किंग कोहली, अनुष्का के पति, गुस्से वाला|1|Virat Kohli|King Kohli, Anushka's husband, the angry one
+विराट कोहली|किंग, अनुष्का के पति, गुस्से वाला, आरसीबी का रन मशीन|1|Virat Kohli|The King, Anushka's husband, short-tempered, RCB's run machine
 सचिन तेंदुलकर|क्रिकेट का भगवान, मास्टर ब्लास्टर|1|Sachin Tendulkar|God of Cricket, Master Blaster
 महेंद्र सिंह धोनी|कैप्टन कूल, हेलीकॉप्टर शॉट|1|MS Dhoni|Captain Cool, the helicopter shot
 रोहित शर्मा|हिटमैन, दोहरे शतक|1|Rohit Sharma|Hitman, double centuries
@@ -1412,14 +1412,14 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 हार्दिक पंड्या|ऑलराउंडर, स्टाइलिश हेयरकट|2|Hardik Pandya|All-rounder, stylish haircuts
 नीरज चोपड़ा|भाला फेंक, ओलंपिक गोल्ड|1|Neeraj Chopra|Javelin throw, Olympic gold
 पी. वी. सिंधु|बैडमिंटन, ओलंपिक मेडल|2|PV Sindhu|Badminton, Olympic medals
-मिल्खा सिंह|फ़्लाइंग सिख, भाग मिल्खा भाग|2|Milkha Singh|The Flying Sikh, Bhaag Milkha Bhaag
+मिल्खा सिंह|फ़्लाइंग सिख, 1960 रोम ओलंपिक का धावक, फ़रहान अख़्तर ने निभाया|2|Milkha Singh|The Flying Sikh, sprinter at the 1960 Rome Olympics, played by Farhan Akhtar
 सानिया मिर्ज़ा|टेनिस स्टार, हैदराबाद|3|Sania Mirza|Tennis star, Hyderabad
 मैरी कॉम|बॉक्सिंग चैंपियन, मणिपुर|3|Mary Kom|Boxing champion, Manipur
 महात्मा गांधी|बापू, चरखा, अहिंसा|1|Mahatma Gandhi|Bapu, the spinning wheel, non-violence
-जवाहरलाल नेहरू|चाचा नेहरू, पहले प्रधानमंत्री|1|Jawaharlal Nehru|Chacha Nehru, first Prime Minister
+जवाहरलाल नेहरू|चाचा, पहले प्रधानमंत्री, बच्चों के प्यारे, जैकेट में गुलाब|1|Jawaharlal Nehru|Chacha, first Prime Minister, loved by children, rose on his jacket
 भगत सिंह|इंक़लाब ज़िंदाबाद, युवा क्रांतिकारी|1|Bhagat Singh|Inquilab Zindabad, young revolutionary
 सुभाष चंद्र बोस|नेताजी, तुम मुझे ख़ून दो|2|Subhas Chandra Bose|Netaji, "Give me your blood"
-रानी लक्ष्मीबाई|झाँसी की रानी, पीठ पर बच्चा बाँधकर लड़ीं|2|Rani Lakshmibai|Queen of Jhansi, fought with a baby tied to her back
+रानी लक्ष्मीबाई|झाँसी की शेरनी, पीठ पर बच्चा बाँधकर लड़ीं, 1857|2|Rani Lakshmibai|The lioness of Jhansi, fought with her baby tied to her back, 1857
 सरदार पटेल|लौह पुरुष, स्टैच्यू ऑफ़ यूनिटी|2|Sardar Patel|The Iron Man, Statue of Unity
 डॉ. बी. आर. आंबेडकर|संविधान के निर्माता|2|B. R. Ambedkar|Architect of the Constitution
 ए. पी. जे. अब्दुल कलाम|मिसाइल मैन, जनता के राष्ट्रपति|1|APJ Abdul Kalam|The Missile Man, the People's President
@@ -1454,8 +1454,8 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 शकुनि|पासों का खिलाड़ी, धोखेबाज़ मामा|3|Shakuni|The dice player, the scheming uncle
 एकलव्य|अंगूठा गुरुदक्षिणा में दिया|3|Eklavya|Gave his thumb as a fee to his guru
 गब्बर सिंह|कितने आदमी थे?|1|Gabbar Singh|"How many men were there?"
-मोगैम्बो|मोगैम्बो ख़ुश हुआ|2|Mogambo|"Mogambo is pleased"
-राज और सिमरन|जा सिमरन जा, जी ले अपनी ज़िंदगी|1|Raj aur Simran|"Go Simran, go live your life"
+मोगैम्बो|मिस्टर इंडिया का खलनायक, अमरीश पुरी, 'ख़ुश हुआ'|2|Mogambo|Villain of Mr. India, Amrish Puri, 'khush hua'
+राज और सिमरन|पलट, पलट! DDLJ की जोड़ी, सरसों के खेत, जी ले अपनी ज़िंदगी|1|Raj aur Simran|Palat, palat! The DDLJ couple, mustard fields, go live your life
 मुन्ना भाई|जादू की झप्पी, सर्किट का दोस्त|1|Munna Bhai|The magic hug, Circuit's buddy
 सर्किट|मुन्ना भाई का साथी|2|Circuit|Munna Bhai's sidekick
 रैंचो|आल इज़ वेल, थ्री इडियट्स|1|Rancho|All is well, 3 Idiots
@@ -1467,7 +1467,7 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 कबीर सिंह|ग़ुस्सैल डॉक्टर|2|Kabir Singh|The hot-headed doctor
 गीत|मैं अपनी फ़ेवरेट हूँ, जब वी मेट|2|Geet|"I'm my own favourite", Jab We Met
 पू|कौन है जिसने मुड़ के नहीं देखा|2|Poo|"Who is the one who didn't turn to look?"
-बाबूराव|ये बाबूराव का स्टाइल है, हेरा फेरी|1|Baburao|"This is Baburao's style", Hera Pheri
+बाबूराव|धोती-चश्मे वाला, हेरा फेरी, परेश रावल का किरदार|1|Baburao|Dhoti and glasses, Hera Pheri, Paresh Rawal's character
 राजू|हेरा फेरी का ठग|3|Raju|The conman of Hera Pheri
 कालीन भैया|मिर्ज़ापुर का बाहुबली|2|Kaleen Bhaiya|The strongman of Mirzapur
 गुड्डू पंडित|मिर्ज़ापुर, गुस्से वाला भाई|3|Guddu Pandit|Mirzapur, the hot-headed brother
@@ -1475,7 +1475,7 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 दया बेन|हे माँ माताजी, गरबा|2|Daya Ben|"Hey Maa Mataji", garba
 मोटू पतलू|फ़ुरफ़ुरी नगर, समोसे|2|Motu Patlu|Furfuri Nagar, samosas
 छोटा भीम|लड्डू खाकर ताक़त, ढोलकपुर|1|Chhota Bheem|Gets strong from laddoos, Dholakpur
-शक्तिमान|सॉरी शक्तिमान, घूमता सुपरहीरो|1|Shaktimaan|"Sorry Shaktimaan", the spinning superhero
+शक्तिमान|गंगाधर, गोल घूमता सुपरहीरो, 90s का दूरदर्शन हीरो|1|Shaktimaan|Gangadhar, the spinning superhero, 90s Doordarshan hero
 क्रिश|नक़ाब वाला भारतीय सुपरहीरो|2|Krrish|Masked Indian superhero
 जादू|कोई मिल गया का एलियन|2|Jaadu|The alien from Koi... Mil Gaya
 मिस्टर इंडिया|घड़ी पहनो, ग़ायब हो जाओ|2|Mr. India|Put on the watch, turn invisible
@@ -1493,10 +1493,10 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 कल हो ना हो|हर पल यहाँ जी भर जियो|2|Kal Ho Naa Ho|Live every moment to the fullest
 चेन्नई एक्सप्रेस|लुंगी डांस|2|Chennai Express|Lungi Dance
 गली बॉय|अपना टाइम आएगा|2|Gully Boy|Apna Time Aayega
-स्त्री|ओ स्त्री कल आना|2|Stree|"O Stree, come tomorrow"
+स्त्री|दीवारों पर लिखा 'कल आना', चंदेरी का भूत, राजकुमार राव की फ़िल्म|2|Stree|'Come tomorrow' written on the walls, the ghost of Chanderi, Rajkummar Rao film
 तारे ज़मीन पर|डिस्लेक्सिया वाला बच्चा, ईशान|2|Taare Zameen Par|The boy with dyslexia, Ishaan
 कौन बनेगा करोड़पति|लॉक किया जाए?|1|Kaun Banega Crorepati|"Shall we lock it?"
-बिग बॉस|बिग बॉस चाहते हैं, घर में झगड़े|1|Bigg Boss|"Bigg Boss wants...", fights in the house
+बिग बॉस|सलमान ख़ान का रियलिटी शो, बंद घर में झगड़े, कैमरे चौबीसों घंटे|1|Bigg Boss|Salman Khan's reality show, fights in a locked house, cameras 24/7
 तारक मेहता का उल्टा चश्मा|गोकुलधाम सोसाइटी|1|Taarak Mehta Ka Ooltah Chashmah|Gokuldham Society
 रामायण|दूरदर्शन, अरुण गोविल|2|Ramayan|Doordarshan, Arun Govil
 बिरयानी|दम पर पकी चावल की शान|1|Biryani|Rice cooked dum-style, the pride of the table
@@ -1504,14 +1504,14 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 पानी पूरी|गोलगप्पे, एक और भैया|1|Pani Puri|Golgappe, "one more, bhaiya"
 जलेबी|गोल-गोल रस वाली मिठाई|1|Jalebi|Round and round, dripping with syrup
 गुलाब जामुन|चाशनी में डूबे गोले|1|Gulab Jamun|Balls soaked in sugar syrup
-लड्डू|गणेश जी का प्रिय, मन में फूटे|1|Laddoo|Ganesh's favourite, "laddoos bursting in your heart"
-दाल मखनी|मक्खन वाली काली दाल|2|Dal Makhani|Black dal with butter
+लड्डू|गणेश जी का प्रिय, मन में फूटे|1|Laddoo|Ganesh's favourite sweet, what bursts in your heart when you're excited
+दाल मखनी|क्रीम वाली काली उड़द, पंजाबी, धीमी आँच पर पकी|2|Dal Makhani|Creamy black urad, Punjabi, slow-cooked
 बटर चिकन|मुर्ग मक्खनी, नान के साथ|1|Butter Chicken|Murgh makhani, served with naan
-छोले भटूरे|फूला हुआ भटूरा, मसालेदार छोले|1|Chole Bhature|Puffy bhatura, spicy chickpeas
+छोले भटूरे|फूली हुई तली रोटी, मसालेदार चने की करी, पंजाबी नाश्ता|1|Chole Bhature|Puffed fried bread, spicy chickpea curry, Punjabi breakfast
 डोसा|पतला कुरकुरा, साउथ इंडियन|1|Dosa|Thin and crispy, South Indian
 इडली|भाप में बने चावल के केक|1|Idli|Steamed rice cakes
 वड़ा पाव|मुंबई का बर्गर|1|Vada Pav|Mumbai's burger
-पाव भाजी|मक्खन में सेका पाव|1|Pav Bhaji|Bread toasted in butter
+पाव भाजी|मुंबई की सड़क का खाना, मक्खन में सेकी बन, मसालेदार मैश सब्ज़ी|1|Pav Bhaji|Mumbai street food, butter-toasted buns, spicy mashed vegetables
 मैगी|दो मिनट नूडल्स|1|Maggi|Two-minute noodles
 चाय|कटिंग, अदरक वाली|1|Chai|Cutting, with ginger
 लस्सी|दही का मीठा पेय|1|Lassi|Sweet yoghurt drink
@@ -1519,15 +1519,15 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 पराठा|आलू भरा, ऊपर मक्खन|1|Paratha|Stuffed with potato, butter on top
 खिचड़ी|बीमारी में खाना, दाल-चावल|1|Khichdi|Sick-day food, lentils and rice
 रसगुल्ला|बंगाल की स्पंजी मिठाई|1|Rasgulla|Bengal's spongy sweet
-पापड़|कुरकुरा, बेलते रहो|2|Papad|Crispy, "keep rolling the papad"
+पापड़|कुरकुरा, बेलते रहो|2|Papad|Crispy, "keep rolling it", thin and roasted
 अचार|आम या नींबू, नानी का बनाया|1|Achaar|Mango or lemon, made by grandma
 पान|मुँह लाल करने वाला पत्ता|2|Paan|The leaf that turns your mouth red
 दिवाली|दीये, पटाखे, लक्ष्मी पूजा|1|Diwali|Lamps, firecrackers, Lakshmi puja
-होली|रंग, गुझिया, बुरा न मानो|1|Holi|Colours, gujiya, "don't mind, it's Holi"
+होली|रंग, गुझिया, बुरा न मानो|1|Holi|Colours, gujiya, "bura na mano"
 रक्षाबंधन|बहन भाई को राखी बाँधती है|1|Raksha Bandhan|Sister ties a rakhi on her brother
 करवा चौथ|चाँद देखकर व्रत खोलना|2|Karva Chauth|Breaking the fast after seeing the moon
 नवरात्रि|नौ रातें, गरबा, डांडिया|1|Navratri|Nine nights, garba, dandiya
-ईद|सेवइयाँ, ईदी, चाँद|1|Eid|Sevaiyan, Eidi, the moon
+ईद|सेवइयाँ, बड़ों से मिलने वाले पैसे, चाँद|1|Eid|Sevaiyan, money gifts from elders, the moon
 गणेश चतुर्थी|गणपति बप्पा मोरया|1|Ganesh Chaturthi|Ganpati Bappa Morya
 भारतीय शादी|बारात, मेहंदी, संगीत|1|Indian Shaadi|Baraat, mehndi, sangeet
 मेहंदी|हाथों पर डिज़ाइन|1|Mehndi|Designs on the hands
@@ -1535,7 +1535,7 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 संगीत|शादी से पहले डांस की रात|2|Sangeet|The pre-wedding dance night
 ताजमहल|आगरा, प्यार की निशानी|1|Taj Mahal|Agra, a symbol of love
 लाल क़िला|दिल्ली, 15 अगस्त का भाषण|1|Lal Qila|Delhi, the 15 August speech
-क़ुतुब मीनार|दिल्ली की ऊँची मीनार|2|Qutub Minar|Delhi's tall minaret
+क़ुतुब मीनार|दिल्ली की ऊँची इमारत, महरौली में, लाल बलुआ पत्थर|2|Qutub Minar|Tall Delhi monument, in Mehrauli, red sandstone
 इंडिया गेट|दिल्ली का युद्ध स्मारक|1|India Gate|Delhi's war memorial
 गेटवे ऑफ़ इंडिया|मुंबई का समुद्र किनारा दरवाज़ा|2|Gateway of India|Mumbai's seaside archway
 गंगा|सबसे पवित्र नदी|1|Ganga|The holiest river
@@ -1551,10 +1551,10 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 बॉलीवुड|हिंदी फ़िल्म इंडस्ट्री|1|Bollywood|The Hindi film industry
 क्रिकेट|भारत का असली धर्म|1|Cricket|India's real religion
 आईपीएल|चौके, छक्के, चीयरलीडर्स|1|IPL|Fours, sixes, cheerleaders
-कबड्डी|साँस रोककर कबड्डी-कबड्डी|1|Kabaddi|"Kabaddi-kabaddi" in one breath
+कबड्डी|साँस रोककर बार-बार एक ही बोल, पंजा मारकर भागना, प्रो लीग का खेल|1|Kabaddi|Hold your breath and chant one word, tag and run, Pro League sport
 गिल्ली डंडा|गली का पुराना खेल|2|Gilli Danda|An old street game
 लूडो|साँप वाला नहीं, चार रंग|1|Ludo|Not the snake one, four colours
-साँप सीढ़ी|सीढ़ी चढ़ो, साँप से फिसलो|1|Saanp Seedhi|Climb the ladders, slide down the snakes
+साँप सीढ़ी|बोर्ड गेम, पासा फेंको, ऊपर चढ़ो, नीचे फिसलो, 100 तक|1|Saanp Seedhi|Board game, roll the dice, climb up, slide down, race to 100
 अंताक्षरी|गाने का आख़िरी अक्षर|1|Antakshari|The last letter of the song
 कैरम|स्ट्राइकर, क्वीन|1|Carrom|Striker, queen
 पतंगबाज़ी|मकर संक्रांति, पेंच लड़ाओ|1|Patangbazi|Makar Sankranti, cut the other kite
@@ -1572,13 +1572,13 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 नज़र लगना|काला टीका लगाओ|2|Nazar Lagna|Put on a black dot to ward it off
 शर्मा जी का बेटा|हर चीज़ में तुमसे बेहतर|1|Sharma ji ka Beta|Better than you at everything
 रिश्ते वाली आंटी|बेटा, शादी कब करोगे?|1|Rishte wali Aunty|"Beta, when are you getting married?"
-बोर्ड एग्ज़ाम|दसवीं-बारहवीं का डर|1|Board Exam|Fear of the 10th and 12th exams
+बोर्ड एग्ज़ाम|दसवीं-बारहवीं का डर|1|Board Exam|The big fear of 10th and 12th grade
 ट्यूशन|स्कूल के बाद फिर से पढ़ाई|1|Tuition|More studying after school
 आईआईटी|इंजीनियरिंग का सपना, जेईई|2|IIT|The engineering dream, JEE
 अरेंज्ड मैरिज|परिवार ढूँढता है रिश्ता|1|Arranged Marriage|The family finds the match
 लव मैरिज|पापा नहीं मानेंगे|1|Love Marriage|"Dad will never agree"
 सास बहू|टीवी सीरियल का झगड़ा|1|Saas Bahu|TV serial fights
-नागिन|सीरियल वाली साँप औरत, नागिन डांस|1|Naagin|Serial snake-woman, the naagin dance
+नागिन|इच्छाधारी, सीरियल वाली औरत, बीन पर डांस|1|Naagin|Shape-shifting TV serial woman, the snake-charmer flute dance
 भूत बंगला|पुराना डरावना घर|2|Bhoot Bangla|Old haunted house
 चुड़ैल|उल्टे पैर वाली भूतनी|2|Chudail|Ghost with backward feet
 जिन्न|चिराग़ से निकलता है|1|Jinn|Comes out of the lamp

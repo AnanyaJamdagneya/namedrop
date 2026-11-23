@@ -634,3 +634,20 @@ body.has-score .app { padding-top: 128px; }
 .polaroid figcaption b { display: block; font-family: var(--f-display); font-weight: 900; font-size: 1rem; text-transform: uppercase; line-height: 1; }
 .polaroid figcaption span { font-size: .7rem; color: var(--ink-dim); }
 .psave { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: rgba(28,24,48,.7); color: #fff; text-decoration: none; font-size: .9rem; }
+
+/* ---------------- Clue redaction, review additions, swipe ---------------- */
+.redact { display: inline-block; letter-spacing: -.1em; color: var(--ink-dim); opacity: .55; font-style: normal; }
+.ritem.added { box-shadow: inset 0 0 0 2px var(--mint); }
+.addrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.addchip { padding: 7px 12px; border-radius: 99px; border: 1px dashed var(--hair-2); background: rgba(255,255,255,.05); font-size: .86rem; font-weight: 600; color: var(--text); text-align: left; }
+.addchip small { font-family: var(--f-mono); font-size: .62rem; color: var(--faint); margin-left: 4px; }
+.addchip:hover { border-color: var(--mint); color: var(--mint); }
+.search { width: 100%; margin-top: 8px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--hair-2); background: rgba(0,0,0,.25); font-size: 16px; }
+.search:focus { outline: none; border-color: var(--amber); }
+.card-stage.swipeable { touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
+.card-stage.swipeable .ticket { transition: transform .35s var(--ease), opacity .35s var(--ease), box-shadow .2s; }
+.card-stage[data-lean="got"] .ticket { box-shadow: 0 0 0 3px var(--mint), 0 20px 50px -20px rgba(0,0,0,.6); }
+.card-stage[data-lean="skip"] .ticket { box-shadow: 0 0 0 3px var(--ember), 0 20px 50px -20px rgba(0,0,0,.6); }
+.swipe-hint { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.swipe-hint span:first-child { color: var(--ember); } .swipe-hint span:last-child { color: var(--mint); }
+details.more .toggle + .toggle { margin-top: 8px; }
