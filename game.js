@@ -6,8 +6,8 @@
   const CATS = Object.entries(window.BANK).map(([id, c]) => ({
     id, label: c.label, emoji: c.emoji, lang: c.lang || "en", extraOnly: !!c.extraOnly,
     cards: c.items.split("\n").map(s => s.trim()).filter(Boolean).map((line, i) => {
-      const [name, clue = "", pts = "2", roman = ""] = line.split("|").map(s => s.trim());
-      return { id: `${id}:${i}`, name, clue, roman, lang: c.lang || "en", pts: Math.min(4, Math.max(1, +pts || 2)), cat: id };
+      const [name, clue = "", pts = "2", roman = "", clueEn = ""] = line.split("|").map(s => s.trim());
+      return { id: `${id}:${i}`, name, clue, roman, clueEn, lang: c.lang || "en", pts: Math.min(4, Math.max(1, +pts || 2)), cat: id };
     })
   }));
   const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
@@ -149,7 +149,7 @@
         <span class="t-pts" data-p="${c.pts}">${c.pts}<small>PT${c.pts > 1 ? "S" : ""}</small></span></div>
       <div class="t-name ${c.name.length > 18 ? "long" : ""}">${esc(c.name)}</div>
       ${c.roman ? `<div class="t-roman ${c.name.length > 18 || c.roman.length > 18 ? "long" : ""}" lang="en">${esc(c.roman)}</div>` : ""}
-      <div class="t-clue ${c.clue.length > 90 ? "long-clue" : ""}">${c.clue ? esc(c.clue) : "&nbsp;"}</div>
+      <div class="t-clue ${c.clue.length > 90 ? "long-clue" : ""}">${c.clue ? esc(c.clue) : "&nbsp;"}${c.clueEn ? `<span class="t-clue-en" lang="en">${esc(c.clueEn)}</span>` : ""}</div>
       <div class="t-foot"><span>Namedrop</span><span>№ ${String(G ? G.deck.indexOf(c) + 1 : 0).padStart(3, "0")}</span></div>
     </div>`;
   };
@@ -448,7 +448,7 @@
       $h.innerHTML = hand.map((c, i) => `<button type="button" class="dcard ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}" aria-pressed="${picked.has(i)}">
         <span class="c"><span>${CAT[c.cat] ? CAT[c.cat].emoji + " " + esc(CAT[c.cat].label) : ""}</span><span>${c.pts}pt</span></span>
         <span class="n">${esc(c.name)}${c.roman ? `<small>${esc(c.roman)}</small>` : ""}</span>
-        ${c.clue ? `<span class="cl">${esc(c.clue)}</span>` : ""}<span class="tick">✓</span></button>`).join("");
+        ${c.clue ? `<span class="cl">${esc(c.clue)}${c.clueEn ? `<em lang="en">${esc(c.clueEn)}</em>` : ""}</span>` : ""}<span class="tick">✓</span></button>`).join("");
       const left = d.keep - picked.size;
       $k.disabled = left > 0;
       $k.textContent = left > 0 ? `Pick ${left} more` : `Keep these ${d.keep}`;
