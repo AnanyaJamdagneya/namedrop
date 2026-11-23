@@ -1,0 +1,27 @@
+# Namedrop
+
+> Namedrop is a free, browser-based party guessing game for groups sharing one phone or laptop. Teams guess famous names, characters, places and things from one shared deck across three rounds that get harder: describe it, one word, then act it out. No account or download.
+
+- Play: https://ananyajamdagneya.github.io/namedrop/
+- Price: free, no sign-up
+- Languages: English, Hindi (Devanagari with English spellings)
+- Players: 2 to 4 teams (4+ people); draft mode supports 3 to 16 players
+
+## Cards
+
+2,061 cards in total, each worth 1 to 4 points (harder = more):
+
+- Pop Icons (178), Fictional Folks (228), History Makers (139), Sports Legends (87), Internet & Memes (97), Things, Places & Ideas (420), Food & Drink (101), Creature Feature (80)
+- हिंदी Deck (229): Bollywood, music, history, mythology and Indian pop culture, in Devanagari with English spellings
+- Deep Cuts (502): lesser-known names mixed into every deck; about 5% on Chill, 15% on Mixed, 30% on Hard and 70% on Extra Hard
+- Custom cards: players can add their own names, clues and points
+- Least-played cards are dealt first, so repeat groups see fresh cards
+
+## How to play
+
+1. Split into teams and sit so teammates alternate.
+2. Optional: turn on "Draft the deck" so each player secretly picks their own cards.
+3. On a turn (30 to 90 seconds), one player gives clues to their team. Tap Got it or Skip; skipped cards go back in the pile.
+4. Round 1, say anything except the name. Round 2, exactly one word per card. Round 3, act it out with no words. Optional bonus round: sound only, guessers' eyes closed.
+5. The same deck returns every round. Clear the deck mid-turn and your leftover seconds carry over and your team goes first.
+6. Highest total points after the last round wins. A post-game breakdown shows per-card points, team and round stats.
