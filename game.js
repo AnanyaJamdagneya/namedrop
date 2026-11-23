@@ -46,6 +46,13 @@
   // older versions used fun default team names; switch those to plain "Team N"
   S.teams = S.teams.map((t, i) => TEAM_NAMES.includes(t) ? `Team ${i + 1}` : t);
   let G = store.get("game", null);   // persisted game
+  // Saved games keep a copy of each card; refresh it from the current bank so card
+  // text added in an update (spellings, English clues) shows up in a game already underway.
+  if (G && Array.isArray(G.deck)) {
+    const BY_ID = {};
+    CATS.forEach(c => c.cards.forEach(x => { BY_ID[x.id] = x; }));
+    G.deck = G.deck.map(c => (c && BY_ID[c.id] && BY_ID[c.id].name === c.name) ? Object.assign({}, c, BY_ID[c.id]) : c);
+  }
   let T = null;                       // live turn (not persisted)
 
   const $app = document.getElementById("app");
