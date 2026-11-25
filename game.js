@@ -1168,7 +1168,7 @@
         <div class="witem ${langCls(w.c)}">
           <div class="wtop"><span class="wname">${esc(w.c.name)}</span><span class="wpts"><b>+${w.earned}</b><small>${w.c.pts} pt × ${w.hits.length}</small></span></div>
           <div class="wmeta">${catLabel(w.c.cat)} · ${!w.hits.length ? "never guessed" : timed(w.hits).length ? `avg ${sec(w.avg)}` : "added in review"}${w.skips.length ? ` · ${w.skips.length} skip${w.skips.length > 1 ? "s" : ""}` : ""}${w.fouls ? ` · ${w.fouls} foul${w.fouls > 1 ? "s" : ""}` : ""}</div>
-          <div class="wrounds">${w.byRound.map((h, r) => `<span class="rchip ${h ? "" : "miss"}">R${r + 1} ${h ? `${dot(h.team)}${h.ms != null ? sec(h.ms) : "✓"}` : "—"}</span>`).join("")}</div>
+          <div class="wrounds">${w.byRound.map((h, r) => `<span class="rchip ${h ? "" : "miss"}">R${r + 1} ${h ? `${dot(h.team)}${h.ms != null ? sec(h.ms) : "✓"}` : "-"}</span>`).join("")}</div>
         </div>`).join("")}</div>`;
   }
 
@@ -1181,9 +1181,9 @@
           <div class="hbar"><span>R${r + 1} ${esc(rd.short)}</span><i><u style="width:${Math.max(0, p) / maxR * 100}%;background:var(--team-c)"></u></i><b>${p >= 0 ? "+" : ""}${p}</b></div>`; }).join("")}</div>
         <div class="sgrid">
           <div><b>${T2.hits.length}</b><span>cards guessed</span></div>
-          <div><b>${T2.hits.length ? sec(T2.avg) : "—"}</b><span>avg per card</span></div>
-          <div><b>${T2.clueSecs ? T2.ppm.toFixed(1) : "—"}</b><span>pts per minute</span></div>
-          <div><b>${T2.turns.length || "—"}</b><span>turns played</span></div>
+          <div><b>${T2.hits.length ? sec(T2.avg) : "-"}</b><span>avg per card</span></div>
+          <div><b>${T2.clueSecs ? T2.ppm.toFixed(1) : "-"}</b><span>pts per minute</span></div>
+          <div><b>${T2.turns.length || "-"}</b><span>turns played</span></div>
           <div><b>${T2.skips}</b><span>skips${T2.skipMs ? ` · ${sec(T2.skipMs)} lost` : ""}</span></div>
           <div><b>${T2.fouls}</b><span>didn't count</span></div>
         </div>
@@ -1199,14 +1199,14 @@
     const maxAvg = Math.max(1, ...A.rounds.map(x => x.avg));
     return `
       <div class="tblock"><div class="tb-head"><b>Average time per card</b></div>
-        <div class="hbars">${A.rounds.map(x => `<div class="hbar"><span>R${x.r + 1} ${esc(x.rd.short)}</span><i><u style="width:${x.avg / maxAvg * 100}%"></u></i><b>${x.hits.length ? sec(x.avg) : "—"}</b></div>`).join("")}</div>
+        <div class="hbars">${A.rounds.map(x => `<div class="hbar"><span>R${x.r + 1} ${esc(x.rd.short)}</span><i><u style="width:${x.avg / maxAvg * 100}%"></u></i><b>${x.hits.length ? sec(x.avg) : "-"}</b></div>`).join("")}</div>
       </div>
       ${A.rounds.map(x => `
       <div class="tblock">
         <div class="tb-head"><span class="rnum">${x.r + 1}</span><b>${esc(x.rd.name)}</b><span>${x.turns.length ? `${x.turns.length} turn${x.turns.length > 1 ? "s" : ""}` : ""}</span></div>
         <div class="sgrid">
           <div><b>${x.hits.length}</b><span>cards guessed</span></div>
-          <div><b>${x.hits.length ? sec(x.avg) : "—"}</b><span>avg per card</span></div>
+          <div><b>${x.hits.length ? sec(x.avg) : "-"}</b><span>avg per card</span></div>
           <div><b>${x.skips}</b><span>skips</span></div>
         </div>
         <div class="tb-notes">
