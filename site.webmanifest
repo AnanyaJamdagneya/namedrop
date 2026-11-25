@@ -1,7 +1,7 @@
 {
   "name": "Namedrop: the party guessing game",
   "short_name": "Namedrop",
-  "description": "A party guessing game with 2,061 cards, a Hindi deck, and an Extra Hard mode. Say it, shrink it, act it out.",
+  "description": "A party guessing game with 2,726 cards, Hindi, Telugu, Spanish and Gujarati decks, and an Extra Hard mode. Say it, shrink it, act it out.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

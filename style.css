@@ -361,21 +361,30 @@ details.more[open] summary::before { content: "– "; }
 .stack-shadow { position: absolute; left: 14px; right: 14px; bottom: -8px; height: 30px; border-radius: 0 0 22px 22px; background: var(--paper-2); opacity: .55; z-index: -1; }
 .stack-shadow.s2 { left: 28px; right: 28px; bottom: -16px; opacity: .3; }
 
-/* Hindi cards: Devanagari display + serif faces, with an English-letter spelling under the name */
-.lang-hi .t-name, .mini.lang-hi .n { font-family: "Teko", var(--f-display); font-weight: 600; text-transform: none; line-height: 1; }
-.ticket.lang-hi .t-name { font-size: clamp(2.6rem, 12vw, 4rem); padding-top: .15em; }
-.ticket.lang-hi .t-name.long { font-size: clamp(2.1rem, 9.5vw, 3.1rem); }
+/* Language cards (Hindi, Telugu, Gujarati): native-script display + serif faces,
+   with an English-letter spelling under the name. Spanish cards keep the normal faces. */
+.lang-hi .t-name, .mini.lang-hi .n, .dcard.lang-hi .n { font-family: "Teko", var(--f-display); font-weight: 600; }
+.lang-te .t-name, .mini.lang-te .n, .dcard.lang-te .n { font-family: "Noto Sans Telugu", var(--f-display); font-weight: 800; }
+.lang-gu .t-name, .mini.lang-gu .n, .dcard.lang-gu .n { font-family: "Mukta Vaani", var(--f-display); font-weight: 800; }
+.has-roman .t-name, .mini.has-roman .n, .dcard.has-roman .n { text-transform: none; line-height: 1.05; }
+.mini.has-roman .n small, .dcard.has-roman .n small { text-transform: uppercase; }
+.ticket.has-roman .t-name { font-size: clamp(2.6rem, 12vw, 4rem); padding-top: .15em; }
+.ticket.lang-te .t-name, .ticket.lang-gu .t-name { font-size: clamp(2.1rem, 10vw, 3.3rem); }
+.ticket.has-roman .t-name.long { font-size: clamp(2.1rem, 9.5vw, 3.1rem); }
+.ticket.lang-te .t-name.long, .ticket.lang-gu .t-name.long { font-size: clamp(1.7rem, 8vw, 2.6rem); }
 .ticket.lang-hi .t-clue { font-family: "Tiro Devanagari Hindi", var(--f-serif); font-size: 1.15rem; line-height: 1.5; }
-/* English pronunciation: same size as the Devanagari name, directly under it */
-.ticket.lang-hi .t-name:has(+ .t-roman) { min-height: 0; }
+.ticket.lang-te .t-clue { font-family: "Noto Serif Telugu", var(--f-serif); font-size: 1.08rem; line-height: 1.6; }
+.ticket.lang-gu .t-clue { font-family: "Rasa", var(--f-serif); font-size: 1.2rem; line-height: 1.45; }
+/* English pronunciation: same size as the native-script name, directly under it */
+.ticket.has-roman .t-name:has(+ .t-roman) { min-height: 0; }
 .t-roman {
   font-family: var(--f-display); font-weight: 900; text-transform: uppercase; color: var(--amber-deep);
   font-size: clamp(2.6rem, 12vw, 4rem); line-height: .9; letter-spacing: .005em;
   margin-top: 8px; overflow-wrap: anywhere;
 }
 .t-roman.long { font-size: clamp(2.1rem, 9.5vw, 3.1rem); }
-.ticket.lang-hi .t-clue { margin-top: 26px; }
-/* English translation of the Hindi clue, paired directly beneath it */
+.ticket.has-roman .t-clue { margin-top: 26px; }
+/* English translation of a language card's clue, paired directly beneath it */
 .t-clue-en { display: block; font-family: var(--f-serif); font-style: italic; font-size: 1.15rem; line-height: 1.3; color: var(--ink-dim); margin-top: 4px; }
 .dcard .cl em { display: block; font-family: var(--f-serif); font-style: italic; margin-top: 2px; }
 .mini .n small, .dcard .n small { display: block; font-family: var(--f-display); font-size: 1em; font-weight: 900; letter-spacing: 0; line-height: .95; color: var(--amber-deep); margin-top: 3px; text-transform: uppercase; }
@@ -502,7 +511,6 @@ details.more[open] summary::before { content: "– "; }
 .dcard[aria-pressed="true"] { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(255,181,71,.25), 0 10px 24px -10px rgba(255,181,71,.6); transform: translateY(-3px); }
 .dcard[aria-pressed="true"] .tick { transform: scale(1); }
 .draft:has(.dcard[aria-pressed="true"]) .dcard[aria-pressed="false"] { opacity: .78; }
-.dcard.lang-hi .n { font-family: "Teko", var(--f-display); font-weight: 600; text-transform: none; line-height: 1; }
 .btn[disabled] { opacity: .5; pointer-events: none; }
 
 /* ---------------- Final ---------------- */
@@ -590,6 +598,8 @@ body.has-score .app { padding-top: 128px; }
 .wtop { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .wname { font-family: var(--f-display); font-weight: 900; font-size: 1.25rem; text-transform: uppercase; line-height: 1; min-width: 0; overflow-wrap: anywhere; }
 .witem.lang-hi .wname { font-family: "Tiro Devanagari Hindi", serif; text-transform: none; font-weight: 400; }
+.witem.lang-te .wname { font-family: "Noto Sans Telugu", sans-serif; text-transform: none; font-weight: 700; }
+.witem.lang-gu .wname { font-family: "Mukta Vaani", sans-serif; text-transform: none; font-weight: 700; }
 .wpts { text-align: right; flex: none; }
 .wpts b { display: block; font-family: var(--f-display); font-weight: 900; font-size: 1.5rem; line-height: 1; color: var(--amber-deep); }
 .wpts small { font-family: var(--f-mono); font-size: .6rem; color: var(--ink-dim); letter-spacing: .06em; }
@@ -651,3 +661,6 @@ body.has-score .app { padding-top: 128px; }
 .swipe-hint { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
 .swipe-hint span:first-child { color: var(--ember); } .swipe-hint span:last-child { color: var(--mint); }
 details.more .toggle + .toggle { margin-top: 8px; }
+
+/* "English help" switched off: language cards show only their own language */
+.no-en-help .t-roman, .no-en-help .t-clue-en, .no-en-help .lang-x .cl em, .no-en-help .lang-x .n small { display: none; }

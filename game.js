@@ -39,7 +39,8 @@
     skipPenalty: false,
     draft: false, players: 6,
     charadesCam: true,
-    hiPct: 0,          // share of the deck from the Hindi pack when mixed with others (0 = natural mix)
+    hiPct: 0,          // share of the deck from language packs when mixed with English ones (0 = natural mix)
+    enHelp: true,      // show English spelling + English clue on language cards
     swipe: false,
     custom: "",
     sound: true,
@@ -62,6 +63,8 @@
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const saveS = () => store.set("settings", S);
+  const applyEnHelp = () => document.body.classList.toggle("no-en-help", !S.enHelp);
+  applyEnHelp();
   const saveG = () => G ? store.set("game", G) : store.del("game");
   const sky = v => document.body.dataset.sky = v;
 
@@ -151,7 +154,7 @@
     return $app.firstElementChild;
   }
   // Black out any word of the card's name that sneaks into its clue (custom cards included)
-  const CLUE_STOP = new Set("the a an of and in on at to for de la le el von van da di du st mr mrs dr ms sir lady king queen saint mount mt lake new big little old great".split(" "));
+  const CLUE_STOP = new Set("the a an of and in on at to for de la le el von van da di du st mr mrs dr ms sir lady king queen saint mount mt lake new big little old great del las los les una uno por con que para sus".split(" "));
   const fold = w => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   function safeClue(c, text = c.clue) {
     if (!text) return "";
@@ -163,8 +166,7 @@
   }
   const ticketHTML = (c, extra = "") => {
     const cat = CAT[c.cat];
-    const hi = c.lang === "hi";
-    return `<div class="ticket ${extra} ${hi ? "lang-hi" : ""}" ${hi ? 'lang="hi"' : ""}>
+    return `<div class="ticket ${extra} ${langCls(c)}" ${isLangCard(c) ? `lang="${c.lang}"` : ""}>
       <div class="t-top"><span class="t-cat">${cat ? cat.emoji + " " + esc(cat.label) : "✍️ House Card"}</span>
         <span class="t-pts" data-p="${c.pts}">${c.pts}<small>PT${c.pts > 1 ? "S" : ""}</small></span></div>
       <div class="t-name ${c.name.length > 18 ? "long" : ""}">${esc(c.name)}</div>
@@ -174,13 +176,15 @@
     </div>`;
   };
 
-  // Hindi cards carry a second big line (the English spelling), so pin the tear line
+  // Hindi/Telugu/Gujarati cards carry a second big line (the English spelling), so pin the tear line
   // and side notches halfway into the gap above the clue instead of at a fixed 62%.
   function placePerf(tk) {
-    if (!tk || !tk.classList.contains("lang-hi")) return;
+    if (!tk || !tk.classList.contains("has-roman")) return;
     const roman = tk.querySelector(".t-roman"), clue = tk.querySelector(".t-clue");
-    if (!roman || !clue) return;
-    const y = (roman.offsetTop + roman.offsetHeight + clue.offsetTop) / 2;
+    // with English help off the spelling is hidden, so measure from the name instead
+    const above = roman && roman.offsetHeight ? roman : tk.querySelector(".t-name");
+    if (!above || !clue) return;
+    const y = (above.offsetTop + above.offsetHeight + clue.offsetTop) / 2;
     tk.style.setProperty("--perf", Math.round(y) + "px");
   }
   addEventListener("resize", () => placePerf(document.querySelector("#stage .ticket")));
@@ -190,20 +194,27 @@
   const chosenCards = () => CATS.filter(c => S.cats.includes(c.id) && !c.extraOnly).flatMap(c => c.cards);
   const deepCards = () => CATS.filter(c => c.extraOnly).flatMap(c => c.cards);
   // Share of each deck that comes from Deep Cuts, by difficulty
-  const DEEP_SHARE = { easy: .05, mix: .15, hard: .3, extra: .7 };
-  const DIFF_LABEL = { easy: "Chill", mix: "Mixed", hard: "Hard", extra: "Extra Hard" };
+  const DEEP_SHARE = { easy: .05, mix: .15, hard: .3, vhard: .45, extra: .7 };
+  const DIFF_LABEL = { easy: "Chill", mix: "Mixed", hard: "Hard", vhard: "Very Hard", extra: "Extra Hard" };
   function mainPool() {
     let p = chosenCards();
     if (S.diff === "easy") p = p.filter(c => c.pts <= 2);
     if (S.diff === "hard") p = p.filter(c => c.pts >= 2);
-    if (S.diff === "extra") p = p.filter(c => c.pts >= 3);
+    if (S.diff === "vhard" || S.diff === "extra") p = p.filter(c => c.pts >= 3);
     return p;
   }
-  const pool = () => hiOnly() ? chosenCards() : mainPool().concat(deepCards());   // Hindi-only tops up with easier Hindi cards
-  // Hindi share picker applies when the Hindi pack is mixed with at least one English pack
-  const hiMixAvail = () => S.cats.includes("hindi") && S.cats.some(id => CAT[id] && CAT[id].lang !== "hi" && !CAT[id].extraOnly);
-  const autoHi = size => { const m = mainPool(), h = m.filter(c => c.lang === "hi").length; return m.length ? Math.round(size * h / m.length) : 0; };
-  const hiOnly = () => S.cats.length > 0 && S.cats.every(id => CAT[id] && CAT[id].lang === "hi");
+  // Language decks (Hindi, Telugu, Spanish, Gujarati...) are any pack whose lang isn't English
+  const isLangCard = c => !!c.lang && c.lang !== "en";
+  const chosenPacks = () => S.cats.map(id => CAT[id]).filter(c => c && !c.extraOnly);
+  const pool = () => hiOnly() ? chosenCards() : mainPool().concat(deepCards());   // language-only tops up with easier cards from those packs
+  // Language share picker applies when a language deck is mixed with at least one English pack
+  const hiMixAvail = () => chosenPacks().some(c => c.lang !== "en") && chosenPacks().some(c => c.lang === "en");
+  const autoHi = size => { const m = mainPool(), h = m.filter(isLangCard).length; return m.length ? Math.round(size * h / m.length) : 0; };
+  // Only language decks picked: no English cards at all (Deep Cuts are English)
+  const hiOnly = () => chosenPacks().length > 0 && chosenPacks().every(c => c.lang !== "en");
+  const langNames = () => chosenPacks().filter(c => c.lang !== "en").map(c => LANG_NAME[c.lang] || c.label);
+  const LANG_NAME = { hi: "Hindi", te: "Telugu", es: "Spanish", gu: "Gujarati" };
+  const langCls = c => isLangCard(c) ? `lang-x lang-${c.lang}${c.roman ? " has-roman" : ""}` : "";
 
   // How many times each card has been dealt on this device, so we can deal the least-played first
   const seenMap = () => store.get("seen", null) || Object.fromEntries(store.get("recent", []).map(id => [id, 1]));
@@ -220,12 +231,12 @@
     // random order among cards played the same number of times
     const freshFirst = list => shuffle(list.slice()).sort((a, b) => (seen[a.id] || 0) - (seen[b.id] || 0));
     const main = freshFirst(mainPool()), deep = freshFirst(deepCards());
-    // Deep Cuts are English, so a Hindi-only game skips them
+    // Deep Cuts are English, so a language-only game skips them
     let nDeep = hiOnly() ? 0 : Math.min(deep.length, Math.round(need * DEEP_SHARE[S.diff]));
     let picked;
     if (hiOnly()) {
       picked = main.slice(0, need);
-      // Hard / Extra Hard have few Hindi cards: top up with easier Hindi cards, not English ones
+      // Harder levels have few language cards: top up with easier ones from the same decks, not English ones
       if (picked.length < need) {
         const have = new Set(picked.map(c => c.id));
         picked = picked.concat(freshFirst(chosenCards().filter(c => !have.has(c.id))).slice(0, need - picked.length));
@@ -233,7 +244,7 @@
     } else if (hiMixAvail()) {
       // Hindi gets its own quota so least-played English cards can't crowd it out.
       // Auto = Hindi's natural share of the chosen packs; otherwise the picked percentage.
-      const hi = main.filter(c => c.lang === "hi"), en = main.filter(c => c.lang !== "hi");
+      const hi = main.filter(isLangCard), en = main.filter(c => !isLangCard(c));
       const pct = S.hiPct || (main.length ? 100 * hi.length / main.length : 0);
       const nHi = Math.min(hi.length, Math.round(need * pct / 100));
       nDeep = Math.min(nDeep, need - nHi);
@@ -294,6 +305,7 @@
     document.getElementById("how").onclick = () => document.getElementById("rules").showModal();
   }
 
+  const deepNote = () => hiOnly() ? `<p class="fine">${langNames().join(" + ")} only: every card comes from ${langNames().length > 1 ? "those decks" : "that deck"}, with no English cards or Deep Cuts.${S.diff !== "easy" && S.diff !== "mix" ? " There aren't many hard cards in the language decks, so easier ones from the same decks fill in." : ""}</p>` : `<p class="fine extra-note ${S.diff === "extra" || S.diff === "vhard" ? "hot" : ""}">🌶️ About <b>${Math.round((S.draft ? draftPlan().size : S.deckSize) * DEEP_SHARE[S.diff])} of ${S.draft ? draftPlan().size : S.deckSize}</b> cards will be <b>Deep Cuts</b>: obscure people, weird history and strange ideas. Their clues explain what they are, so it's fine to read them out loud.</p>`;
   function setup() {
     sky(0); setChip("Setup");
     const seg = (key, opts, fmt = v => v) => `<div class="seg" data-key="${key}">${opts.map(v =>
@@ -330,8 +342,8 @@
         </div>
         <div class="field">
           <div class="label"><span>Difficulty</span></div>
-          ${seg("diff", ["easy", "mix", "hard", "extra"], v => ({ easy: "Chill", mix: "Mixed", hard: "Hard", extra: "Extra Hard" })[v])}
-          ${hiOnly() ? `<p class="fine">Hindi-only games use just the Hindi deck: no English Deep Cuts.</p>` : `<p class="fine extra-note ${S.diff === "extra" ? "hot" : ""}">🌶️ About <b>${Math.round((S.draft ? draftPlan().size : S.deckSize) * DEEP_SHARE[S.diff])} of ${S.draft ? draftPlan().size : S.deckSize}</b> cards will be <b>Deep Cuts</b>: obscure people, weird history and strange ideas. Their clues explain what they are, so it's fine to read them out loud.</p>`}
+          ${seg("diff", ["easy", "mix", "hard", "vhard", "extra"], v => DIFF_LABEL[v])}
+          <div id="deepNote">${deepNote()}</div>
         </div>
       </div>
 
@@ -395,17 +407,23 @@
       $cats.innerHTML = CATS.filter(c => !c.extraOnly).map(c => `<button type="button" class="cat" data-c="${c.id}" aria-pressed="${S.cats.includes(c.id)}">
         <span class="em">${c.emoji}</span><span><b>${esc(c.label)}</b><small>${c.cards.length} cards</small></span></button>`).join("");
       el.querySelector("#poolCount").textContent = pool().length.toLocaleString() + " in play";
+      el.querySelector("#deepNote").innerHTML = deepNote();
       const $hm = el.querySelector("#hiMix");
-      if (!hiMixAvail()) { $hm.innerHTML = ""; $hm.hidden = true; return; }
+      const ln = langNames();
+      if (!ln.length) { $hm.innerHTML = ""; $hm.hidden = true; return; }
       const size = S.draft ? draftPlan().size : S.deckSize;
       $hm.hidden = false;
-      $hm.innerHTML = `<div class="label"><span>🪔 Hindi share of the deck</span><em>${S.hiPct ? S.hiPct + "%" : "Auto"}</em></div>
+      const help = `<button type="button" class="toggle" id="enHelp" aria-pressed="${S.enHelp}">
+          <span><b>English help on ${ln.length > 1 ? "language" : ln[0]} cards</b><br><span class="fine">${S.enHelp ? "Each card also shows the English spelling and an English version of the clue." : "Cards show only " + ln.join(" / ") + "."}</span></span><span class="sw"></span></button>`;
+      $hm.innerHTML = (hiMixAvail() ? `<div class="label"><span>🌏 ${ln.length > 1 ? "Language decks'" : ln[0]} share of the deck</span><em>${S.hiPct ? S.hiPct + "%" : "Auto"}</em></div>
         ${seg("hiPct", [0, 20, 30, 40, 50, 75], v => v ? v + "%" : "Auto")}
-        <p class="fine">${S.hiPct ? `About <b>${Math.round(size * S.hiPct / 100)} of ${size}</b> cards will be from the Hindi deck.` : `Auto gives Hindi its fair share of the packs you picked: about <b>${autoHi(size)} of ${size}</b> cards. Pick a percentage to set it yourself.`}</p>`;
-      $hm.querySelector(".seg").onclick = e => {
+        <p class="fine">${S.hiPct ? `About <b>${Math.round(size * S.hiPct / 100)} of ${size}</b> cards will be from the ${ln.length > 1 ? "language decks (" + ln.join(", ") + ")" : ln[0] + " deck"}.` : `Auto gives ${ln.length > 1 ? "them their" : ln[0] + " its"} fair share of the packs you picked: about <b>${autoHi(size)} of ${size}</b> cards. Pick a percentage to set it yourself.`}</p>` : "") + help;
+      const sg = $hm.querySelector(".seg");
+      if (sg) sg.onclick = e => {
         const b = e.target.closest("button"); if (!b) return;
         S.hiPct = +b.dataset.v; saveS(); paintCats();
       };
+      $hm.querySelector("#enHelp").onclick = () => { S.enHelp = !S.enHelp; saveS(); applyEnHelp(); paintCats(); };
     };
     $cats.onclick = e => {
       const b = e.target.closest(".cat"); if (!b) return;
@@ -506,7 +524,7 @@
       </div>`, "wide");
     const $h = el.querySelector("#hand"), $k = el.querySelector("#keep");
     const paint = () => {
-      $h.innerHTML = hand.map((c, i) => `<button type="button" class="dcard ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}" aria-pressed="${picked.has(i)}">
+      $h.innerHTML = hand.map((c, i) => `<button type="button" class="dcard ${langCls(c)}" data-i="${i}" aria-pressed="${picked.has(i)}">
         <span class="c"><span>${CAT[c.cat] ? CAT[c.cat].emoji + " " + esc(CAT[c.cat].label) : ""}</span><span>${c.pts}pt</span></span>
         <span class="n">${esc(c.name)}${c.roman ? `<small>${esc(c.roman)}</small>` : ""}</span>
         ${c.clue ? `<span class="cl">${safeClue(c)}${c.clueEn ? `<em lang="en">${safeClue(c, c.clueEn)}</em>` : ""}</span>` : ""}<span class="tick">✓</span></button>`).join("");
@@ -575,7 +593,7 @@
         <button class="btn btn-primary btn-block" id="go">Start round 1</button>
       </div>`, "wide");
     const $p = el.querySelector("#peek");
-    const paint = () => $p.innerHTML = G.deck.map((c, i) => `<button type="button" class="mini ${c.lang === "hi" ? "lang-hi" : ""}" data-i="${i}">
+    const paint = () => $p.innerHTML = G.deck.map((c, i) => `<button type="button" class="mini ${langCls(c)}" data-i="${i}">
       <span class="c"><span>${CAT[c.cat] ? CAT[c.cat].emoji : "✍️"}</span><span>${c.pts}pt</span></span>
       <span class="n">${esc(c.name)}${c.roman ? `<small>${esc(c.roman)}</small>` : ""}</span><span class="sw">↻ SWAP</span></button>`).join("");
     $p.onclick = e => {
@@ -1147,7 +1165,7 @@
         .map(([k, l]) => `<button type="button" data-sort="${k}" aria-pressed="${bdSort === k}">${l}</button>`).join("")}</div>
       <p class="fine" style="margin:8px 0 0">Each card scores its value every round it's guessed. ${total} points came from cards in total.</p>
       <div class="wlist">${list.map(w => `
-        <div class="witem ${w.c.lang === "hi" ? "lang-hi" : ""}">
+        <div class="witem ${langCls(w.c)}">
           <div class="wtop"><span class="wname">${esc(w.c.name)}</span><span class="wpts"><b>+${w.earned}</b><small>${w.c.pts} pt × ${w.hits.length}</small></span></div>
           <div class="wmeta">${catLabel(w.c.cat)} · ${!w.hits.length ? "never guessed" : timed(w.hits).length ? `avg ${sec(w.avg)}` : "added in review"}${w.skips.length ? ` · ${w.skips.length} skip${w.skips.length > 1 ? "s" : ""}` : ""}${w.fouls ? ` · ${w.fouls} foul${w.fouls > 1 ? "s" : ""}` : ""}</div>
           <div class="wrounds">${w.byRound.map((h, r) => `<span class="rchip ${h ? "" : "miss"}">R${r + 1} ${h ? `${dot(h.team)}${h.ms != null ? sec(h.ms) : "✓"}` : "—"}</span>`).join("")}</div>

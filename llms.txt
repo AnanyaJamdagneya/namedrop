@@ -4,16 +4,19 @@
 
 - Play: https://ananyajamdagneya.github.io/namedrop/
 - Price: free, no sign-up
-- Languages: English, Hindi (Devanagari with English spellings)
+- Languages: English, Hindi, Telugu, Spanish, Gujarati (each language card has optional English help)
 - Players: 2 to 4 teams (4+ people); draft mode supports 3 to 16 players
 
 ## Cards
 
-2,061 cards in total, each worth 1 to 4 points (harder = more):
+2,726 cards in total, each worth 1 to 4 points (harder = more):
 
 - Pop Icons (178), Fictional Folks (228), History Makers (139), Sports Legends (87), Internet & Memes (97), Things, Places & Ideas (420), Food & Drink (101), Creature Feature (80)
 - हिंदी Deck (229): Bollywood, music, history, mythology and Indian pop culture, in Devanagari with English spellings
-- Deep Cuts (502): lesser-known names mixed into every deck; about 5% on Chill, 15% on Mixed, 30% on Hard and 70% on Extra Hard
+- తెలుగు Deck (223): Tollywood, cricket, food, festivals and Telugu culture, in Telugu script with English spellings
+- Español Deck (221): music, film, sports, food, legends and traditions from across the Spanish-speaking world
+- ગુજરાતી Deck (221): food, garba, festivals, places and famous Gujaratis, in Gujarati script with English spellings
+- Deep Cuts (502): lesser-known names mixed into every deck; about 5% on Chill, 15% on Mixed, 30% on Hard, 45% on Very Hard and 70% on Extra Hard
 - Custom cards: players can add their own names, clues and points
 - Least-played cards are dealt first, so repeat groups see fresh cards
 
