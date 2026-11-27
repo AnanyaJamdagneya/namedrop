@@ -223,4 +223,47 @@ RRR|రామ్ భీమ్ దోస్తీ, ఆస్కార్, రా�
 పులస చేప|గోదావరి వర్షాకాలం ఇలిష్, పుస్తెలు అమ్మైనా తినాలి|4|Pulasa Fish|Godavari monsoon hilsa, "sell your mangalsutra to eat it"
 తోలుబొమ్మలాట|జంతు చర్మంతో చేసిన బొమ్మల నీడ నాటకం, దీపం వెనుక|4|Tholu Bommalata|Shadow puppet play with animal-hide figures, behind a lamp
 పులి జూదం|మూడు ఒకవైపు, 15 మేకలు ఒకవైపు, నేలపై గీసి ఆడే ఆట|4|Puli Joodam|Three hunters versus 15 goats, drawn on the ground
+కొండపల్లి బొమ్మలు|తేలికపాటి చెక్క బొమ్మలు, అంబారీ ఏనుగు, కృష్ణా జిల్లా|2|Kondapalli Toys|Light softwood toys, the howdah elephant, Krishna district
+ఏటికొప్పాక బొమ్మలు|లక్క రంగుల చెక్క బొమ్మలు, అనకాపల్లి దగ్గర|3|Etikoppaka Toys|Lacquered wooden toys, near Anakapalli
+కలంకారి|కలంతో చేతితో గీసిన బట్ట, శ్రీకాళహస్తి, మచిలీపట్నం|2|Kalamkari|Hand-painted cloth drawn with a pen, Srikalahasti, Machilipatnam
+పోచంపల్లి ఇక్కత్|తెలంగాణ చేనేత, సిల్క్ సిటీ, ఎయిర్ ఇండియా చీరలు|2|Pochampally Ikat|Telangana handloom, Silk City, Air India hostess sarees
+నిర్మల్ బొమ్మలు|బంగారు రంగు చెక్క పెయింటింగ్స్, ఆదిలాబాద్ ప్రాంతం|3|Nirmal Paintings|Golden-hued wooden paintings, Adilabad region
+బొబ్బిలి వీణ|ఒకే పనస చెక్కతో చేసే వీణ, విజయనగరం|3|Bobbili Veena|Veena carved from a single block of jackwood, Vizianagaram
+పేరిణి శివతాండవం|కాకతీయ యోధుల నృత్యం, రామప్ప శిల్పాల నుంచి|3|Perini Sivatandavam|Kakatiya warriors' dance, revived from Ramappa sculptures
+కోలాటం|కర్రలతో తాళం వేస్తూ గుండ్రంగా ఆడే ఆట|2|Kolatam|Circle dance clacking sticks in rhythm
+ఒగ్గు కథ|ఢమరుకంతో మల్లన్న కథలు, తెలంగాణ జానపదం|3|Oggu Katha|Mallanna stories told with a damaru drum, Telangana folk
+హరికథ|ఒక్కరే పాడుతూ కథ చెప్పడం, చిడతలు, భాగవతార్|2|Harikatha|One performer singing a story, cymbals, the bhagavatar
+కోడి పందేలు|సంక్రాంతికి గోదావరి జిల్లాల్లో, కాళ్ళకు కత్తులు|2|Kodi Pandelu|Sankranti cockfights in the Godavari districts, blades on the legs
+ప్రభల తీర్థం|కోనసీమ కనుమ రోజు, భుజాల మీద అలంకరించిన పెద్ద చట్రాలు పొలాల గుండా|3|Prabhala Theertham|Konaseema on Kanuma, giant decorated frames carried across paddy fields
+తిరునాళ్ళ|ఊరి జాతర, రంగుల రాట్నం, బొమ్మల దుకాణాలు|2|Tirunallu|Village temple fair, giant wheel, toy stalls
+జీలకర్ర బెల్లం|పెళ్ళిలో ముహూర్తానికి వధూవరుల తల మీద పెట్టేది|2|Jeelakarra Bellam|Cumin-jaggery paste placed on the couple's heads at the auspicious moment
+తాళి|మూడు ముళ్ళు, పెళ్ళి బొట్టు, మంగళసూత్రం|1|Thali|Three knots, the wedding pendant, mangalsutra
+అప్పగింతలు|పెళ్ళి తర్వాత కూతురిని అత్తారింటికి అప్పగించే ఏడుపు ఘట్టం|2|Appaginthalu|The tearful send-off of the bride to her in-laws
+అరిటాకు భోజనం|అరటి ఆకులో వడ్డన, ముందు స్వీటు, చివర పెరుగు|1|Aritaku Bhojanam|Meal served on a banana leaf, sweet first, curd last
+పంచె|తెల్లటి బట్ట, జరీ అంచు, పండగకి మగవాళ్ళు కట్టేది|1|Pancha|White cloth with zari border, men wear it at festivals
+నాగుల చవితి|పుట్టలో పాలు పోయడం, నువ్వుల చిమ్మిలి|2|Nagula Chavithi|Pouring milk into snake mounds, sesame laddus
+అట్లతద్ది|ఆడపిల్లల పండగ, ఉయ్యాలలు, అట్లు, చంద్రుడిని చూసి భోజనం|3|Atla Taddi|Girls' festival, swings, dosas, eat after moonrise
+శ్రీరామ నవమి|పందిళ్ళలో పానకం వడపప్పు, సీతారాముల కల్యాణం|1|Sri Rama Navami|Panakam and vadapappu in pandals, the divine wedding
+వరలక్ష్మీ వ్రతం|శ్రావణ శుక్రవారం, కలశం, తోరం కట్టుకోవడం|2|Varalakshmi Vratam|Shravana Friday, the kalasham, tying the sacred thread
+కార్తీక మాసం|నదిలో దీపాలు వదలడం, వనభోజనాలు, సోమవారం ఉపవాసం|2|Karthika Masam|Floating lamps on the river, forest picnics, Monday fasts
+నుమాయిష్|జనవరిలో నాంపల్లి ఎగ్జిబిషన్, హైదరాబాద్|2|Numaish|January exhibition at Nampally, Hyderabad
+కోనసీమ|కొబ్బరి తోటలు, గోదావరి పాయలు, ఆంధ్రా కేరళ|2|Konaseema|Coconut groves, Godavari delta, Andhra's Kerala
+బొర్రా గుహలు|అరకు దారిలో సున్నపురాయి గుహలు, పైన రైలు సొరంగం|2|Borra Caves|Limestone caves on the Araku route, train tunnel overhead
+అమరావతి|బౌద్ధ స్తూపం, కృష్ణా ఒడ్డున, కొత్త రాజధాని|2|Amaravati|Buddhist stupa, banks of the Krishna, the new capital
+విజయవాడ|ఇంద్రకీలాద్రి మీద కనకదుర్గమ్మ, ప్రకాశం బ్యారేజ్|1|Vijayawada|Kanaka Durga on Indrakeeladri hill, Prakasam Barrage
+వరంగల్|కాకతీయుల రాజధాని, కీర్తి తోరణం, వేయి స్తంభాల గుడి|1|Warangal|Kakatiya capital, the stone archway, Thousand Pillar Temple
+నాగార్జున సాగర్|కృష్ణా నది మీద రాతి డ్యామ్, బౌద్ధ ద్వీపం|2|Nagarjuna Sagar|Masonry dam on the Krishna, Buddhist island museum
+యాదాద్రి|లక్ష్మీ నరసింహ స్వామి, కొండ మీద కొత్త రాతి గుడి|2|Yadadri|Lakshmi Narasimha, newly rebuilt stone temple on the hill
+శ్రీకాళహస్తి|వాయు లింగం, రాహు కేతు పూజ, సాలీడు పాము ఏనుగు|2|Srikalahasti|Wind lingam, Rahu-Ketu puja, spider, snake and elephant
+అన్నవరం|రత్నగిరి కొండ, సత్యనారాయణ స్వామి వ్రతం|2|Annavaram|Ratnagiri hill, Satyanarayana Swamy vratam
+సింహాచలం|వరాహ నరసింహ స్వామి, చందనం పూత, వైజాగ్|3|Simhachalam|Varaha Narasimha, covered in sandal paste, Vizag
+హైటెక్ సిటీ|సైబర్ టవర్స్, మాదాపూర్, ఐటీ కంపెనీలు|1|HITEC City|Cyber Towers, Madhapur, IT companies
+రాగి సంగటి|రాయలసీమ ముద్ద, చేత్తో తినేది, నాటుకోడి పులుసుతో|2|Ragi Sangati|Rayalaseema finger millet balls with country chicken curry
+జొన్న రొట్టె|తెలంగాణ ఇళ్ళలో, చేత్తో తట్టే తృణధాన్యాల పిండి వంటకం|1|Jonna Rotte|Telangana homes, hand-patted sorghum flatbread
+కాకినాడ కాజా|లోపల తీపి పాకంతో నిండిన, గోదావరి స్వీటు|2|Kakinada Kaja|Godavari sweet bursting with sugar syrup
+ఉలవచారు|ఉలవలతో చిక్కటి చారు, క్రీమ్ తో|2|Ulavacharu|Thick horse gram soup, served with cream
+దిబ్బరొట్టె|మినప పిండి మందపాటి రొట్టె, బాణలిలో కాల్చేది|3|Dibba Rotti|Thick urad dal bread baked in a pan
+కల్లు|తాటి, ఈత చెట్ల నుంచి, మట్టి ముంత, పల్లె దుకాణం|2|Kallu|From palm trees, clay pot, village toddy shop
+అరుగు|ఇంటి ముందు కూర్చునే గట్టు, సాయంత్రం కబుర్లు|2|Arugu|Raised platform at the front door, evening gossip
+రచ్చబండ|ఊరి మధ్య చెట్టు కింద పంచాయితీ|2|Racchabanda|Village gathering spot under the big tree, disputes settled
 ` };

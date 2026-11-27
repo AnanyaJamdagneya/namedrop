@@ -221,4 +221,36 @@ window.BANK.gujarati = { label: "ગુજરાતી Deck", emoji: "🪁", lan
 ખો ખો|બેઠેલી હાર, પીઠ થપથપાવી દોડો|2|Kho Kho|Kneeling row, tap a back and run
 ભમરડો|દોરી વીંટીને ફેરવવાનું લાકડાનું રમકડું|1|Bhamardo|Wooden spinning top wound with string
 ચોપાટ|કપડાના બોર્ડ પર કોડીથી રમાતી રમત|3|Chopat|Cross-shaped cloth board game played with cowries
+રથયાત્રા|અમદાવાદ, અષાઢી બીજ, જગન્નાથજી, મગનો પ્રસાદ|2|Rath Yatra|Ahmedabad, Ashadhi Bij, Lord Jagannath, moong prasad
+શરદ પૂનમ|ચાંદનીમાં દૂધ પૌંઆ, મોડી રાત સુધી ગરબા|2|Sharad Poonam|Milk and poha under the moonlight, garba till late
+ધૂળેટી|હોળી પછીનો દિવસ, રંગો ને પાણી|1|Dhuleti|Day after the Holi bonfire, colors and water
+ચોપડા પૂજન|દિવાળીએ વેપારીઓ નવા હિસાબની વહીઓની પૂજા કરે|2|Chopda Pujan|Traders worship new account books on Diwali
+લાભ પાંચમ|દિવાળીની રજા પછી દુકાનો ફરી ખૂલે|3|Labh Pancham|Shops reopen after the Diwali break
+સાતમ આઠમ|ઠંડું ખાવાનું, પત્તા રમવાનું, મેળો|2|Satam Atham|Cold food day, card games, village fairs
+કાંકરિયા તળાવ|અમદાવાદ, બાલવાટિકા, ડિસેમ્બરમાં કાર્નિવલ|2|Kankaria Lake|Ahmedabad, kids' park, December carnival
+સાબરમતી રિવરફ્રન્ટ|અમદાવાદ, સાંજે ફરવાનું, અટલ બ્રિજ|1|Sabarmati Riverfront|Ahmedabad, evening walks, Atal Bridge
+લૉ ગાર્ડન|રાત્રે ચણિયા ચોળીનું બજાર, ખાઉગલી|2|Law Garden|Night market for chaniya choli, food street
+ઝૂલતા મિનારા|એક હલાવો તો બીજો પણ હલે, અમદાવાદ|3|Jhulta Minara|Shake one and the other shakes too, Ahmedabad
+સાપુતારા|ડાંગનું હિલ સ્ટેશન, ચોમાસામાં ધોધ|2|Saputara|Hill station in the Dangs, monsoon waterfalls
+દીવ|દરિયાકિનારો, પોર્ટુગીઝ કિલ્લો, વીકએન્ડ ટ્રિપ|2|Diu|Beaches, Portuguese fort, weekend getaway
+ભુજ|કચ્છનું શહેર, આયના મહેલ, 2001નો ભૂકંપ|2|Bhuj|Kutch's main town, Aina Mahal, the 2001 earthquake
+નળ સરોવર|શિયાળામાં ફ્લેમિંગો ને યાયાવર પક્ષીઓ|3|Nal Sarovar|Flamingos and migratory birds in winter
+પટોળા|પાટણની ડબલ ઈકત સાડી, "છેલાજી રે"|3|Patola|Patan's double ikat saree, "Chhelaji Re"
+અજરખ|કચ્છનું બ્લોક પ્રિન્ટ, લાલ ને ગળીનો રંગ|3|Ajrakh|Kutch block print, madder red and indigo
+કચ્છી ભરત|નાના અરીસાવાળું રંગબેરંગી ભરતકામ|2|Kutchi Bharat|Colorful embroidery with tiny mirrors
+ભૂંગા|કચ્છનાં ગોળ માટીનાં ઘર, ભૂકંપમાં પણ ટકે|3|Bhunga|Round mud huts of Kutch, survive earthquakes
+કેડિયું|ઝૂલવાળું ટૂંકું કુર્તું, ગરબામાં છોકરાઓ પહેરે|2|Kediyu|Flared short top, worn by men at garba
+પાઘડી|વરરાજા ને વડીલોના માથે, સાફો|1|Paghdi|Turban, worn by grooms and elders
+ગોળધાણા|સગાઈ નક્કી થાય ત્યારે વહેંચાય|2|Gol Dhana|Jaggery and coriander seeds shared when an engagement is fixed
+ચોરી|લગ્નના ફેરા માટે માટલાંનો મંડપ|3|Chori|Wedding canopy of stacked pots for the pheras
+સીમંત|પહેલી સુવાવડ પહેલાં ખોળો ભરવાની વિધિ|3|Simant|Baby shower ritual before the first delivery
+સેવ ઉસળ|વડોદરાનું તીખું ઉસળ, ઉપર સેવ ને પાઉં|2|Sev Usal|Vadodara's spicy pea curry, topped with sev, with pav
+ખીચું|ચોખાના લોટનું, ઉપર સિંગતેલ ને મેથીયો મસાલો|2|Khichu|Rice flour dough, drizzled with peanut oil and pickle masala
+બાજરાનો રોટલો|કાઠિયાવાડી, માખણ ને ગોળ સાથે|1|Bajra no Rotlo|Kathiawadi millet flatbread with butter and jaggery
+રીંગણનો ઓળો|શેકેલા રીંગણ, રોટલા સાથે|2|Ringan no Olo|Smoky mashed brinjal, eaten with rotla
+ઈદડા|સફેદ ઢોકળા, ઉપર મરી|2|Idada|White dhokla sprinkled with black pepper
+પોંક|શિયાળામાં સુરતમાં લીલા જુવારના દાણા, સેવ સાથે|3|Ponk|Surat's winter treat of tender green sorghum with sev
+બાસુંદી|ઘટ્ટ મીઠું દૂધ, ચારોળી, પૂરી સાથે|2|Basundi|Thickened sweet milk with charoli nuts, with puri
+છાશ|જમ્યા પછી, જીરું ને મીઠું નાખીને|1|Chaas|After meals, with cumin and salt
+મુખવાસ|જમ્યા પછી વરિયાળી, ધાણાદાળ|1|Mukhwas|After-meal mix of fennel and roasted seeds
 ` };

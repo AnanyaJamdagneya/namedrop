@@ -1586,5 +1586,63 @@ hindi: { label: "हिंदी Deck", emoji: "🪔", lang: "hi", items: `
 मंडी|सब्ज़ी का बाज़ार, मोलभाव|2|Mandi|Vegetable market, haggling
 मोलभाव|भैया थोड़ा कम करो|1|Molbhav|"Bhaiya, give me a discount"
 हिंग्लिश|आधी हिंदी, आधी इंग्लिश|2|Hinglish|Half Hindi, half English
+कुंभ मेला|हर 12 साल, प्रयागराज, करोड़ों लोग संगम में डुबकी लगाते हैं|1|Kumbh Mela|Every 12 years, Prayagraj, millions take a dip at the Sangam
+छठ पूजा|बिहार, डूबते सूरज को अर्घ्य, घाट पर ठेकुआ|1|Chhath Puja|Bihar, offerings to the setting sun, thekua at the ghats
+लोहड़ी|पंजाब, जनवरी का अलाव, रेवड़ी और मूंगफली|1|Lohri|Punjab, January bonfire, revdi and peanuts
+बैसाखी|पंजाब में फ़सल कटाई, भांगड़ा, खालसा का दिन|1|Baisakhi|Punjab harvest, bhangra, founding of the Khalsa
+दुर्गा पूजा|कोलकाता के पंडाल, धुनुची नाच, सिंदूर खेला|1|Durga Puja|Kolkata pandals, dhunuchi dance, sindoor khela
+ओणम|केरल, फूलों का पूकलम, केले के पत्ते पर सद्या, नाव दौड़|1|Onam|Kerala, flower pookalam, sadya on a banana leaf, snake boat races
+पोंगल|तमिलनाडु, मिट्टी के बर्तन में उफनता दूध, जल्लीकट्टू|2|Pongal|Tamil Nadu, milk boiling over in a clay pot, jallikattu
+बिहू|असम, ढोल और पेपा, फ़सल का नाच|2|Bihu|Assam, dhol and pepa horn, harvest dance
+गणगौर|राजस्थान, औरतें गौरी की पूजा करती हैं, सिर पर कलश|3|Gangaur|Rajasthan, women worship Gauri, pots carried on the head
+तीज|सावन, झूले, हरी चूड़ियाँ, घेवर|2|Teej|Monsoon month, swings, green bangles, ghevar
+रामलीला|मंच पर रामायण, आख़िरी दिन रावण दहन|1|Ramlila|The Ramayana staged night by night, Ravan's effigy burned at the end
+भाई दूज|दिवाली के दो दिन बाद, बहन तिलक लगाती है, यम और यमुना की कथा|2|Bhai Dooj|Two days after Diwali, sisters apply tilak, the Yama and Yamuna story
+दही हांडी|मुंबई में इंसानी पिरामिड, ऊपर लटकी मटकी फोड़ना|1|Dahi Handi|Human pyramids in Mumbai, break the pot hanging up high
+कांवड़ यात्रा|सावन, कंधे पर गंगाजल, भगवा कपड़े, "बोल बम"|2|Kanwar Yatra|Shravan month, Ganga water carried on the shoulders, saffron clothes, "Bol Bam"
+रथ यात्रा|पुरी, भगवान जगन्नाथ, तीन विशाल लकड़ी की गाड़ियाँ भक्त खींचते हैं|2|Rath Yatra|Puri, three giant chariots, Lord Jagannath
+गंगा आरती|बनारस के घाट, शाम को बड़े दीये, घंटियाँ|1|Ganga Aarti|Banaras ghats, big brass lamps at dusk, bells
+पुष्कर मेला|ऊँटों का मेला, ब्रह्मा मंदिर, राजस्थान|2|Pushkar Fair|Camel fair, Brahma temple, Rajasthan
+हॉर्नबिल फ़ेस्टिवल|नागालैंड, दिसंबर, नागा जनजातियों का मेला|3|Hornbill Festival|Nagaland, December, gathering of the Naga tribes
+लंगर|गुरुद्वारे का मुफ़्त खाना, सब ज़मीन पर एक पंगत में|1|Langar|Free meal at the gurdwara, everyone seated in one row on the floor
+स्वर्ण मंदिर|अमृतसर, हरमंदिर साहिब, सरोवर|1|Golden Temple|Amritsar, Harmandir Sahib, the holy pool
+वाघा बॉर्डर|शाम की परेड, ऊँचे क़दम, जोशीले नारे|2|Wagah Border|Evening ceremony, high kicks, roaring crowds
+वैष्णो देवी|कटरा से त्रिकुटा पहाड़ की चढ़ाई, "जय माता दी"|1|Vaishno Devi|Trek up Trikuta hill from Katra, "Jai Mata Di"
+अजमेर शरीफ़|ख़्वाजा ग़रीब नवाज़ की दरगाह, चादर चढ़ाना|2|Ajmer Sharif|Dargah of Khwaja Garib Nawaz, offering a chadar
+क़व्वाली|दरगाह पर तालियों के साथ सूफ़ी गाना|2|Qawwali|Sufi singing with clapping at a dargah
+मुशायरा|शायरों की महफ़िल, "वाह वाह", "इरशाद"|2|Mushaira|Gathering of poets, "wah wah", "irshad"
+अखाड़ा|मिट्टी में कुश्ती, पहलवान, लंगोट|2|Akhada|Wrestling in the mud pit, pehlwans, loincloth
+चौपाल|गाँव के बुज़ुर्ग पेड़ के नीचे बैठकर बातें, हुक्का|3|Chaupal|Village elders chatting under a tree, hookah
+हवा महल|जयपुर, सैकड़ों झरोखे, गुलाबी शहर|2|Hawa Mahal|Jaipur, hundreds of little windows, the Pink City
+चाँदनी चौक|पुरानी दिल्ली, परांठे वाली गली, भीड़|1|Chandni Chowk|Old Delhi, the paratha lane, crowds
+मरीन ड्राइव|क्वीन्स नेकलेस, मुंबई का समंदर किनारा|1|Marine Drive|Queen's Necklace, Mumbai's seafront
+हावड़ा ब्रिज|कोलकाता, हुगली पर लोहे का पुल, पीली टैक्सियाँ|2|Howrah Bridge|Kolkata, steel bridge over the Hooghly, yellow taxis
+बड़ा इमामबाड़ा|लखनऊ, भूलभुलैया|3|Bara Imambara|Lucknow, the Bhool Bhulaiya maze
+पहले आप|लखनवी तहज़ीब, दो नवाब ट्रेन छोड़ देते हैं क्योंकि कोई आगे नहीं बढ़ता|2|Pehle Aap|Lucknow manners, two nawabs miss the train insisting the other go ahead
+डब्बावाला|मुंबई में टिफ़िन पहुँचाने वाले, सफ़ेद टोपी, कभी ग़लती नहीं|2|Dabbawala|Mumbai lunchbox men, white caps, never a wrong delivery
+शिकारा|डल झील की लकड़ी की नाव, श्रीनगर|2|Shikara|Wooden boat on Dal Lake, Srinagar
+सुंदरबन|बंगाल टाइगर, मैंग्रोव का जंगल|2|Sundarbans|Bengal tigers, mangrove forest
+थार|रेगिस्तान, ऊँट सफ़ारी, जैसलमेर|2|Thar Desert|Desert, camel safari, Jaisalmer
+लद्दाख|पैंगोंग झील, बाइक ट्रिप, ठंडा रेगिस्तान|1|Ladakh|Pangong lake, bike trips, cold desert
+ऋषिकेश|लक्ष्मण झूला, राफ़्टिंग, योग|1|Rishikesh|Laxman Jhula, rafting, yoga
+मनाली|हिमाचल, बर्फ़, हनीमून, रोहतांग|1|Manali|Himachal, snow, honeymoons, Rohtang
+दाल बाटी चूरमा|राजस्थान, घी में डूबी गोल बाटी|1|Dal Baati Churma|Rajasthan, round baked dough balls drowned in ghee
+लिट्टी चोखा|बिहार, सत्तू भरी गोली, बैंगन का भर्ता|1|Litti Chokha|Bihar, sattu-stuffed dough balls, mashed roasted brinjal
+सरसों का साग|मक्की की रोटी के साथ, पंजाब की सर्दी|1|Sarson ka Saag|With makki ki roti, Punjabi winter
+पेठा|आगरा की सफ़ेद मिठाई, कद्दू से बनी|2|Petha|Agra's translucent sweet made from ash gourd
+घेवर|सावन की जालीदार मिठाई, राजस्थान|2|Ghevar|Honeycomb disc sweet, monsoon, Rajasthan
+मिष्टी दोई|बंगाल, मिट्टी के बर्तन में मीठा दही|2|Mishti Doi|Bengal, sweet yogurt set in a clay pot
+वाज़वान|कश्मीरी शादी की दावत, दर्जनों कोर्स, रिस्ता गुश्ताबा|3|Wazwan|Kashmiri wedding feast, dozens of courses, rista and gushtaba
+कुल्हड़ चाय|मिट्टी के कप में, रेलवे स्टेशन पर|1|Kulhad Chai|Tea in a clay cup, at the railway station
+ठंडाई|होली पर, बादाम सौंफ़ वाला ठंडा दूध, भांग वैकल्पिक|1|Thandai|Holi drink, cold milk with almonds and fennel, bhang optional
+भांगड़ा|पंजाबी ढोल पर कंधे उछालना, "बल्ले बल्ले"|1|Bhangra|Shoulder bouncing to Punjabi dhol, "balle balle"
+घूमर|राजस्थानी लहंगा घुमाकर गोल-गोल नाच|2|Ghoomar|Rajasthani dance, twirling the lehenga in circles
+कथक|घुंघरू, तेज़ चक्कर, लखनऊ और जयपुर घराने|2|Kathak|Ankle bells, fast spins, Lucknow and Jaipur gharanas
+कठपुतली|धागों से नाचती गुड़ियाँ, राजस्थान|1|Kathputli|String puppets, Rajasthan
+मधुबनी|बिहार की चित्रकला, मछली और मोर, गाढ़े रंग|3|Madhubani|Bihar folk painting, fish and peacocks, bold colors
+फुलकारी|पंजाब की रंगीन कढ़ाई, दुपट्टे पर|3|Phulkari|Punjab's bright embroidery on dupattas
+चिकनकारी|लखनऊ की सफ़ेद धागे वाली कढ़ाई, कुर्ता|2|Chikankari|Lucknow's white-thread embroidery, kurtas
+पश्मीना|कश्मीर की नर्म शॉल, पहाड़ी बकरी की ऊन|2|Pashmina|Soft Kashmiri shawl, mountain goat wool
+बनारसी साड़ी|शादी की रेशमी साड़ी, सोने की ज़री, वाराणसी|2|Banarasi Saree|Silk wedding saree, gold zari, Varanasi
 `}
 };

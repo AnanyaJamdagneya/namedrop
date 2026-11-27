@@ -221,4 +221,50 @@ Güey|Amigo, compa, en cada frase mexicana|1||Dude, bro, in every Mexican senten
 No manches|Exclamación mexicana de incredulidad|1||Mexican exclamation of disbelief
 Pura vida|Saludo y filosofía de Costa Rica|2||Costa Rica's greeting and life philosophy
 Spanglish|Mezcla de dos idiomas, voy a parquear la troca|1||Mix of two languages, parking the truck
+Carnaval de Barranquilla|Colombia, máscaras de marimonda, uno de los más grandes del mundo|2||Colombia, marimonda masks, one of the biggest carnivals on earth
+Carnaval de Oruro|Bolivia, la Diablada, máscaras de diablos|3||Bolivia, La Diablada devil masks
+Semana Santa|Procesiones, nazarenos con capirote, Sevilla|1||Holy Week processions, hooded penitents, Seville
+Nochebuena|24 de diciembre, cena familiar, lechón|1||December 24, big family dinner, roast pork
+Parrandas|Navidad boricua, cantar de casa en casa de madrugada|3||Puerto Rican Christmas, singing house to house late at night
+Ofrenda|Altar con fotos, velas y la comida favorita del difunto|1||Altar with photos, candles and the departed's favorite food
+Castells|Torres humanas en Cataluña, un niño sube hasta arriba|3||Human towers in Catalonia, a child climbs to the top
+Cascarones|Huevos con confeti que se rompen en la cabeza en Pascua|2||Confetti-filled eggs cracked on heads at Easter
+Charrería|Deporte nacional de México, lazo, caballos, trajes de gala|3||Mexico's national sport, roping, horses, fancy suits
+Lucha libre|Máscaras, llaves voladoras, Arena México|1||Masks, flying moves, Arena México
+Bendición|Lo que pides a tus mayores al saludar o al despedirte|2||What you ask your elders for when you greet them or say goodbye
+Sobremesa|Quedarse charlando en la mesa mucho después de comer|2||Staying at the table chatting long after the meal
+Siesta|Dormir un rato después del almuerzo|1||Nap after lunch
+Asado|Parrilla argentina del domingo, el parrillero, chorizo|1||Argentine Sunday barbecue, grill master, sausages
+Tapas|Platitos con la caña en un bar español|1||Small plates with a beer at a Spanish bar
+Ceviche|Pescado crudo en limón, leche de tigre, Perú|1||Raw fish cured in lime, tiger's milk, Peru
+Empanadas|Masa rellena al horno o frita, de carne o de queso|1||Stuffed pastry, baked or fried, beef or cheese
+Sancocho|Sopa espesa con yuca, plátano y carne, el domingo|2||Thick Sunday stew with yuca, plantain and meat
+Gazpacho|Sopa fría de tomate, Andalucía, verano|2||Cold tomato soup, Andalusia, summer
+Jamón ibérico|Pata de cerdo curada que se corta finita, bellota|2||Cured pork leg sliced paper-thin, acorn-fed
+Chimichurri|Salsa verde de perejil y ajo para la carne|2||Green parsley and garlic sauce for steak
+Café de olla|Bebida caliente con canela y piloncillo en jarro de barro|2||Coffee with cinnamon and cane sugar in a clay pot
+Pisco|Perú y Chile se pelean por él, sour con clara de huevo|2||Peru and Chile fight over it, sour with egg white
+Tequila|Agave azul, Jalisco, con sal y limón|1||Blue agave, Jalisco, with salt and lime
+Sangría|Vino tinto con fruta picada en una jarra|1||Red wine with chopped fruit in a pitcher
+Cuy|Cobayo asado, Perú y Ecuador|3||Roast guinea pig, Peru and Ecuador
+Poncho|Manta con un hoyo para la cabeza, los Andes|1||Blanket with a hole for your head, the Andes
+Sombrero vueltiao|Lo que se pone en la cabeza en Colombia, tejido blanco y negro, caña flecha|3||Colombia's woven black-and-white headwear, cane fiber
+Guayabera|Camisa ligera con cuatro bolsillos, el Caribe|2||Light shirt with four pockets, the Caribbean
+Huipil|Blusa bordada de mujeres mayas|3||Embroidered tunic worn by Maya women
+Gaucho|Vaquero de la pampa, mate y facón|2||Cowboy of the pampas, mate and knife
+Tianguis|Mercado al aire libre en México, un día a la semana|3||Weekly open-air street market in Mexico
+Bodega|Tiendita de la esquina en Nueva York, con gato|2||Corner shop in New York, comes with a cat
+Merengue|Baile dominicano rápido, güira y tambora|1||Fast Dominican dance, güira and tambora
+Marinera|Baile peruano con pañuelo, caballos de paso|3||Peruvian dance with a handkerchief, paso horses
+Son jarocho|Arpa, jarana, zapateado sobre tarima, Veracruz|3||Harp, jarana guitar, stomping on a wooden platform, Veracruz
+Coquí|Ranita de Puerto Rico que canta de noche|2||Tiny Puerto Rican frog that sings at night
+La Habana|Carros clásicos de los 50, el Malecón|1||Classic 1950s cars, the Malecón
+Cartagena|Ciudad amurallada, balcones de colores, Caribe colombiano|2||Walled city, colorful balconies, Colombian Caribbean
+Patagonia|Glaciares, Perito Moreno, el fin del mundo|2||Glaciers, Perito Moreno, the end of the world
+Xochimilco|Trajineras de colores y mariachis en los canales|2||Colorful boats and mariachis on the canals
+Desierto de Atacama|El más seco del mundo, observatorios, Chile|2||Driest desert on earth, observatories, Chile
+Lago Titicaca|El navegable más alto, islas flotantes de los uros|2||Highest navigable lake, floating Uros islands
+El Yunque|Bosque lluvioso de Puerto Rico, cascadas|3||Puerto Rico's rainforest, waterfalls
+La Boca|Caminito, casas de colores, tango, Buenos Aires|3||Caminito, colorful houses, tango, Buenos Aires
+Mi casa es su casa|Lo que dices al recibir visitas|1||What you say when guests arrive
 ` };
